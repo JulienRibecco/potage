@@ -1,0 +1,563 @@
+{
+  "pairs": 1000,
+  "seed": 1301,
+  "recipe": "carrier_am",
+  "method": "correlation",
+  "phases": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "results": {
+    "speed": {
+      "generation": {
+        "pairs_requested": 1000,
+        "pairs_with_draw_or_mismatch": 194,
+        "rows": 16254,
+        "positive_switches": 2232
+      },
+      "rows": 16254,
+      "positive_rate": 0.13732004429678848,
+      "split": {
+        "discovery_rows": 9684,
+        "validation_rows": 3249,
+        "test_rows": 3321,
+        "discovery_games": 597,
+        "validation_games": 199,
+        "test_games": 200
+      },
+      "models": {
+        "context": {
+          "baseline": {
+            "validation": {
+              "brier": 0.10771222723643047,
+              "log_loss": 0.3647466997737442,
+              "roc_auc": 0.6432532861037314
+            },
+            "test": {
+              "brier": 0.13040861752603847,
+              "log_loss": 0.4200146507858889,
+              "roc_auc": 0.6677158919647
+            }
+          },
+          "potage": {
+            "validation": {
+              "brier": 0.09478331510787887,
+              "log_loss": 0.31777838830234645,
+              "roc_auc": 0.7833133649354934
+            },
+            "test": {
+              "brier": 0.11051429980038276,
+              "log_loss": 0.3471954553843564,
+              "roc_auc": 0.8219615927417975
+            },
+            "features": [
+              {
+                "name": "max(sin(3.0\u03c0*score_difference),cos(3.0\u03c0*score_difference))",
+                "coefficient": -2.052483015362489
+              },
+              {
+                "name": "sin(3.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+                "coefficient": 1.3166857252975486
+              },
+              {
+                "name": "cos(2.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+                "coefficient": -1.3006061357971626
+              },
+              {
+                "name": "(sin(3.0\u03c0*score_difference)-cos(3.0\u03c0*score_difference))\u00b2",
+                "coefficient": 0.7960247826815731
+              },
+              {
+                "name": "cos(3.0\u03c0*score_difference)*cos(1.0\u03c0*skill_difference)",
+                "coefficient": 0.7565245238543032
+              },
+              {
+                "name": "(cos(1.0\u03c0*perspective)-cos(2.0\u03c0*skill_difference))\u00b2",
+                "coefficient": 0.4304464214807575
+              },
+              {
+                "name": "(cos(1.0\u03c0*perspective)-sin(3.0\u03c0*skill_difference))\u00b2",
+                "coefficient": -0.2834139662736662
+              },
+              {
+                "name": "min(sin(3.0\u03c0*score_difference),cos(1.0\u03c0*skill_difference))",
+                "coefficient": -0.17367141418510856
+              },
+              {
+                "name": "(tri(3.0*score_difference)-cos(3.0\u03c0*skill_difference))\u00b2",
+                "coefficient": 0.07852395596761787
+              },
+              {
+                "name": "hmean(tri(3.0*skill_difference),cos(2.0\u03c0*skill_difference))",
+                "coefficient": 0.06755274247713149
+              },
+              {
+                "name": "hmean(pulse(score_difference:0%-33%),cos(1.0\u03c0*skill_difference))",
+                "coefficient": -0.027184141807332075
+              },
+              {
+                "name": "|cos(3.0\u03c0*score_difference)-cos(1.0\u03c0*skill_difference)|/\u03a3",
+                "coefficient": 0.00032965986452475495
+              }
+            ]
+          },
+          "split": {
+            "discovery_rows": 9684,
+            "validation_rows": 3249,
+            "test_rows": 3321,
+            "discovery_games": 597,
+            "validation_games": 199,
+            "test_games": 200
+          }
+        },
+        "core": {
+          "baseline": {
+            "validation": {
+              "brier": 0.10771222723643047,
+              "log_loss": 0.3647466997737442,
+              "roc_auc": 0.6432532861037314
+            },
+            "test": {
+              "brier": 0.13040861752603847,
+              "log_loss": 0.4200146507858889,
+              "roc_auc": 0.6677158919647
+            }
+          },
+          "potage": {
+            "validation": {
+              "brier": 0.09379289779913641,
+              "log_loss": 0.31307338334027085,
+              "roc_auc": 0.7944140577520793
+            },
+            "test": {
+              "brier": 0.10851125208407293,
+              "log_loss": 0.3452077568889654,
+              "roc_auc": 0.8244152605131281
+            },
+            "features": [
+              {
+                "name": "sin(3.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+                "coefficient": -0.67450950732025
+              },
+              {
+                "name": "relu(sin(2.0\u03c0*opponent_score_rate)-step(score_difference>50%))",
+                "coefficient": 0.5949921795948999
+              },
+              {
+                "name": "relu(step(opponent_controlled_nodes>25%)-sin(3.0\u03c0*score_difference))",
+                "coefficient": 0.39891462688566215
+              },
+              {
+                "name": "min(cos(1.0\u03c0*opponent_controlled_nodes),pulse(score_difference:0%-33%))",
+                "coefficient": 0.3088663088982888
+              },
+              {
+                "name": "relu(sin(3.0\u03c0*opponent_score_rate)-step(score_difference>50%))",
+                "coefficient": -0.2447083754760814
+              },
+              {
+                "name": "relu(tri(2.0*score_difference)-cos(1.0\u03c0*opponent_controlled_nodes))",
+                "coefficient": 0.2184412329701101
+              },
+              {
+                "name": "max(tri(2.0*our_target_progress),step(score_difference>50%))",
+                "coefficient": -0.11266951810730873
+              },
+              {
+                "name": "gauss(opponent_score_rate,c=50%,w=0.2)/(1+|tri(2.0*our_target_progress)|)",
+                "coefficient": -0.0998118011769838
+              },
+              {
+                "name": "max(step(agent_distance>75%),pulse(opponent_controlled_nodes:67%-100%))",
+                "coefficient": 0.09681131322590286
+              },
+              {
+                "name": "max(pulse(score_difference:0%-33%),tri(0.5*opponent_controlled_nodes))",
+                "coefficient": -0.06231003695894657
+              },
+              {
+                "name": "relu(step(opponent_controlled_nodes>25%)-step(score_difference>50%))",
+                "coefficient": 0.04300708541591298
+              },
+              {
+                "name": "relu(step(agent_distance>75%)-step(score_difference>50%))",
+                "coefficient": 0.03694825546239699
+              }
+            ]
+          },
+          "split": {
+            "discovery_rows": 9684,
+            "validation_rows": 3249,
+            "test_rows": 3321,
+            "discovery_games": 597,
+            "validation_games": 199,
+            "test_games": 200
+          }
+        },
+        "scenario": {
+          "baseline": {
+            "validation": {
+              "brier": 0.10771222723643047,
+              "log_loss": 0.3647466997737442,
+              "roc_auc": 0.6432532861037314
+            },
+            "test": {
+              "brier": 0.13040861752603847,
+              "log_loss": 0.4200146507858889,
+              "roc_auc": 0.6677158919647
+            }
+          },
+          "potage": {
+            "validation": {
+              "brier": 0.09334413089295691,
+              "log_loss": 0.307972942820016,
+              "roc_auc": 0.8231459776701219
+            },
+            "test": {
+              "brier": 0.11570449829694732,
+              "log_loss": 0.3653231149352359,
+              "roc_auc": 0.7857061703755721
+            },
+            "features": [
+              {
+                "name": "gauss(score_difference,c=25%,w=0.2)/(1+|tri(2.0*our_target_progress)|)",
+                "coefficient": 0.4430067499189845
+              },
+              {
+                "name": "relu(tri(2.0*score_difference)-cos(1.0\u03c0*opponent_controlled_nodes))",
+                "coefficient": 0.3446197758340834
+              },
+              {
+                "name": "tri(2.0*score_difference)/(1+|sin(2.0\u03c0*our_start_to_center_node)|)",
+                "coefficient": 0.32800405637268976
+              },
+              {
+                "name": "min(sin(0.5\u03c0*opponent_start_to_center_node),sin(2.0\u03c0*opponent_score_rate))",
+                "coefficient": 0.21546516674957458
+              },
+              {
+                "name": "relu(cos(1.0\u03c0*our_speed)-sin(0.5\u03c0*opponent_start_to_center_node))",
+                "coefficient": -0.1858364728230023
+              },
+              {
+                "name": "pulse(opponent_start_to_center_node:33%-67%)*sin(2.0\u03c0*start_separation)",
+                "coefficient": -0.16759315906563127
+              },
+              {
+                "name": "relu(tri(2.0*our_start_to_center_node)-cos(1.0\u03c0*opponent_controlled_nodes))",
+                "coefficient": -0.12605263277212447
+              },
+              {
+                "name": "min(pulse(opponent_start_to_center_node:33%-67%),sin(2.0\u03c0*opponent_score_rate))",
+                "coefficient": 0.09021125140641734
+              },
+              {
+                "name": "|step(opponent_controlled_nodes>25%)-tri(2.0*our_start_to_center_node)|/\u03a3",
+                "coefficient": -0.06901230221078611
+              },
+              {
+                "name": "hmean(cos(3.0\u03c0*start_separation),step(agent_distance>75%))",
+                "coefficient": -0.03961389050181032
+              },
+              {
+                "name": "hmean(step(opponent_controlled_nodes>25%),cos(3.0\u03c0*start_separation))",
+                "coefficient": -0.029272644822093203
+              },
+              {
+                "name": "max(cos(1.0\u03c0*opponent_speed),sin(2.0\u03c0*our_start_to_center_node))",
+                "coefficient": -0.006826721492033716
+              }
+            ]
+          },
+          "split": {
+            "discovery_rows": 9684,
+            "validation_rows": 3249,
+            "test_rows": 3321,
+            "discovery_games": 597,
+            "validation_games": 199,
+            "test_games": 200
+          }
+        }
+      }
+    },
+    "initial_position": {
+      "generation": {
+        "pairs_requested": 1000,
+        "pairs_with_draw_or_mismatch": 204,
+        "rows": 16164,
+        "positive_switches": 450
+      },
+      "rows": 16164,
+      "positive_rate": 0.02783964365256125,
+      "split": {
+        "discovery_rows": 9657,
+        "validation_rows": 3258,
+        "test_rows": 3249,
+        "discovery_games": 595,
+        "validation_games": 199,
+        "test_games": 199
+      },
+      "models": {
+        "context": {
+          "baseline": {
+            "validation": {
+              "brier": 0.03050752534450598,
+              "log_loss": 0.13660812606004902,
+              "roc_auc": 0.6656202233980013
+            },
+            "test": {
+              "brier": 0.029727025101679804,
+              "log_loss": 0.1176675309446119,
+              "roc_auc": 0.887686157982242
+            }
+          },
+          "potage": {
+            "validation": {
+              "brier": 0.03130656281266527,
+              "log_loss": 0.1419844195218449,
+              "roc_auc": 0.7062639623750735
+            },
+            "test": {
+              "brier": 0.026784387414691364,
+              "log_loss": 0.11022148927511224,
+              "roc_auc": 0.8620161071609656
+            },
+            "features": [
+              {
+                "name": "max(step(score_difference>50%),gauss(skill_difference,c=25%,w=0.2))",
+                "coefficient": -0.7979755186272796
+              },
+              {
+                "name": "(cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference))\u00b2",
+                "coefficient": -0.5841013604558022
+              },
+              {
+                "name": "relu(cos(3.0\u03c0*skill_difference)-step(score_difference>50%))",
+                "coefficient": -0.5831131645298591
+              },
+              {
+                "name": "relu(sin(3.0\u03c0*skill_difference)-step(score_difference>50%))",
+                "coefficient": -0.3367929319698078
+              },
+              {
+                "name": "(cos(3.0\u03c0*skill_difference)-cos(1.0\u03c0*perspective))\u00b2",
+                "coefficient": -0.27636193076671156
+              },
+              {
+                "name": "relu(sin(2.0\u03c0*score_difference)-gauss(skill_difference,c=25%,w=0.2))",
+                "coefficient": 0.2686863295193753
+              },
+              {
+                "name": "min(cos(3.0\u03c0*skill_difference),sin(2.0\u03c0*score_difference))",
+                "coefficient": 0.2644833564156403
+              },
+              {
+                "name": "(sin(2.0\u03c0*score_difference)-sin(2.0\u03c0*skill_difference))\u00b2",
+                "coefficient": 0.21399243917195201
+              },
+              {
+                "name": "hmean(cos(2.0\u03c0*time_fraction),gauss(score_difference,c=25%,w=0.2))",
+                "coefficient": -0.20644410750649975
+              },
+              {
+                "name": "relu(cos(3.0\u03c0*skill_difference)-pulse(skill_difference:33%-67%))",
+                "coefficient": -0.14768022215873094
+              },
+              {
+                "name": "hmean(cos(3.0\u03c0*skill_difference),sin(3.0\u03c0*skill_difference))",
+                "coefficient": 0.11341982898579826
+              },
+              {
+                "name": "hmean(cos(3.0\u03c0*skill_difference),sin(2.0\u03c0*skill_difference))",
+                "coefficient": -0.05438092110396631
+              }
+            ]
+          },
+          "split": {
+            "discovery_rows": 9657,
+            "validation_rows": 3258,
+            "test_rows": 3249,
+            "discovery_games": 595,
+            "validation_games": 199,
+            "test_games": 199
+          }
+        },
+        "core": {
+          "baseline": {
+            "validation": {
+              "brier": 0.03050752534450598,
+              "log_loss": 0.13660812606004902,
+              "roc_auc": 0.6656202233980013
+            },
+            "test": {
+              "brier": 0.029727025101679804,
+              "log_loss": 0.1176675309446119,
+              "roc_auc": 0.887686157982242
+            }
+          },
+          "potage": {
+            "validation": {
+              "brier": 0.03111010365042561,
+              "log_loss": 0.14400131552173623,
+              "roc_auc": 0.675546737213404
+            },
+            "test": {
+              "brier": 0.02918670874862288,
+              "log_loss": 0.11704262036178932,
+              "roc_auc": 0.8496556887992737
+            },
+            "features": [
+              {
+                "name": "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+                "coefficient": 0.7777335539499768
+              },
+              {
+                "name": "hmean(sin(3.0\u03c0*agent_distance),cos(2.0\u03c0*our_pending_action))",
+                "coefficient": -0.3789963451542302
+              },
+              {
+                "name": "relu(tri(3.0*control_progress_spread)-cos(2.0\u03c0*opponent_controlled_nodes))",
+                "coefficient": 0.18789134970399735
+              },
+              {
+                "name": "cos(1.0\u03c0*opponent_pending_action)*pulse(our_target_distance:33%-67%)",
+                "coefficient": -0.1319702653343287
+              },
+              {
+                "name": "hmean(gauss(score_difference,c=25%,w=0.2),sin(3.0\u03c0*time_fraction))",
+                "coefficient": -0.11884807615963201
+              },
+              {
+                "name": "min(pulse(opponent_target_distance:67%-100%),pulse(our_target_distance:33%-67%))",
+                "coefficient": -0.10489261610352581
+              },
+              {
+                "name": "relu(sin(3.0\u03c0*opponent_target_distance)-step(score_difference>50%))",
+                "coefficient": 0.08287070768061529
+              },
+              {
+                "name": "relu(cos(1.0\u03c0*opponent_pending_action)-step(score_difference>50%))",
+                "coefficient": -0.0653942472948154
+              },
+              {
+                "name": "(cos(3.0\u03c0*score_difference)-cos(2.0\u03c0*opponent_controlled_nodes))\u00b2",
+                "coefficient": -0.04699823791076401
+              },
+              {
+                "name": "(pulse(opponent_target_distance:67%-100%)-tri(3.0*opponent_target_progress))\u00b2",
+                "coefficient": -0.024816663330139856
+              },
+              {
+                "name": "pulse(opponent_target_distance:67%-100%)*cos(1.0\u03c0*opponent_pending_action)",
+                "coefficient": 0.01836185235966947
+              },
+              {
+                "name": "hmean(gauss(opponent_score_rate,c=75%,w=0.5),sin(3.0\u03c0*time_fraction))",
+                "coefficient": -0.01670503636065337
+              }
+            ]
+          },
+          "split": {
+            "discovery_rows": 9657,
+            "validation_rows": 3258,
+            "test_rows": 3249,
+            "discovery_games": 595,
+            "validation_games": 199,
+            "test_games": 199
+          }
+        },
+        "scenario": {
+          "baseline": {
+            "validation": {
+              "brier": 0.03050752534450598,
+              "log_loss": 0.13660812606004902,
+              "roc_auc": 0.6656202233980013
+            },
+            "test": {
+              "brier": 0.029727025101679804,
+              "log_loss": 0.1176675309446119,
+              "roc_auc": 0.887686157982242
+            }
+          },
+          "potage": {
+            "validation": {
+              "brier": 0.030454410958513447,
+              "log_loss": 0.1231216139264563,
+              "roc_auc": 0.8389653145208701
+            },
+            "test": {
+              "brier": 0.030285056301221608,
+              "log_loss": 0.12338003897169562,
+              "roc_auc": 0.8269040291485372
+            },
+            "features": [
+              {
+                "name": "max(step(score_difference>50%),cos(2.0\u03c0*start_separation))",
+                "coefficient": -0.5658306099056987
+              },
+              {
+                "name": "max(cos(2.0\u03c0*opponent_start_to_center_node),cos(3.0\u03c0*score_difference))",
+                "coefficient": -0.504263893557334
+              },
+              {
+                "name": "gauss(start_separation,c=75%,w=0.2)/(1+|step(score_difference>50%)|)",
+                "coefficient": -0.3643469374216925
+              },
+              {
+                "name": "relu(cos(1.0\u03c0*opponent_speed)-cos(2.0\u03c0*our_start_to_center_node))",
+                "coefficient": 0.21401162397383958
+              },
+              {
+                "name": "(pulse(our_start_to_center_node:33%-67%)-cos(3.0\u03c0*score_difference))\u00b2",
+                "coefficient": -0.14923663811672208
+              },
+              {
+                "name": "(cos(2.0\u03c0*opponent_start_to_center_node)-pulse(our_start_to_center_node:33%-67%))\u00b2",
+                "coefficient": 0.10652665307265179
+              },
+              {
+                "name": "hmean(pulse(our_start_to_center_node:33%-67%),pulse(opponent_start_to_center_node:33%-67%))",
+                "coefficient": -0.09012973912660029
+              },
+              {
+                "name": "step(opponent_pending_action>25%)*sin(3.0\u03c0*our_start_to_center_node)",
+                "coefficient": -0.03959957643737407
+              },
+              {
+                "name": "cos(2.0\u03c0*our_start_to_center_node)*pulse(opponent_start_to_center_node:33%-67%)",
+                "coefficient": -0.03275502649122186
+              },
+              {
+                "name": "|cos(1.0\u03c0*opponent_speed)-cos(2.0\u03c0*start_separation)|/\u03a3",
+                "coefficient": -0.026282336373131033
+              },
+              {
+                "name": "hmean(cos(2.0\u03c0*opponent_start_to_center_node),gauss(score_difference,c=25%,w=0.2))",
+                "coefficient": -0.005229359041455085
+              },
+              {
+                "name": "hmean(pulse(opponent_target_distance:67%-100%),cos(1.0\u03c0*our_speed))",
+                "coefficient": 0.0009550556177825423
+              }
+            ]
+          },
+          "split": {
+            "discovery_rows": 9657,
+            "validation_rows": 3258,
+            "test_rows": 3249,
+            "discovery_games": 595,
+            "validation_games": 199,
+            "test_games": 199
+          }
+        }
+      }
+    }
+  }
+}

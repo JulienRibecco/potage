@@ -1,0 +1,127 @@
+{
+  "pairs_per_run": 1000,
+  "seeds": [
+    19,
+    41,
+    97
+  ],
+  "low_latency": 0,
+  "high_latency": 3,
+  "runs": [
+    {
+      "seed": 19,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 988,
+      "draw_or_mismatch_pairs": 12,
+      "low_latency": 0,
+      "high_latency": 3,
+      "low_win_rate": 0.7823886639676113,
+      "high_win_rate": 0.6497975708502024,
+      "paired_effect": 0.1325910931174089,
+      "discordant_pairs": 249,
+      "low_wins_high_losses": 190,
+      "low_losses_high_wins": 59,
+      "paired_effect_ci": [
+        0.10323886639676114,
+        0.16295546558704455
+      ]
+    },
+    {
+      "seed": 19,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 989,
+      "draw_or_mismatch_pairs": 11,
+      "low_latency": 0,
+      "high_latency": 3,
+      "low_win_rate": 0.4448938321536906,
+      "high_win_rate": 0.3195146612740142,
+      "paired_effect": 0.12537917087967643,
+      "discordant_pairs": 240,
+      "low_wins_high_losses": 182,
+      "low_losses_high_wins": 58,
+      "paired_effect_ci": [
+        0.09706774519716886,
+        0.15470171890798787
+      ]
+    },
+    {
+      "seed": 41,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 992,
+      "draw_or_mismatch_pairs": 8,
+      "low_latency": 0,
+      "high_latency": 3,
+      "low_win_rate": 0.7832661290322581,
+      "high_win_rate": 0.6491935483870968,
+      "paired_effect": 0.13407258064516128,
+      "discordant_pairs": 225,
+      "low_wins_high_losses": 179,
+      "low_losses_high_wins": 46,
+      "paired_effect_ci": [
+        0.10685483870967742,
+        0.16330645161290322
+      ]
+    },
+    {
+      "seed": 41,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 976,
+      "draw_or_mismatch_pairs": 24,
+      "low_latency": 0,
+      "high_latency": 3,
+      "low_win_rate": 0.42008196721311475,
+      "high_win_rate": 0.3145491803278688,
+      "paired_effect": 0.10553278688524591,
+      "discordant_pairs": 229,
+      "low_wins_high_losses": 166,
+      "low_losses_high_wins": 63,
+      "paired_effect_ci": [
+        0.07684426229508197,
+        0.1362704918032787
+      ]
+    },
+    {
+      "seed": 97,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 989,
+      "draw_or_mismatch_pairs": 11,
+      "low_latency": 0,
+      "high_latency": 3,
+      "low_win_rate": 0.756319514661274,
+      "high_win_rate": 0.6268958543983822,
+      "paired_effect": 0.12942366026289182,
+      "discordant_pairs": 228,
+      "low_wins_high_losses": 178,
+      "low_losses_high_wins": 50,
+      "paired_effect_ci": [
+        0.10010111223458039,
+        0.1597573306370071
+      ]
+    },
+    {
+      "seed": 97,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 986,
+      "draw_or_mismatch_pairs": 14,
+      "low_latency": 0,
+      "high_latency": 3,
+      "low_win_rate": 0.44421906693711966,
+      "high_win_rate": 0.30628803245436104,
+      "paired_effect": 0.13793103448275862,
+      "discordant_pairs": 228,
+      "low_wins_high_losses": 182,
+      "low_losses_high_wins": 46,
+      "paired_effect_ci": [
+        0.10953346855983773,
+        0.16734279918864098
+      ]
+    }
+  ],
+  "mean_run_effect": 0.1274883877121905
+}

@@ -1,0 +1,219 @@
+{
+  "pairs": 800,
+  "seed": 1401,
+  "train_regimes": {
+    "speed_delta": 1,
+    "position_steps": 1
+  },
+  "heldout_regimes": {
+    "speed_delta": 2,
+    "position_steps": 2
+  },
+  "recipe": "carrier_am",
+  "method": "correlation",
+  "phases": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "results": {
+    "speed": {
+      "train_generation": {
+        "pairs_requested": 800,
+        "pairs_with_draw_or_mismatch": 130,
+        "rows": 13230,
+        "positive_switches": 1854
+      },
+      "test_generation": {
+        "pairs_requested": 800,
+        "pairs_with_draw_or_mismatch": 132,
+        "rows": 13212,
+        "positive_switches": 2835
+      },
+      "train_positive_rate": 0.1401360544217687,
+      "test_positive_rate": 0.21457765667574932,
+      "train_groups": 791,
+      "test_groups": 793,
+      "models": {
+        "context": {
+          "feature_space": "context",
+          "test": {
+            "brier": 0.14458721773011884,
+            "log_loss": 0.47406585658089173,
+            "roc_auc": 0.7932991477047242
+          },
+          "selected_features": [
+            "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+            "|cos(2.0\u03c0*skill_difference)-cos(2.0\u03c0*score_difference)|",
+            "relu(sin(3.0\u03c0*score_difference)-step(skill_difference>25%))",
+            "|cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference)|/\u03a3",
+            "max(sin(3.0\u03c0*skill_difference),cos(3.0\u03c0*score_difference))",
+            "cos(2.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+            "hmean(cos(2.0\u03c0*skill_difference),step(skill_difference>25%))",
+            "relu(step(skill_difference>25%)-step(score_difference>50%))",
+            "sin(3.0\u03c0*score_difference)*gauss(skill_difference,c=25%,w=0.2)",
+            "(cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference))\u00b2",
+            "|cos(2.0\u03c0*skill_difference)-cos(2.0\u03c0*score_difference)|/\u03a3",
+            "|cos(2.0\u03c0*skill_difference)-cos(3.0\u03c0*score_difference)|/\u03a3"
+          ],
+          "selected_scenario_features": []
+        },
+        "core": {
+          "feature_space": "core",
+          "test": {
+            "brier": 0.14572646685144344,
+            "log_loss": 0.4539371613855107,
+            "roc_auc": 0.794686186160922
+          },
+          "selected_features": [
+            "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+            "(sin(3.0\u03c0*our_score_rate)-cos(2.0\u03c0*score_difference))\u00b2",
+            "relu(step(agent_distance>75%)-step(score_difference>50%))",
+            "|cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference)|/\u03a3",
+            "relu(gauss(score_difference,c=25%,w=0.2)-tri(0.5*opponent_controlled_nodes))",
+            "cos(2.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+            "relu(sin(3.0\u03c0*our_score_rate)-step(score_difference>50%))",
+            "(cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference))\u00b2",
+            "max(tri(0.5*opponent_controlled_nodes),tri(2.0*control_progress_spread))",
+            "pulse(score_difference:33%-67%)/(1+|step(score_difference>50%)|)",
+            "sin(2.0\u03c0*opponent_score_rate)*sin(3.0\u03c0*our_score_rate)",
+            "step(agent_distance>75%)*cos(3.0\u03c0*score_difference)"
+          ],
+          "selected_scenario_features": []
+        },
+        "scenario": {
+          "feature_space": "scenario",
+          "test": {
+            "brier": 0.15332980748839137,
+            "log_loss": 0.4800519984023498,
+            "roc_auc": 0.7626920137279587
+          },
+          "selected_features": [
+            "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+            "(cos(2.0\u03c0*score_difference)-sin(3.0\u03c0*our_score_rate))\u00b2",
+            "relu(step(agent_distance>75%)-step(score_difference>50%))",
+            "|cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference)|/\u03a3",
+            "max(step(score_difference>50%),cos(1.0\u03c0*our_speed))",
+            "max(sin(3.0\u03c0*score_difference),tri(0.5*opponent_controlled_nodes))",
+            "cos(2.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+            "(sin(3.0\u03c0*our_score_rate)-tri(2.0*opponent_score_rate))\u00b2",
+            "max(step(score_difference>50%),tri(2.0*our_start_to_center_node))",
+            "sin(3.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+            "relu(sin(2.0\u03c0*opponent_score_rate)-tri(2.0*start_separation))",
+            "(cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference))\u00b2"
+          ],
+          "selected_scenario_features": [
+            "max(step(score_difference>50%),cos(1.0\u03c0*our_speed))",
+            "max(step(score_difference>50%),tri(2.0*our_start_to_center_node))",
+            "relu(sin(2.0\u03c0*opponent_score_rate)-tri(2.0*start_separation))"
+          ]
+        }
+      }
+    },
+    "initial_position": {
+      "train_generation": {
+        "pairs_requested": 800,
+        "pairs_with_draw_or_mismatch": 144,
+        "rows": 13104,
+        "positive_switches": 324
+      },
+      "test_generation": {
+        "pairs_requested": 800,
+        "pairs_with_draw_or_mismatch": 169,
+        "rows": 12879,
+        "positive_switches": 513
+      },
+      "train_positive_rate": 0.024725274725274724,
+      "test_positive_rate": 0.039832285115303984,
+      "train_groups": 790,
+      "test_groups": 792,
+      "models": {
+        "context": {
+          "feature_space": "context",
+          "test": {
+            "brier": 0.03514265525101367,
+            "log_loss": 0.14897068683926593,
+            "roc_auc": 0.7579253496113818
+          },
+          "selected_features": [
+            "relu(cos(3.0\u03c0*skill_difference)-step(score_difference>50%))",
+            "hmean(tri(2.0*skill_difference),gauss(skill_difference,c=75%,w=0.2))",
+            "hmean(tri(2.0*skill_difference),pulse(score_difference:33%-67%))",
+            "|gauss(skill_difference,c=75%,w=0.2)-step(score_difference>50%)|",
+            "(sin(2.0\u03c0*skill_difference)-pulse(score_difference:0%-33%))\u00b2",
+            "|tri(3.0*skill_difference)-pulse(score_difference:0%-33%)|",
+            "(cos(3.0\u03c0*score_difference)-step(skill_difference>50%))\u00b2",
+            "tri(3.0*skill_difference)*step(skill_difference>50%)",
+            "|cos(3.0\u03c0*score_difference)-sin(2.0\u03c0*skill_difference)|/\u03a3",
+            "relu(cos(2.0\u03c0*score_difference)-cos(3.0\u03c0*skill_difference))",
+            "max(step(score_difference>50%),gauss(skill_difference,c=25%,w=0.2))",
+            "hmean(tri(2.0*skill_difference),sin(2.0\u03c0*skill_difference))"
+          ],
+          "selected_scenario_features": []
+        },
+        "core": {
+          "feature_space": "core",
+          "test": {
+            "brier": 0.03653750326254612,
+            "log_loss": 0.15087142579153046,
+            "roc_auc": 0.7748810720711603
+          },
+          "selected_features": [
+            "(cos(3.0\u03c0*opponent_controlled_nodes)-pulse(control_progress_spread:0%-33%))\u00b2",
+            "relu(gauss(contested_nodes,c=50%,w=0.2)-step(score_difference>50%))",
+            "relu(sin(2.0\u03c0*our_target_progress)-tri(3.0*agent_distance))",
+            "hmean(cos(3.0\u03c0*score_difference),pulse(opponent_controlled_nodes:67%-100%))",
+            "max(gauss(opponent_score_rate,c=75%,w=0.5),gauss(score_difference,c=25%,w=0.2))",
+            "hmean(sin(2.0\u03c0*our_target_distance),sin(3.0\u03c0*control_progress_spread))",
+            "sin(2.0\u03c0*our_target_progress)*pulse(opponent_controlled_nodes:67%-100%)",
+            "(gauss(contested_nodes,c=50%,w=0.2)-step(score_difference>50%))\u00b2",
+            "max(tri(0.5*our_controlled_nodes),gauss(contested_nodes,c=50%,w=0.2))",
+            "relu(cos(3.0\u03c0*score_difference)-step(score_difference>50%))",
+            "cos(3.0\u03c0*opponent_controlled_nodes)*pulse(control_progress_spread:0%-33%)",
+            "pulse(opponent_controlled_nodes:67%-100%)*sin(3.0\u03c0*control_progress_spread)"
+          ],
+          "selected_scenario_features": []
+        },
+        "scenario": {
+          "feature_space": "scenario",
+          "test": {
+            "brier": 0.03703363770845699,
+            "log_loss": 0.154094882420466,
+            "roc_auc": 0.7635327514069735
+          },
+          "selected_features": [
+            "max(tri(2.0*our_start_to_center_node),step(score_difference>50%))",
+            "hmean(pulse(opponent_controlled_nodes:67%-100%),tri(3.0*start_separation))",
+            "min(sin(2.0\u03c0*opponent_score_rate),gauss(contested_nodes,c=50%,w=0.2))",
+            "sin(2.0\u03c0*opponent_start_to_center_node)*pulse(opponent_controlled_nodes:67%-100%)",
+            "|sin(3.0\u03c0*our_start_to_center_node)-cos(1.0\u03c0*our_controlled_nodes)|/\u03a3",
+            "hmean(pulse(our_target_progress:0%-33%),gauss(our_start_to_center_node,c=25%,w=0.2))",
+            "relu(tri(3.0*start_separation)-cos(2.0\u03c0*contested_nodes))",
+            "max(pulse(start_separation:67%-100%),gauss(opponent_start_to_center_node,c=25%,w=0.2))",
+            "(gauss(contested_nodes,c=50%,w=0.2)-step(score_difference>50%))\u00b2",
+            "(gauss(our_start_to_center_node,c=25%,w=0.2)-step(score_difference>50%))\u00b2",
+            "max(gauss(score_difference,c=25%,w=0.2),gauss(our_start_to_center_node,c=25%,w=0.2))",
+            "pulse(opponent_controlled_nodes:67%-100%)*sin(2.0\u03c0*our_target_progress)"
+          ],
+          "selected_scenario_features": [
+            "max(tri(2.0*our_start_to_center_node),step(score_difference>50%))",
+            "hmean(pulse(opponent_controlled_nodes:67%-100%),tri(3.0*start_separation))",
+            "sin(2.0\u03c0*opponent_start_to_center_node)*pulse(opponent_controlled_nodes:67%-100%)",
+            "|sin(3.0\u03c0*our_start_to_center_node)-cos(1.0\u03c0*our_controlled_nodes)|/\u03a3",
+            "hmean(pulse(our_target_progress:0%-33%),gauss(our_start_to_center_node,c=25%,w=0.2))",
+            "relu(tri(3.0*start_separation)-cos(2.0\u03c0*contested_nodes))",
+            "max(pulse(start_separation:67%-100%),gauss(opponent_start_to_center_node,c=25%,w=0.2))",
+            "(gauss(our_start_to_center_node,c=25%,w=0.2)-step(score_difference>50%))\u00b2",
+            "max(gauss(score_difference,c=25%,w=0.2),gauss(our_start_to_center_node,c=25%,w=0.2))"
+          ]
+        }
+      }
+    }
+  }
+}

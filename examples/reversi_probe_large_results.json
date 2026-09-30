@@ -1,0 +1,289 @@
+{
+  "generation": {
+    "games_requested": 6000,
+    "games_kept": 5815,
+    "draws": 185
+  },
+  "seed": 107,
+  "snapshot_plies": [
+    12,
+    25,
+    38,
+    51,
+    56
+  ],
+  "rows": 28933,
+  "positive_rate": 0.4952130784916877,
+  "split": {
+    "discovery_rows": 17379,
+    "validation_rows": 5768,
+    "test_rows": 5786,
+    "discovery_games": 3489,
+    "validation_games": 1163,
+    "test_games": 1163
+  },
+  "baseline": {
+    "validation": {
+      "brier": 0.1701934605587662,
+      "log_loss": 0.5256613722584905,
+      "roc_auc": 0.8244052017097592
+    },
+    "test": {
+      "brier": 0.16259811836398735,
+      "log_loss": 0.5060990658905146,
+      "roc_auc": 0.8385964912280701
+    }
+  },
+  "potage_raw": {
+    "validation": {
+      "brier": 0.15306996371127557,
+      "log_loss": 0.476086121672164,
+      "roc_auc": 0.8573854834960917
+    },
+    "test": {
+      "brier": 0.14423617644050035,
+      "log_loss": 0.4520177795407544,
+      "roc_auc": 0.8721401596634639
+    },
+    "n_features": 11,
+    "features": [
+      {
+        "name": "opponent_corners",
+        "standardized_coefficient": -0.4275248492112015
+      },
+      {
+        "name": "our_c_squares",
+        "standardized_coefficient": 0.3779982809678893
+      },
+      {
+        "name": "our_corners",
+        "standardized_coefficient": 0.32554034783460567
+      },
+      {
+        "name": "opponent_c_squares",
+        "standardized_coefficient": -0.30924549180086097
+      },
+      {
+        "name": "opponent_max_flips",
+        "standardized_coefficient": -0.2588530285537527
+      },
+      {
+        "name": "opponent_frontier",
+        "standardized_coefficient": 0.25115871870973666
+      },
+      {
+        "name": "our_max_flips",
+        "standardized_coefficient": 0.2390630855563753
+      },
+      {
+        "name": "our_frontier",
+        "standardized_coefficient": -0.2168935692325116
+      },
+      {
+        "name": "our_mean_flips",
+        "standardized_coefficient": 0.10086022417929616
+      },
+      {
+        "name": "our_mobility",
+        "standardized_coefficient": 0.054090895373712145
+      },
+      {
+        "name": "our_potential_mobility",
+        "standardized_coefficient": 0.005158866299760713
+      }
+    ],
+    "family_counts": {
+      "raw": 11
+    }
+  },
+  "potage_am": {
+    "validation": {
+      "brier": 0.14778074735794675,
+      "log_loss": 0.46157435047384315,
+      "roc_auc": 0.8658029775415257
+    },
+    "test": {
+      "brier": 0.140017556844162,
+      "log_loss": 0.4401764205222087,
+      "roc_auc": 0.878186935321956
+    },
+    "n_features": 16,
+    "features": [
+      {
+        "name": "|opponent_frontier-opponent_c_squares|/\u03a3",
+        "standardized_coefficient": 0.5949005614229709
+      },
+      {
+        "name": "relu(our_max_flips-opponent_corners)",
+        "standardized_coefficient": 0.5284831767384718
+      },
+      {
+        "name": "our_max_flips/(1+|our_corners|)",
+        "standardized_coefficient": -0.4163697202458267
+      },
+      {
+        "name": "|opponent_c_squares-our_mean_flips|/\u03a3",
+        "standardized_coefficient": -0.3759010526144776
+      },
+      {
+        "name": "opponent_corners*our_frontier",
+        "standardized_coefficient": -0.3511301949256443
+      },
+      {
+        "name": "(progress-opponent_corners)\u00b2",
+        "standardized_coefficient": 0.31927198265163304
+      },
+      {
+        "name": "relu(our_c_squares-opponent_mobility)",
+        "standardized_coefficient": 0.2583093648186025
+      },
+      {
+        "name": "|our_edges-opponent_max_flips|",
+        "standardized_coefficient": 0.2477028450720772
+      },
+      {
+        "name": "relu(opponent_max_flips-our_c_squares)",
+        "standardized_coefficient": -0.1931527708222978
+      },
+      {
+        "name": "(progress-our_corners)\u00b2",
+        "standardized_coefficient": -0.1823790614060419
+      },
+      {
+        "name": "|our_x_squares-our_c_squares|/\u03a3",
+        "standardized_coefficient": -0.13409590773211708
+      },
+      {
+        "name": "hmean(our_mobility,our_mean_flips)",
+        "standardized_coefficient": 0.12742171085054238
+      },
+      {
+        "name": "opponent_mobility/(1+|our_mobility|)",
+        "standardized_coefficient": -0.08794196665918813
+      },
+      {
+        "name": "our_corners/(1+|our_edges|)",
+        "standardized_coefficient": 0.08149615094794446
+      },
+      {
+        "name": "our_discs*opponent_mobility",
+        "standardized_coefficient": -0.05944355242125522
+      },
+      {
+        "name": "relu(our_max_flips-opponent_edges)",
+        "standardized_coefficient": -0.00046164198341885784
+      }
+    ],
+    "family_counts": {
+      "am_damped": 3,
+      "am_diff": 1,
+      "am_hmean": 1,
+      "am_normdiff": 3,
+      "am_product": 2,
+      "am_relu": 4,
+      "am_sq_diff": 2
+    }
+  },
+  "potage_am2": {
+    "validation": {
+      "brier": 0.14752393319343857,
+      "log_loss": 0.46102853455278775,
+      "roc_auc": 0.8657236193997951
+    },
+    "test": {
+      "brier": 0.14001673101345127,
+      "log_loss": 0.4401973947204595,
+      "roc_auc": 0.8781220421626273
+    },
+    "n_features": 16,
+    "features": [
+      {
+        "name": "max(opponent_corners*our_frontier,|our_edges-opponent_max_flips|)",
+        "standardized_coefficient": -0.6657927607619538
+      },
+      {
+        "name": "relu(|our_edges-opponent_max_flips|-relu(our_max_flips-opponent_edges))",
+        "standardized_coefficient": 0.6209065925026115
+      },
+      {
+        "name": "(opponent_corners*our_frontier-|our_edges-opponent_max_flips|)\u00b2",
+        "standardized_coefficient": 0.31751411592023604
+      },
+      {
+        "name": "relu(our_max_flips-opponent_corners)/(1+|opponent_mobility/(1+|our_mobility|)|)",
+        "standardized_coefficient": 0.30922199450429866
+      },
+      {
+        "name": "hmean(|opponent_frontier-opponent_c_squares|/\u03a3,relu(our_c_squares-opponent_mobility))",
+        "standardized_coefficient": 0.30548233166994704
+      },
+      {
+        "name": "|opponent_frontier-opponent_c_squares|/\u03a3*opponent_corners*our_frontier",
+        "standardized_coefficient": 0.29604505561563
+      },
+      {
+        "name": "|opponent_frontier-opponent_c_squares|/\u03a3/(1+||opponent_c_squares-our_mean_flips|/\u03a3|)",
+        "standardized_coefficient": 0.26741609003569866
+      },
+      {
+        "name": "opponent_corners*our_frontier*our_discs*opponent_mobility",
+        "standardized_coefficient": -0.24704196146771537
+      },
+      {
+        "name": "relu(opponent_max_flips-our_c_squares)",
+        "standardized_coefficient": -0.22812939335552315
+      },
+      {
+        "name": "max((progress-our_corners)\u00b2,our_max_flips/(1+|our_corners|))",
+        "standardized_coefficient": -0.22640545775529394
+      },
+      {
+        "name": "|our_edges-opponent_max_flips|/(1+|relu(our_max_flips-opponent_edges)|)",
+        "standardized_coefficient": -0.22160280340385147
+      },
+      {
+        "name": "relu(our_max_flips-opponent_corners)/(1+|relu(our_c_squares-opponent_mobility)|)",
+        "standardized_coefficient": 0.19904720894231062
+      },
+      {
+        "name": "relu(|opponent_frontier-opponent_c_squares|/\u03a3-|our_x_squares-our_c_squares|/\u03a3)",
+        "standardized_coefficient": 0.16126109028814023
+      },
+      {
+        "name": "max((progress-opponent_corners)\u00b2,hmean(our_mobility,our_mean_flips))",
+        "standardized_coefficient": 0.12181135559037523
+      },
+      {
+        "name": "|our_corners/(1+|our_edges|)-(progress-our_corners)\u00b2|/\u03a3",
+        "standardized_coefficient": -0.09282177366081344
+      },
+      {
+        "name": "relu(our_corners/(1+|our_edges|)-(progress-opponent_corners)\u00b2)",
+        "standardized_coefficient": 0.04878987246086452
+      }
+    ],
+    "family_counts": {
+      "am_damped": 4,
+      "am_hmean": 1,
+      "am_max": 3,
+      "am_normdiff": 1,
+      "am_product": 2,
+      "am_relu": 4,
+      "am_sq_diff": 1
+    }
+  },
+  "full_state_tree": {
+    "validation": {
+      "brier": 0.14302363234742355,
+      "log_loss": 0.44475972763084,
+      "roc_auc": 0.8725530488135538
+    },
+    "test": {
+      "brier": 0.13505050892477827,
+      "log_loss": 0.42358778644255124,
+      "roc_auc": 0.8865684903676084
+    }
+  },
+  "pipeline_recap": "Pipeline: 8 stages, 17,379 samples (base R\u00b2=0.3416)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       22\u219222               \u2014           \u2014  omp      0.1s\n   2  select(22d)               22\u219211           22\u219222      0.3961  greedy   0.0s\n   3  am(22d)                 22\u21921531               \u2014           \u2014  omp      4.1s\n   4  fuse                  1553\u21921553               \u2014           \u2014  \u2014        0.1s\n   5  select(1553d)           1553\u219216     1,553\u21921,553      0.4144  greedy   3.4s\n   6  am(16d)                  16\u2192778               \u2014           \u2014  omp      1.8s\n   7  fuse                    794\u2192794               \u2014           \u2014  \u2014        0.0s\n   8  select(794d)             794\u219216         794\u2192794      0.4195  greedy   1.3s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 10,267 / 100,000 (10.3%)\nMemory: peak ~975 MB / 2906 MB (33.5%)\nUnused families: am_min  (never selected \u2014 consider excluding to free budget)",
+  "stability_runs": []
+}

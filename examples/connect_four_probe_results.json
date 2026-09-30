@@ -1,0 +1,213 @@
+{
+  "generation": {
+    "games_requested": 3000,
+    "games_kept": 2867,
+    "draws": 133
+  },
+  "seed": 601,
+  "snapshot_plies": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32,
+    36
+  ],
+  "rows": 9877,
+  "positive_rate": 0.5191859876480712,
+  "split": {
+    "discovery_rows": 5935,
+    "validation_rows": 1939,
+    "test_rows": 2003,
+    "discovery_games": 1719,
+    "validation_games": 574,
+    "test_games": 574
+  },
+  "baseline": {
+    "validation": {
+      "brier": 0.1368576263408043,
+      "log_loss": 0.42459382739665363,
+      "roc_auc": 0.8847670308311708
+    },
+    "test": {
+      "brier": 0.12912417687589609,
+      "log_loss": 0.40630238149182524,
+      "roc_auc": 0.9018245446116113
+    }
+  },
+  "potage_raw": {
+    "validation": {
+      "brier": 0.12256200250193831,
+      "log_loss": 0.3894482645503449,
+      "roc_auc": 0.9064396245154263
+    },
+    "test": {
+      "brier": 0.11613243239501755,
+      "log_loss": 0.37461987265774044,
+      "roc_auc": 0.9197888313941316
+    },
+    "features": [
+      {
+        "name": "our_double_threats",
+        "coefficient": 0.45930594877579556
+      },
+      {
+        "name": "our_open_threes",
+        "coefficient": 0.4383011918525578
+      },
+      {
+        "name": "opponent_double_threats",
+        "coefficient": -0.4064632064289149
+      }
+    ]
+  },
+  "potage_am": {
+    "validation": {
+      "brier": 0.11876057941197116,
+      "log_loss": 0.37534849537560183,
+      "roc_auc": 0.9125268317688142
+    },
+    "test": {
+      "brier": 0.11418396872695938,
+      "log_loss": 0.36728390695834795,
+      "roc_auc": 0.9216183611003101
+    },
+    "features": [
+      {
+        "name": "our_edge_discs/(1+|opponent_edge_discs|)",
+        "coefficient": -0.4283822509408085
+      },
+      {
+        "name": "hmean(our_double_threats,our_open_threes)",
+        "coefficient": 0.4017246820029431
+      },
+      {
+        "name": "|our_double_threats-our_open_threes|/\u03a3",
+        "coefficient": 0.3948379296005998
+      },
+      {
+        "name": "relu(our_double_threats-opponent_edge_discs)",
+        "coefficient": 0.3066755297318176
+      },
+      {
+        "name": "(our_legal_columns-our_edge_discs)\u00b2",
+        "coefficient": -0.2692269860528019
+      },
+      {
+        "name": "our_discs/(1+|our_open_threes|)",
+        "coefficient": -0.2690816254275467
+      },
+      {
+        "name": "relu(opponent_edge_discs-opponent_center_control)",
+        "coefficient": 0.20397631046859932
+      },
+      {
+        "name": "opponent_double_threats/(1+|our_edge_discs|)",
+        "coefficient": -0.1976509612645849
+      },
+      {
+        "name": "|opponent_double_threats-opponent_open_threes|/\u03a3",
+        "coefficient": -0.18699602356858833
+      },
+      {
+        "name": "opponent_double_threats*our_edge_discs",
+        "coefficient": -0.1823296298161606
+      },
+      {
+        "name": "|our_double_threats-opponent_center_control|/\u03a3",
+        "coefficient": 0.16790663735176062
+      },
+      {
+        "name": "opponent_center_control",
+        "coefficient": 0.15439979053341454
+      },
+      {
+        "name": "relu(our_double_threats-our_max_run)",
+        "coefficient": -0.05199604724880794
+      },
+      {
+        "name": "hmean(our_edge_discs,our_open_threes)",
+        "coefficient": 0.041563113135721204
+      },
+      {
+        "name": "|our_legal_columns-our_center_control|/\u03a3",
+        "coefficient": -0.023231575446637735
+      },
+      {
+        "name": "|opponent_double_threats-opponent_open_threes|",
+        "coefficient": -0.0023217314722820516
+      }
+    ]
+  },
+  "full_state_tree": {
+    "validation": {
+      "brier": 0.12804489325638696,
+      "log_loss": 0.40128822139057974,
+      "roc_auc": 0.8996417091169278
+    },
+    "test": {
+      "brier": 0.1156861107358054,
+      "log_loss": 0.36417421498334895,
+      "roc_auc": 0.9200061815172634
+    }
+  },
+  "stability_runs": [
+    {
+      "seed": 19,
+      "games": 1000,
+      "baseline_test_brier": 0.13506486451489233,
+      "potage_raw_test_brier": 0.1318594700006547,
+      "potage_am_test_brier": 0.1292754279190413,
+      "tree_test_brier": 0.1468158246291502,
+      "top_am_features": [
+        "our_open_threes/(1+|our_edge_discs|)",
+        "(our_double_threats-opponent_max_run)\u00b2",
+        "(opponent_max_run-our_open_threes)\u00b2",
+        "max(opponent_double_threats,opponent_open_threes)",
+        "hmean(our_edge_discs,our_open_threes)",
+        "hmean(our_double_threats,our_open_threes)",
+        "|opponent_edge_discs-opponent_open_threes|/\u03a3",
+        "|opponent_max_run-our_open_threes|/\u03a3"
+      ]
+    },
+    {
+      "seed": 41,
+      "games": 1000,
+      "baseline_test_brier": 0.13387939842195867,
+      "potage_raw_test_brier": 0.11911596175404048,
+      "potage_am_test_brier": 0.12170327307805898,
+      "tree_test_brier": 0.15896652422122373,
+      "top_am_features": [
+        "our_double_threats*our_max_run",
+        "our_open_threes/(1+|opponent_edge_discs|)",
+        "hmean(our_double_threats,opponent_edge_discs)",
+        "max(opponent_double_threats,opponent_open_threes)",
+        "our_legal_columns/(1+|our_double_threats|)",
+        "our_center_control/(1+|opponent_center_control|)",
+        "(our_double_threats-our_edge_discs)\u00b2",
+        "hmean(opponent_double_threats,our_edge_discs)"
+      ]
+    },
+    {
+      "seed": 97,
+      "games": 1000,
+      "baseline_test_brier": 0.13428557746130418,
+      "potage_raw_test_brier": 0.12126607054948421,
+      "potage_am_test_brier": 0.12030329046773511,
+      "tree_test_brier": 0.14404502198736482,
+      "top_am_features": [
+        "our_legal_columns/(1+|our_double_threats|)",
+        "our_open_threes/(1+|opponent_edge_discs|)",
+        "|opponent_double_threats-our_max_run|/\u03a3",
+        "(our_max_run-our_open_threes)\u00b2",
+        "max(our_double_threats,our_max_run)",
+        "hmean(our_double_threats,our_open_threes)",
+        "our_open_threes*opponent_open_threes",
+        "(our_double_threats-opponent_open_threes)\u00b2"
+      ]
+    }
+  ]
+}

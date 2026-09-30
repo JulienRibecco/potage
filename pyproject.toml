@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "potage"
+version = "0.1.0"
+description = "Composable feature discovery for scientific tabular data"
+readme = "README.md"
+license = "CC-BY-4.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.21", "scipy>=1.7", "scikit-learn>=1.0"]
+
+[project.urls]
+Repository = "https://github.com/JulienRibecco/potage"
+Issues = "https://github.com/JulienRibecco/potage/issues"
+Changelog = "https://github.com/JulienRibecco/potage/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+examples = ["pandas>=1.5", "matplotlib>=3.6"]
+
+[tool.setuptools.packages.find]
+include = ["potage*"]

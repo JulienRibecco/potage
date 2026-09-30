@@ -1,0 +1,2834 @@
+{
+  "seeds": [
+    19,
+    41,
+    97
+  ],
+  "pairs": 600,
+  "runs": [
+    {
+      "pairs": 600,
+      "seed": 19,
+      "recipe": "carrier_am",
+      "method": "correlation",
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "results": {
+        "speed": {
+          "generation": {
+            "pairs_requested": 600,
+            "pairs_with_draw_or_mismatch": 90,
+            "rows": 9990,
+            "positive_switches": 1719
+          },
+          "rows": 9990,
+          "positive_rate": 0.17207207207207206,
+          "split": {
+            "discovery_rows": 6003,
+            "validation_rows": 1989,
+            "test_rows": 1998,
+            "discovery_games": 357,
+            "validation_games": 120,
+            "test_games": 120
+          },
+          "models": {
+            "context": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.13783016300711143,
+                  "log_loss": 0.4378147926920248,
+                  "roc_auc": 0.6613584152650398
+                },
+                "test": {
+                  "brier": 0.13548004180297848,
+                  "log_loss": 0.4303300309921269,
+                  "roc_auc": 0.6979616916687855
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.1086985085632963,
+                  "log_loss": 0.3892447809826693,
+                  "roc_auc": 0.8319024133902861
+                },
+                "test": {
+                  "brier": 0.11441019431766629,
+                  "log_loss": 0.3489799477795463,
+                  "roc_auc": 0.8250416701980393
+                },
+                "features": [
+                  {
+                    "name": "gauss(score_difference,c=25%,w=0.2)/(1+|pulse(skill_difference:0%-33%)|)",
+                    "coefficient": 1.694173699344758
+                  },
+                  {
+                    "name": "(pulse(skill_difference:0%-33%)-gauss(score_difference,c=25%,w=0.2))\u00b2",
+                    "coefficient": -1.415169931780263
+                  },
+                  {
+                    "name": "gauss(skill_difference,c=75%,w=0.2)/(1+|step(score_difference>50%)|)",
+                    "coefficient": -0.8641289553121843
+                  },
+                  {
+                    "name": "max(pulse(skill_difference:0%-33%),step(score_difference>50%))",
+                    "coefficient": -0.5759272527758457
+                  },
+                  {
+                    "name": "|step(score_difference>50%)-gauss(skill_difference,c=75%,w=0.2)|",
+                    "coefficient": 0.5358247566633716
+                  },
+                  {
+                    "name": "max(step(score_difference>50%),cos(0.5\u03c0*skill_difference))",
+                    "coefficient": -0.4764303223757969
+                  },
+                  {
+                    "name": "max(sin(3.0\u03c0*skill_difference),tri(3.0*score_difference))",
+                    "coefficient": -0.3702568406789309
+                  },
+                  {
+                    "name": "relu(cos(1.0\u03c0*skill_difference)-tri(2.0*score_difference))",
+                    "coefficient": -0.2555556239657072
+                  },
+                  {
+                    "name": "max(gauss(score_difference,c=25%,w=0.2),step(score_difference>75%))",
+                    "coefficient": 0.1920513750394659
+                  },
+                  {
+                    "name": "hmean(cos(1.0\u03c0*perspective),gauss(skill_difference,c=75%,w=0.5))",
+                    "coefficient": -0.17488740594511448
+                  },
+                  {
+                    "name": "|pulse(skill_difference:0%-33%)-step(score_difference>50%)|/\u03a3",
+                    "coefficient": 0.05864971634860306
+                  },
+                  {
+                    "name": "hmean(cos(2.0\u03c0*skill_difference),cos(0.5\u03c0*skill_difference))",
+                    "coefficient": 0.0028184397583805587
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 6003,
+                "validation_rows": 1989,
+                "test_rows": 1998,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            },
+            "core": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.13783016300711143,
+                  "log_loss": 0.4378147926920248,
+                  "roc_auc": 0.6613584152650398
+                },
+                "test": {
+                  "brier": 0.13548004180297848,
+                  "log_loss": 0.4303300309921269,
+                  "roc_auc": 0.6979616916687855
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.10638278063118216,
+                  "log_loss": 0.3455132383984878,
+                  "roc_auc": 0.8304075813902292
+                },
+                "test": {
+                  "brier": 0.11750712680856933,
+                  "log_loss": 0.3716652002314318,
+                  "roc_auc": 0.8030447495550471
+                },
+                "features": [
+                  {
+                    "name": "max(step(score_difference>50%),cos(1.0\u03c0*opponent_target_distance))",
+                    "coefficient": -0.47967558971977065
+                  },
+                  {
+                    "name": "relu(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))",
+                    "coefficient": 0.38101243941856705
+                  },
+                  {
+                    "name": "max(step(score_difference>50%),pulse(opponent_target_distance:0%-33%))",
+                    "coefficient": 0.33683461531397163
+                  },
+                  {
+                    "name": "sin(3.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+                    "coefficient": -0.31714604910551025
+                  },
+                  {
+                    "name": "max(step(score_difference>50%),cos(1.0\u03c0*opponent_controlled_nodes))",
+                    "coefficient": -0.31710619877945667
+                  },
+                  {
+                    "name": "min(tri(2.0*score_difference),sin(2.0\u03c0*opponent_score_rate))",
+                    "coefficient": 0.26959568421271896
+                  },
+                  {
+                    "name": "sin(2.0\u03c0*opponent_score_rate)*cos(2.0\u03c0*contested_nodes)",
+                    "coefficient": 0.1969661650683601
+                  },
+                  {
+                    "name": "(step(score_difference>50%)-pulse(score_difference:33%-67%))\u00b2",
+                    "coefficient": 0.13842133746536125
+                  },
+                  {
+                    "name": "(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))\u00b2",
+                    "coefficient": -0.11455909527874102
+                  },
+                  {
+                    "name": "min(tri(2.0*score_difference),cos(2.0\u03c0*contested_nodes))",
+                    "coefficient": 0.09274612677425915
+                  },
+                  {
+                    "name": "relu(step(opponent_controlled_nodes>25%)-step(score_difference>50%))",
+                    "coefficient": 0.029155371194665533
+                  },
+                  {
+                    "name": "relu(tri(2.0*score_difference)-cos(1.0\u03c0*opponent_controlled_nodes))",
+                    "coefficient": 0.010253057656405115
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 6003,
+                "validation_rows": 1989,
+                "test_rows": 1998,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            },
+            "scenario": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.13783016300711143,
+                  "log_loss": 0.4378147926920248,
+                  "roc_auc": 0.6613584152650398
+                },
+                "test": {
+                  "brier": 0.13548004180297848,
+                  "log_loss": 0.4303300309921269,
+                  "roc_auc": 0.6979616916687855
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.10275063899018284,
+                  "log_loss": 0.3335001195959989,
+                  "roc_auc": 0.8485408522317736
+                },
+                "test": {
+                  "brier": 0.11697304848688408,
+                  "log_loss": 0.3684407159804938,
+                  "roc_auc": 0.8081405203830833
+                },
+                "features": [
+                  {
+                    "name": "relu(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))",
+                    "coefficient": 0.6161281225188148
+                  },
+                  {
+                    "name": "relu(step(speed_difference>25%)-step(score_difference>50%))",
+                    "coefficient": 0.3928860241473013
+                  },
+                  {
+                    "name": "relu(step(opponent_controlled_nodes>25%)-step(score_difference>50%))",
+                    "coefficient": 0.2487036223834987
+                  },
+                  {
+                    "name": "sin(3.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+                    "coefficient": -0.23675995948438558
+                  },
+                  {
+                    "name": "max(tri(2.0*our_start_to_center_node),step(score_difference>50%))",
+                    "coefficient": -0.20470594630088945
+                  },
+                  {
+                    "name": "min(tri(2.0*score_difference),step(opponent_controlled_nodes>25%))",
+                    "coefficient": 0.14048136391939353
+                  },
+                  {
+                    "name": "(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))\u00b2",
+                    "coefficient": -0.11769947695136357
+                  },
+                  {
+                    "name": "min(tri(2.0*score_difference),cos(2.0\u03c0*contested_nodes))",
+                    "coefficient": 0.11663765852980201
+                  },
+                  {
+                    "name": "relu(sin(3.0\u03c0*our_start_to_center_node)-sin(3.0\u03c0*start_separation))",
+                    "coefficient": -0.10572032275691527
+                  },
+                  {
+                    "name": "max(step(speed_difference>25%),tri(2.0*opponent_start_to_center_node))",
+                    "coefficient": 0.10008932574304163
+                  },
+                  {
+                    "name": "max(step(score_difference>50%),pulse(opponent_target_distance:0%-33%))",
+                    "coefficient": -0.05559873127326194
+                  },
+                  {
+                    "name": "(tri(2.0*our_start_to_center_node)-step(speed_difference>25%))\u00b2",
+                    "coefficient": 0.005117970663648309
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 6003,
+                "validation_rows": 1989,
+                "test_rows": 1998,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            }
+          }
+        },
+        "initial_position": {
+          "generation": {
+            "pairs_requested": 600,
+            "pairs_with_draw_or_mismatch": 107,
+            "rows": 9837,
+            "positive_switches": 324
+          },
+          "rows": 9837,
+          "positive_rate": 0.03293687099725526,
+          "split": {
+            "discovery_rows": 5931,
+            "validation_rows": 1899,
+            "test_rows": 2007,
+            "discovery_games": 357,
+            "validation_games": 119,
+            "test_games": 120
+          },
+          "models": {
+            "context": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.026490791338149907,
+                  "log_loss": 0.12711303387489015,
+                  "roc_auc": 0.6208471343972699
+                },
+                "test": {
+                  "brier": 0.031186631172589564,
+                  "log_loss": 0.12105363603334424,
+                  "roc_auc": 0.8875556068356345
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.026679300977242096,
+                  "log_loss": 0.12879895654054116,
+                  "roc_auc": 0.6105691056910569
+                },
+                "test": {
+                  "brier": 0.03149541971004653,
+                  "log_loss": 0.11958609516146787,
+                  "roc_auc": 0.9045998230837275
+                },
+                "features": [
+                  {
+                    "name": "|pulse(skill_difference:33%-67%)-sin(3.0\u03c0*skill_difference)|/\u03a3",
+                    "coefficient": 0.4042302649073671
+                  },
+                  {
+                    "name": "hmean(cos(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.2))",
+                    "coefficient": 0.3231614110588176
+                  },
+                  {
+                    "name": "hmean(cos(3.0\u03c0*skill_difference),pulse(skill_difference:33%-67%))",
+                    "coefficient": 0.30761257479081733
+                  },
+                  {
+                    "name": "hmean(cos(3.0\u03c0*skill_difference),pulse(time_fraction:33%-67%))",
+                    "coefficient": 0.12049900201941231
+                  },
+                  {
+                    "name": "(cos(3.0\u03c0*skill_difference)-tri(3.0*score_difference))\u00b2",
+                    "coefficient": 0.10504875891573302
+                  },
+                  {
+                    "name": "max(cos(1.0\u03c0*perspective),gauss(skill_difference,c=25%,w=0.5))",
+                    "coefficient": 0.08982204142662317
+                  },
+                  {
+                    "name": "|sin(3.0\u03c0*score_difference)-sin(2.0\u03c0*skill_difference)|/\u03a3",
+                    "coefficient": 0.07608255985990155
+                  },
+                  {
+                    "name": "hmean(tri(2.0*skill_difference),cos(0.5\u03c0*skill_difference))",
+                    "coefficient": -0.06837334010924148
+                  },
+                  {
+                    "name": "hmean(cos(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.5))",
+                    "coefficient": -0.05718773878705348
+                  },
+                  {
+                    "name": "hmean(gauss(skill_difference,c=25%,w=0.5),sin(2.0\u03c0*skill_difference))",
+                    "coefficient": -0.05370746974444168
+                  },
+                  {
+                    "name": "hmean(tri(2.0*time_fraction),gauss(skill_difference,c=25%,w=0.5))",
+                    "coefficient": -0.0412283611363611
+                  },
+                  {
+                    "name": "hmean(sin(3.0\u03c0*score_difference),tri(2.0*skill_difference))",
+                    "coefficient": 0.005563622022247068
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5931,
+                "validation_rows": 1899,
+                "test_rows": 2007,
+                "discovery_games": 357,
+                "validation_games": 119,
+                "test_games": 120
+              }
+            },
+            "core": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.026490791338149907,
+                  "log_loss": 0.12711303387489015,
+                  "roc_auc": 0.6208471343972699
+                },
+                "test": {
+                  "brier": 0.031186631172589564,
+                  "log_loss": 0.12105363603334424,
+                  "roc_auc": 0.8875556068356345
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.02610223131956224,
+                  "log_loss": 0.11537624749020355,
+                  "roc_auc": 0.7606243099468032
+                },
+                "test": {
+                  "brier": 0.030724578779642547,
+                  "log_loss": 0.11745244647785195,
+                  "roc_auc": 0.901734548671205
+                },
+                "features": [
+                  {
+                    "name": "gauss(contested_nodes,c=50%,w=0.2)/(1+|step(score_difference>50%)|)",
+                    "coefficient": 0.9873339515141007
+                  },
+                  {
+                    "name": "max(gauss(opponent_score_rate,c=75%,w=0.5),gauss(score_difference,c=25%,w=0.2))",
+                    "coefficient": 0.4257655203977768
+                  },
+                  {
+                    "name": "(gauss(contested_nodes,c=50%,w=0.2)-step(score_difference>50%))\u00b2",
+                    "coefficient": -0.3210887995761928
+                  },
+                  {
+                    "name": "max(cos(3.0\u03c0*contested_nodes),pulse(agent_distance:33%-67%))",
+                    "coefficient": 0.25161494261585654
+                  },
+                  {
+                    "name": "(gauss(contested_nodes,c=50%,w=0.5)-pulse(opponent_target_progress:0%-33%))\u00b2",
+                    "coefficient": -0.249038587697719
+                  },
+                  {
+                    "name": "relu(step(agent_distance>75%)-step(score_difference>50%))",
+                    "coefficient": 0.19726631003022713
+                  },
+                  {
+                    "name": "hmean(sin(3.0\u03c0*our_target_distance),step(our_pending_action>75%))",
+                    "coefficient": 0.17649060813296333
+                  },
+                  {
+                    "name": "hmean(gauss(contested_nodes,c=50%,w=0.2),step(agent_distance>75%))",
+                    "coefficient": -0.13393530625438693
+                  },
+                  {
+                    "name": "step(agent_distance>75%)*cos(3.0\u03c0*contested_nodes)",
+                    "coefficient": -0.08425856362014944
+                  },
+                  {
+                    "name": "|tri(0.5*opponent_target_distance)-gauss(score_difference,c=25%,w=0.2)|",
+                    "coefficient": 0.0672226194184711
+                  },
+                  {
+                    "name": "hmean(cos(3.0\u03c0*contested_nodes),gauss(score_difference,c=25%,w=0.2))",
+                    "coefficient": 0.05902962292195447
+                  },
+                  {
+                    "name": "(gauss(contested_nodes,c=50%,w=0.2)-cos(2.0\u03c0*our_pending_action))\u00b2",
+                    "coefficient": -0.02194607591114132
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5931,
+                "validation_rows": 1899,
+                "test_rows": 2007,
+                "discovery_games": 357,
+                "validation_games": 119,
+                "test_games": 120
+              }
+            },
+            "scenario": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.026490791338149907,
+                  "log_loss": 0.12711303387489015,
+                  "roc_auc": 0.6208471343972699
+                },
+                "test": {
+                  "brier": 0.031186631172589564,
+                  "log_loss": 0.12105363603334424,
+                  "roc_auc": 0.8875556068356345
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.024027918947196348,
+                  "log_loss": 0.09770184289156536,
+                  "roc_auc": 0.8768142125865703
+                },
+                "test": {
+                  "brier": 0.030454139225759187,
+                  "log_loss": 0.1143203562737158,
+                  "roc_auc": 0.9072792072099791
+                },
+                "features": [
+                  {
+                    "name": "max(cos(2.0\u03c0*speed_difference),cos(2.0\u03c0*our_start_to_center_node))",
+                    "coefficient": -0.9893283104537816
+                  },
+                  {
+                    "name": "(step(opponent_start_to_center_node>75%)-sin(3.0\u03c0*our_start_to_center_node))\u00b2",
+                    "coefficient": 0.9354356105078532
+                  },
+                  {
+                    "name": "(pulse(our_start_to_center_node:33%-67%)-cos(2.0\u03c0*speed_difference))\u00b2",
+                    "coefficient": -0.9155470416351618
+                  },
+                  {
+                    "name": "pulse(our_start_to_center_node:33%-67%)*step(opponent_start_to_center_node>75%)",
+                    "coefficient": -0.5792212856872394
+                  },
+                  {
+                    "name": "step(opponent_start_to_center_node>75%)*cos(2.0\u03c0*our_start_to_center_node)",
+                    "coefficient": -0.4341016473268542
+                  },
+                  {
+                    "name": "hmean(gauss(contested_nodes,c=50%,w=0.2),step(opponent_start_to_center_node>50%))",
+                    "coefficient": 0.3643637564897094
+                  },
+                  {
+                    "name": "step(opponent_start_to_center_node>75%)*sin(3.0\u03c0*our_start_to_center_node)",
+                    "coefficient": 0.23684009108380924
+                  },
+                  {
+                    "name": "relu(pulse(our_start_to_center_node:33%-67%)-gauss(opponent_start_to_center_node,c=25%,w=0.5))",
+                    "coefficient": -0.1758549496767148
+                  },
+                  {
+                    "name": "max(cos(2.0\u03c0*speed_difference),step(start_separation>25%))",
+                    "coefficient": 0.11378188577260843
+                  },
+                  {
+                    "name": "relu(sin(2.0\u03c0*contested_nodes)-gauss(opponent_start_to_center_node,c=25%,w=0.5))",
+                    "coefficient": 0.05198407343128305
+                  },
+                  {
+                    "name": "max(cos(2.0\u03c0*speed_difference),cos(3.0\u03c0*contested_nodes))",
+                    "coefficient": -0.04762685237562692
+                  },
+                  {
+                    "name": "(pulse(our_start_to_center_node:33%-67%)-cos(1.0\u03c0*opponent_start_to_center_node))\u00b2",
+                    "coefficient": -0.027904546169337845
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5931,
+                "validation_rows": 1899,
+                "test_rows": 2007,
+                "discovery_games": 357,
+                "validation_games": 119,
+                "test_games": 120
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "pairs": 600,
+      "seed": 41,
+      "recipe": "carrier_am",
+      "method": "correlation",
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "results": {
+        "speed": {
+          "generation": {
+            "pairs_requested": 600,
+            "pairs_with_draw_or_mismatch": 98,
+            "rows": 9918,
+            "positive_switches": 1512
+          },
+          "rows": 9918,
+          "positive_rate": 0.15245009074410162,
+          "split": {
+            "discovery_rows": 5913,
+            "validation_rows": 1980,
+            "test_rows": 2025,
+            "discovery_games": 357,
+            "validation_games": 120,
+            "test_games": 120
+          },
+          "models": {
+            "context": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.11926444376143236,
+                  "log_loss": 0.38877817070571224,
+                  "roc_auc": 0.7119512575518782
+                },
+                "test": {
+                  "brier": 0.13613319785182051,
+                  "log_loss": 0.43089259238968325,
+                  "roc_auc": 0.6897075328447877
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.10059033150531174,
+                  "log_loss": 0.3239234304813168,
+                  "roc_auc": 0.8248292618859995
+                },
+                "test": {
+                  "brier": 0.11292451985701205,
+                  "log_loss": 0.3543190316489423,
+                  "roc_auc": 0.8290142567748346
+                },
+                "features": [
+                  {
+                    "name": "max(cos(3.0\u03c0*score_difference),sin(3.0\u03c0*score_difference))",
+                    "coefficient": -1.8928866890242555
+                  },
+                  {
+                    "name": "sin(3.0\u03c0*score_difference)*sin(2.0\u03c0*score_difference)",
+                    "coefficient": 1.0771835635278435
+                  },
+                  {
+                    "name": "|step(score_difference>50%)-step(skill_difference>25%)|/\u03a3",
+                    "coefficient": 0.253293246066975
+                  },
+                  {
+                    "name": "step(skill_difference>25%)/(1+|step(score_difference>50%)|)",
+                    "coefficient": 0.23842334430273837
+                  },
+                  {
+                    "name": "|tri(3.0*skill_difference)-sin(3.0\u03c0*skill_difference)|/\u03a3",
+                    "coefficient": -0.1684553026414425
+                  },
+                  {
+                    "name": "|gauss(skill_difference,c=25%,w=0.2)-cos(3.0\u03c0*skill_difference)|/\u03a3",
+                    "coefficient": -0.1215637945558031
+                  },
+                  {
+                    "name": "(tri(3.0*skill_difference)-tri(2.0*skill_difference))\u00b2",
+                    "coefficient": 0.09787262651079329
+                  },
+                  {
+                    "name": "relu(step(skill_difference>25%)-step(score_difference>50%))",
+                    "coefficient": -0.05513496751921494
+                  },
+                  {
+                    "name": "hmean(sin(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.2))",
+                    "coefficient": -0.054696044709892234
+                  },
+                  {
+                    "name": "max(pulse(score_difference:0%-33%),cos(2.0\u03c0*skill_difference))",
+                    "coefficient": -0.04829121377174642
+                  },
+                  {
+                    "name": "relu(cos(1.0\u03c0*perspective)-cos(3.0\u03c0*score_difference))",
+                    "coefficient": -0.013814388311977463
+                  },
+                  {
+                    "name": "(cos(1.0\u03c0*perspective)-tri(3.0*skill_difference))\u00b2",
+                    "coefficient": 0.006464080085907545
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5913,
+                "validation_rows": 1980,
+                "test_rows": 2025,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            },
+            "core": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.11926444376143236,
+                  "log_loss": 0.38877817070571224,
+                  "roc_auc": 0.7119512575518782
+                },
+                "test": {
+                  "brier": 0.13613319785182051,
+                  "log_loss": 0.43089259238968325,
+                  "roc_auc": 0.6897075328447877
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.10604952072491501,
+                  "log_loss": 0.3397198786344696,
+                  "roc_auc": 0.789345695429472
+                },
+                "test": {
+                  "brier": 0.12006411724306695,
+                  "log_loss": 0.37459097859803303,
+                  "roc_auc": 0.7902033753426942
+                },
+                "features": [
+                  {
+                    "name": "max(cos(3.0\u03c0*score_difference),sin(3.0\u03c0*score_difference))",
+                    "coefficient": -1.2567591052595184
+                  },
+                  {
+                    "name": "|step(score_difference>50%)-pulse(score_difference:33%-67%)|/\u03a3",
+                    "coefficient": -0.5422239503177829
+                  },
+                  {
+                    "name": "max(gauss(score_difference,c=25%,w=0.2),step(score_difference>75%))",
+                    "coefficient": -0.5390390981627184
+                  },
+                  {
+                    "name": "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+                    "coefficient": 0.52175111575305
+                  },
+                  {
+                    "name": "relu(cos(3.0\u03c0*contested_nodes)-cos(3.0\u03c0*score_difference))",
+                    "coefficient": -0.44628239731569846
+                  },
+                  {
+                    "name": "(gauss(score_difference,c=25%,w=0.2)-cos(1.0\u03c0*opponent_controlled_nodes))\u00b2",
+                    "coefficient": 0.30452847845208353
+                  },
+                  {
+                    "name": "gauss(score_difference,c=25%,w=0.2)/(1+|tri(2.0*our_target_progress)|)",
+                    "coefficient": 0.2937265986147831
+                  },
+                  {
+                    "name": "cos(3.0\u03c0*score_difference)*cos(2.0\u03c0*contested_nodes)",
+                    "coefficient": -0.2787065313586093
+                  },
+                  {
+                    "name": "relu(cos(3.0\u03c0*contested_nodes)-tri(2.0*opponent_score_rate))",
+                    "coefficient": 0.24510267836971023
+                  },
+                  {
+                    "name": "relu(cos(3.0\u03c0*contested_nodes)-step(score_difference>50%))",
+                    "coefficient": 0.11525371843494042
+                  },
+                  {
+                    "name": "(cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference))\u00b2",
+                    "coefficient": -0.030329988773183485
+                  },
+                  {
+                    "name": "max(cos(2.0\u03c0*our_pending_action),tri(0.5*opponent_controlled_nodes))",
+                    "coefficient": -0.005737693313353166
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5913,
+                "validation_rows": 1980,
+                "test_rows": 2025,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            },
+            "scenario": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.11926444376143236,
+                  "log_loss": 0.38877817070571224,
+                  "roc_auc": 0.7119512575518782
+                },
+                "test": {
+                  "brier": 0.13613319785182051,
+                  "log_loss": 0.43089259238968325,
+                  "roc_auc": 0.6897075328447877
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.10188067344396505,
+                  "log_loss": 0.3310601916987257,
+                  "roc_auc": 0.8183260277121092
+                },
+                "test": {
+                  "brier": 0.11952011020759848,
+                  "log_loss": 0.3787914231410816,
+                  "roc_auc": 0.7917756859965321
+                },
+                "features": [
+                  {
+                    "name": "|gauss(score_difference,c=25%,w=0.2)-pulse(score_difference:33%-67%)|",
+                    "coefficient": -0.5442918435121691
+                  },
+                  {
+                    "name": "(gauss(score_difference,c=25%,w=0.2)-tri(0.5*opponent_controlled_nodes))\u00b2",
+                    "coefficient": 0.443018715943737
+                  },
+                  {
+                    "name": "max(step(score_difference>50%),cos(1.0\u03c0*our_speed))",
+                    "coefficient": -0.39273900706976467
+                  },
+                  {
+                    "name": "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+                    "coefficient": 0.18707905168491237
+                  },
+                  {
+                    "name": "max(tri(2.0*start_separation),cos(2.0\u03c0*opponent_start_to_center_node))",
+                    "coefficient": 0.1567381534431664
+                  },
+                  {
+                    "name": "max(gauss(score_difference,c=25%,w=0.2),step(score_difference>75%))",
+                    "coefficient": -0.10445503121166017
+                  },
+                  {
+                    "name": "relu(cos(3.0\u03c0*contested_nodes)-cos(3.0\u03c0*score_difference))",
+                    "coefficient": 0.10260461156493146
+                  },
+                  {
+                    "name": "relu(tri(2.0*start_separation)-cos(3.0\u03c0*our_start_to_center_node))",
+                    "coefficient": -0.09490092140674651
+                  },
+                  {
+                    "name": "pulse(opponent_controlled_nodes:67%-100%)*cos(3.0\u03c0*our_start_to_center_node)",
+                    "coefficient": 0.07663475173511886
+                  },
+                  {
+                    "name": "relu(cos(3.0\u03c0*contested_nodes)-step(score_difference>50%))",
+                    "coefficient": -0.07386080407851985
+                  },
+                  {
+                    "name": "relu(cos(2.0\u03c0*opponent_start_to_center_node)-sin(1.0\u03c0*our_start_to_center_node))",
+                    "coefficient": 0.0658960315738774
+                  },
+                  {
+                    "name": "(gauss(score_difference,c=25%,w=0.2)-sin(1.0\u03c0*our_start_to_center_node))\u00b2",
+                    "coefficient": 0.033061285000286635
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5913,
+                "validation_rows": 1980,
+                "test_rows": 2025,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            }
+          }
+        },
+        "initial_position": {
+          "generation": {
+            "pairs_requested": 600,
+            "pairs_with_draw_or_mismatch": 107,
+            "rows": 9837,
+            "positive_switches": 252
+          },
+          "rows": 9837,
+          "positive_rate": 0.025617566331198535,
+          "split": {
+            "discovery_rows": 5886,
+            "validation_rows": 1971,
+            "test_rows": 1980,
+            "discovery_games": 357,
+            "validation_games": 119,
+            "test_games": 119
+          },
+          "models": {
+            "context": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.02219189212537692,
+                  "log_loss": 0.10644682183234612,
+                  "roc_auc": 0.697911618783893
+                },
+                "test": {
+                  "brier": 0.03692650636964636,
+                  "log_loss": 0.16678706771729523,
+                  "roc_auc": 0.7136959673382353
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.023541644236292153,
+                  "log_loss": 0.10772871281613232,
+                  "roc_auc": 0.769078112380293
+                },
+                "test": {
+                  "brier": 0.03669205377164398,
+                  "log_loss": 0.15445356977532346,
+                  "roc_auc": 0.8368602058263284
+                },
+                "features": [
+                  {
+                    "name": "relu(step(skill_difference>75%)-step(score_difference>50%))",
+                    "coefficient": 0.7511617284727817
+                  },
+                  {
+                    "name": "max(step(skill_difference>75%),cos(3.0\u03c0*score_difference))",
+                    "coefficient": -0.47868185661357326
+                  },
+                  {
+                    "name": "(cos(2.0\u03c0*skill_difference)-cos(2.0\u03c0*score_difference))\u00b2",
+                    "coefficient": -0.43410973132737374
+                  },
+                  {
+                    "name": "|pulse(skill_difference:33%-67%)-cos(1.0\u03c0*perspective)|/\u03a3",
+                    "coefficient": -0.23549660500198624
+                  },
+                  {
+                    "name": "|cos(1.0\u03c0*perspective)-tri(3.0*skill_difference)|/\u03a3",
+                    "coefficient": 0.1952540172859535
+                  },
+                  {
+                    "name": "gauss(skill_difference,c=25%,w=0.5)/(1+|tri(2.0*skill_difference)|)",
+                    "coefficient": 0.17193415846064627
+                  },
+                  {
+                    "name": "min(cos(1.0\u03c0*perspective),tri(3.0*skill_difference))",
+                    "coefficient": -0.13883540554766863
+                  },
+                  {
+                    "name": "|pulse(skill_difference:33%-67%)-tri(3.0*skill_difference)|/\u03a3",
+                    "coefficient": 0.09217955123295275
+                  },
+                  {
+                    "name": "|cos(3.0\u03c0*score_difference)-tri(2.0*skill_difference)|/\u03a3",
+                    "coefficient": 0.06847938362654757
+                  },
+                  {
+                    "name": "hmean(tri(3.0*skill_difference),gauss(skill_difference,c=25%,w=0.5))",
+                    "coefficient": 0.056492750226153125
+                  },
+                  {
+                    "name": "pulse(skill_difference:33%-67%)*tri(3.0*score_difference)",
+                    "coefficient": -0.05548642633618121
+                  },
+                  {
+                    "name": "hmean(cos(1.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.2))",
+                    "coefficient": -0.03272550977915097
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5886,
+                "validation_rows": 1971,
+                "test_rows": 1980,
+                "discovery_games": 357,
+                "validation_games": 119,
+                "test_games": 119
+              }
+            },
+            "core": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.02219189212537692,
+                  "log_loss": 0.10644682183234612,
+                  "roc_auc": 0.697911618783893
+                },
+                "test": {
+                  "brier": 0.03692650636964636,
+                  "log_loss": 0.16678706771729523,
+                  "roc_auc": 0.7136959673382353
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.021638251276296983,
+                  "log_loss": 0.10375347002127747,
+                  "roc_auc": 0.6962386062074535
+                },
+                "test": {
+                  "brier": 0.037586267378920395,
+                  "log_loss": 0.16807829381118597,
+                  "roc_auc": 0.7082089988883038
+                },
+                "features": [
+                  {
+                    "name": "hmean(pulse(opponent_score_rate:33%-67%),cos(1.0\u03c0*agent_distance))",
+                    "coefficient": 0.3060082251629138
+                  },
+                  {
+                    "name": "max(gauss(agent_distance,c=50%,w=0.5),cos(3.0\u03c0*contested_nodes))",
+                    "coefficient": -0.1679536968549592
+                  },
+                  {
+                    "name": "step(agent_distance>75%)*cos(3.0\u03c0*our_target_progress)",
+                    "coefficient": 0.1266327869720402
+                  },
+                  {
+                    "name": "step(agent_distance>75%)*tri(3.0*score_difference)",
+                    "coefficient": -0.09516280329030011
+                  },
+                  {
+                    "name": "hmean(pulse(opponent_score_rate:33%-67%),sin(2.0\u03c0*agent_distance))",
+                    "coefficient": -0.09449533879868703
+                  },
+                  {
+                    "name": "max(cos(3.0\u03c0*our_score_rate),tri(3.0*score_difference))",
+                    "coefficient": -0.08917703074770286
+                  },
+                  {
+                    "name": "(step(agent_distance>75%)-cos(3.0\u03c0*our_controlled_nodes))\u00b2",
+                    "coefficient": 0.0846566013505916
+                  },
+                  {
+                    "name": "hmean(gauss(contested_nodes,c=50%,w=0.5),sin(2.0\u03c0*agent_distance))",
+                    "coefficient": -0.06459234885260588
+                  },
+                  {
+                    "name": "hmean(sin(2.0\u03c0*opponent_score_rate),sin(2.0\u03c0*agent_distance))",
+                    "coefficient": -0.053674888270733676
+                  },
+                  {
+                    "name": "(step(agent_distance>75%)-cos(3.0\u03c0*contested_nodes))\u00b2",
+                    "coefficient": -0.04541779897192039
+                  },
+                  {
+                    "name": "cos(3.0\u03c0*our_score_rate)*pulse(opponent_score_rate:33%-67%)",
+                    "coefficient": -0.04167637934077181
+                  },
+                  {
+                    "name": "step(agent_distance>75%)*cos(3.0\u03c0*opponent_target_progress)",
+                    "coefficient": 0.036072976945770885
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5886,
+                "validation_rows": 1971,
+                "test_rows": 1980,
+                "discovery_games": 357,
+                "validation_games": 119,
+                "test_games": 119
+              }
+            },
+            "scenario": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.02219189212537692,
+                  "log_loss": 0.10644682183234612,
+                  "roc_auc": 0.697911618783893
+                },
+                "test": {
+                  "brier": 0.03692650636964636,
+                  "log_loss": 0.16678706771729523,
+                  "roc_auc": 0.7136959673382353
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.020847733665941684,
+                  "log_loss": 0.11728717328772069,
+                  "roc_auc": 0.7118610822660667
+                },
+                "test": {
+                  "brier": 0.03885640182617669,
+                  "log_loss": 0.18876703930485259,
+                  "roc_auc": 0.6679278892724565
+                },
+                "features": [
+                  {
+                    "name": "(step(start_separation>75%)-gauss(opponent_start_to_center_node,c=75%,w=0.2))\u00b2",
+                    "coefficient": 0.8433756855784803
+                  },
+                  {
+                    "name": "tri(2.0*opponent_start_to_center_node)*step(our_start_to_center_node>50%)",
+                    "coefficient": 0.7408553970055062
+                  },
+                  {
+                    "name": "(sin(2.0\u03c0*start_separation)-step(our_start_to_center_node>50%))\u00b2",
+                    "coefficient": -0.6533400497301826
+                  },
+                  {
+                    "name": "hmean(gauss(our_start_to_center_node,c=75%,w=0.2),sin(2.0\u03c0*start_separation))",
+                    "coefficient": -0.449185187460388
+                  },
+                  {
+                    "name": "(tri(2.0*opponent_start_to_center_node)-step(our_start_to_center_node>50%))\u00b2",
+                    "coefficient": 0.40530741685470645
+                  },
+                  {
+                    "name": "hmean(step(agent_distance>75%),sin(2.0\u03c0*start_separation))",
+                    "coefficient": 0.3605602264143535
+                  },
+                  {
+                    "name": "(step(agent_distance>75%)-tri(2.0*opponent_start_to_center_node))\u00b2",
+                    "coefficient": -0.15685039126176614
+                  },
+                  {
+                    "name": "hmean(sin(2.0\u03c0*agent_distance),gauss(contested_nodes,c=50%,w=0.2))",
+                    "coefficient": -0.08711423106776806
+                  },
+                  {
+                    "name": "hmean(sin(2.0\u03c0*agent_distance),step(our_start_to_center_node>50%))",
+                    "coefficient": -0.0710764424564803
+                  },
+                  {
+                    "name": "hmean(gauss(opponent_start_to_center_node,c=75%,w=0.2),sin(2.0\u03c0*agent_distance))",
+                    "coefficient": -0.06933606623043038
+                  },
+                  {
+                    "name": "min(step(agent_distance>75%),step(our_start_to_center_node>50%))",
+                    "coefficient": -0.05657121484041391
+                  },
+                  {
+                    "name": "hmean(gauss(start_separation,c=75%,w=0.2),sin(2.0\u03c0*agent_distance))",
+                    "coefficient": -0.050838659687505054
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5886,
+                "validation_rows": 1971,
+                "test_rows": 1980,
+                "discovery_games": 357,
+                "validation_games": 119,
+                "test_games": 119
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "pairs": 600,
+      "seed": 97,
+      "recipe": "carrier_am",
+      "method": "correlation",
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "results": {
+        "speed": {
+          "generation": {
+            "pairs_requested": 600,
+            "pairs_with_draw_or_mismatch": 96,
+            "rows": 9936,
+            "positive_switches": 1485
+          },
+          "rows": 9936,
+          "positive_rate": 0.14945652173913043,
+          "split": {
+            "discovery_rows": 6003,
+            "validation_rows": 1953,
+            "test_rows": 1980,
+            "discovery_games": 357,
+            "validation_games": 120,
+            "test_games": 120
+          },
+          "models": {
+            "context": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.12716328024679588,
+                  "log_loss": 0.41821745932907417,
+                  "roc_auc": 0.5642684351017685
+                },
+                "test": {
+                  "brier": 0.1309146749284669,
+                  "log_loss": 0.4282233767845201,
+                  "roc_auc": 0.5672843410562154
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.11832147595266296,
+                  "log_loss": 0.39041725973292063,
+                  "roc_auc": 0.6837399899899901
+                },
+                "test": {
+                  "brier": 0.1261759763181045,
+                  "log_loss": 0.41103488627933965,
+                  "roc_auc": 0.6877581777434192
+                },
+                "features": [
+                  {
+                    "name": "gauss(skill_difference,c=25%,w=0.2)*tri(2.0*score_difference)",
+                    "coefficient": 1.4281944466644287
+                  },
+                  {
+                    "name": "max(gauss(score_difference,c=25%,w=0.2),sin(0.5\u03c0*score_difference))",
+                    "coefficient": 0.5672935459513971
+                  },
+                  {
+                    "name": "sin(3.0\u03c0*score_difference)*gauss(skill_difference,c=25%,w=0.2)",
+                    "coefficient": 0.5626059016786281
+                  },
+                  {
+                    "name": "max(tri(3.0*skill_difference),sin(0.5\u03c0*score_difference))",
+                    "coefficient": -0.35082346596637637
+                  },
+                  {
+                    "name": "hmean(gauss(skill_difference,c=25%,w=0.2),cos(3.0\u03c0*skill_difference))",
+                    "coefficient": 0.27667290467316724
+                  },
+                  {
+                    "name": "|pulse(score_difference:33%-67%)-step(score_difference>75%)|/\u03a3",
+                    "coefficient": 0.21902911810931916
+                  },
+                  {
+                    "name": "(gauss(skill_difference,c=25%,w=0.2)-tri(3.0*score_difference))\u00b2",
+                    "coefficient": -0.21299535054009394
+                  },
+                  {
+                    "name": "|cos(3.0\u03c0*skill_difference)-cos(1.0\u03c0*perspective)|/\u03a3",
+                    "coefficient": -0.21207051176475927
+                  },
+                  {
+                    "name": "hmean(gauss(skill_difference,c=25%,w=0.2),tri(2.0*skill_difference))",
+                    "coefficient": -0.17089996399047294
+                  },
+                  {
+                    "name": "tri(3.0*skill_difference)*tri(3.0*score_difference)",
+                    "coefficient": 0.13790741839412218
+                  },
+                  {
+                    "name": "hmean(sin(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.5))",
+                    "coefficient": -0.012279995552610362
+                  },
+                  {
+                    "name": "min(sin(3.0\u03c0*skill_difference),tri(2.0*skill_difference))",
+                    "coefficient": 0.00911102073642541
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 6003,
+                "validation_rows": 1953,
+                "test_rows": 1980,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            },
+            "core": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.12716328024679588,
+                  "log_loss": 0.41821745932907417,
+                  "roc_auc": 0.5642684351017685
+                },
+                "test": {
+                  "brier": 0.1309146749284669,
+                  "log_loss": 0.4282233767845201,
+                  "roc_auc": 0.5672843410562154
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.11461577951234186,
+                  "log_loss": 0.36947745647164504,
+                  "roc_auc": 0.7461336336336337
+                },
+                "test": {
+                  "brier": 0.12191736200682618,
+                  "log_loss": 0.3901389129506316,
+                  "roc_auc": 0.7315790912143432
+                },
+                "features": [
+                  {
+                    "name": "sin(3.0\u03c0*score_difference)*sin(3.0\u03c0*our_score_rate)",
+                    "coefficient": 0.7407495668338698
+                  },
+                  {
+                    "name": "(sin(3.0\u03c0*score_difference)-sin(3.0\u03c0*our_score_rate))\u00b2",
+                    "coefficient": 0.7143175027246417
+                  },
+                  {
+                    "name": "|sin(3.0\u03c0*our_score_rate)-sin(2.0\u03c0*opponent_score_rate)|",
+                    "coefficient": -0.7083595720286462
+                  },
+                  {
+                    "name": "relu(step(opponent_controlled_nodes>25%)-sin(3.0\u03c0*score_difference))",
+                    "coefficient": 0.5957899289293243
+                  },
+                  {
+                    "name": "(step(opponent_controlled_nodes>25%)-tri(3.0*score_difference))\u00b2",
+                    "coefficient": -0.31301220183077955
+                  },
+                  {
+                    "name": "(tri(3.0*score_difference)-sin(2.0\u03c0*opponent_score_rate))\u00b2",
+                    "coefficient": 0.2926484638474655
+                  },
+                  {
+                    "name": "max(cos(1.0\u03c0*our_target_progress),sin(2.0\u03c0*opponent_score_rate))",
+                    "coefficient": 0.2825739048310472
+                  },
+                  {
+                    "name": "cos(2.0\u03c0*score_difference)/(1+|step(our_pending_action>75%)|)",
+                    "coefficient": -0.07713931728515126
+                  },
+                  {
+                    "name": "relu(cos(1.0\u03c0*our_target_progress)-pulse(score_difference:0%-33%))",
+                    "coefficient": 0.06023503719603815
+                  },
+                  {
+                    "name": "hmean(sin(3.0\u03c0*score_difference),gauss(score_difference,c=75%,w=0.2))",
+                    "coefficient": 0.05330265615323918
+                  },
+                  {
+                    "name": "relu(gauss(score_difference,c=25%,w=0.2)-gauss(opponent_controlled_nodes,c=25%,w=0.5))",
+                    "coefficient": 0.03760969528784392
+                  },
+                  {
+                    "name": "relu(pulse(opponent_controlled_nodes:67%-100%)-step(opponent_pending_action>25%))",
+                    "coefficient": 0.0007310350382669717
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 6003,
+                "validation_rows": 1953,
+                "test_rows": 1980,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            },
+            "scenario": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.12716328024679588,
+                  "log_loss": 0.41821745932907417,
+                  "roc_auc": 0.5642684351017685
+                },
+                "test": {
+                  "brier": 0.1309146749284669,
+                  "log_loss": 0.4282233767845201,
+                  "roc_auc": 0.5672843410562154
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.11736064236534745,
+                  "log_loss": 0.38457442277673326,
+                  "roc_auc": 0.6893122288955622
+                },
+                "test": {
+                  "brier": 0.12655612969920071,
+                  "log_loss": 0.3993257865728609,
+                  "roc_auc": 0.7109853897751852
+                },
+                "features": [
+                  {
+                    "name": "|sin(1.0\u03c0*our_start_to_center_node)-step(speed_difference>50%)|/\u03a3",
+                    "coefficient": 0.5054305424804031
+                  },
+                  {
+                    "name": "relu(gauss(start_separation,c=75%,w=0.2)-sin(3.0\u03c0*score_difference))",
+                    "coefficient": 0.48391709954943934
+                  },
+                  {
+                    "name": "max(gauss(opponent_score_rate,c=75%,w=0.5),gauss(score_difference,c=25%,w=0.2))",
+                    "coefficient": 0.41670381845301596
+                  },
+                  {
+                    "name": "relu(pulse(start_separation:33%-67%)-sin(0.5\u03c0*our_start_to_center_node))",
+                    "coefficient": -0.39774390661091313
+                  },
+                  {
+                    "name": "|sin(0.5\u03c0*our_start_to_center_node)-step(speed_difference>50%)|/\u03a3",
+                    "coefficient": -0.37723815938799266
+                  },
+                  {
+                    "name": "(cos(2.0\u03c0*score_difference)-pulse(opponent_controlled_nodes:67%-100%))\u00b2",
+                    "coefficient": 0.2515420595318664
+                  },
+                  {
+                    "name": "relu(tri(2.0*score_difference)-sin(2.0\u03c0*opponent_start_to_center_node))",
+                    "coefficient": 0.19543919723091283
+                  },
+                  {
+                    "name": "hmean(gauss(start_separation,c=75%,w=0.2),cos(1.0\u03c0*our_speed))",
+                    "coefficient": 0.1322599426333897
+                  },
+                  {
+                    "name": "(step(opponent_controlled_nodes>25%)-sin(2.0\u03c0*opponent_start_to_center_node))\u00b2",
+                    "coefficient": 0.1307743051175409
+                  },
+                  {
+                    "name": "relu(step(start_separation>50%)-sin(0.5\u03c0*our_start_to_center_node))",
+                    "coefficient": 0.10241847008579054
+                  },
+                  {
+                    "name": "relu(tri(2.0*score_difference)-sin(0.5\u03c0*our_start_to_center_node))",
+                    "coefficient": 0.03906617811607643
+                  },
+                  {
+                    "name": "step(opponent_controlled_nodes>25%)*pulse(opponent_start_to_center_node:67%-100%)",
+                    "coefficient": -0.020152655844623352
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 6003,
+                "validation_rows": 1953,
+                "test_rows": 1980,
+                "discovery_games": 357,
+                "validation_games": 120,
+                "test_games": 120
+              }
+            }
+          }
+        },
+        "initial_position": {
+          "generation": {
+            "pairs_requested": 600,
+            "pairs_with_draw_or_mismatch": 112,
+            "rows": 9792,
+            "positive_switches": 342
+          },
+          "rows": 9792,
+          "positive_rate": 0.034926470588235295,
+          "split": {
+            "discovery_rows": 5949,
+            "validation_rows": 1908,
+            "test_rows": 1935,
+            "discovery_games": 356,
+            "validation_games": 119,
+            "test_games": 119
+          },
+          "models": {
+            "context": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.0289743046546166,
+                  "log_loss": 0.11691485116347526,
+                  "roc_auc": 0.8624425078673444
+                },
+                "test": {
+                  "brier": 0.026037579577853888,
+                  "log_loss": 0.11427332705238612,
+                  "roc_auc": 0.7646248055604781
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.028697831641019234,
+                  "log_loss": 0.11743047287281129,
+                  "roc_auc": 0.8377360203340595
+                },
+                "test": {
+                  "brier": 0.025856692727035023,
+                  "log_loss": 0.11264687877152317,
+                  "roc_auc": 0.7558331856577472
+                },
+                "features": [
+                  {
+                    "name": "sin(2.0\u03c0*score_difference)*step(skill_difference>75%)",
+                    "coefficient": 1.08999267690758
+                  },
+                  {
+                    "name": "hmean(step(skill_difference>50%),cos(2.0\u03c0*skill_difference))",
+                    "coefficient": 0.8344759699977227
+                  },
+                  {
+                    "name": "hmean(tri(2.0*skill_difference),sin(3.0\u03c0*skill_difference))",
+                    "coefficient": 0.8123189120274978
+                  },
+                  {
+                    "name": "(tri(2.0*skill_difference)-sin(2.0\u03c0*score_difference))\u00b2",
+                    "coefficient": -0.6653920245915943
+                  },
+                  {
+                    "name": "|sin(2.0\u03c0*score_difference)-step(skill_difference>50%)|/\u03a3",
+                    "coefficient": -0.6174363234840733
+                  },
+                  {
+                    "name": "(cos(3.0\u03c0*score_difference)-step(skill_difference>75%))\u00b2",
+                    "coefficient": 0.526336186334527
+                  },
+                  {
+                    "name": "|sin(2.0\u03c0*score_difference)-step(skill_difference>75%)|/\u03a3",
+                    "coefficient": 0.4911178647027202
+                  },
+                  {
+                    "name": "cos(1.0\u03c0*perspective)*step(skill_difference>75%)",
+                    "coefficient": 0.2733353466795038
+                  },
+                  {
+                    "name": "relu(step(skill_difference>75%)-step(score_difference>50%))",
+                    "coefficient": 0.08165499030654175
+                  },
+                  {
+                    "name": "hmean(pulse(time_fraction:33%-67%),cos(2.0\u03c0*skill_difference))",
+                    "coefficient": 0.07473299609576634
+                  },
+                  {
+                    "name": "hmean(tri(2.0*skill_difference),gauss(score_difference,c=25%,w=0.2))",
+                    "coefficient": 0.06678806770940861
+                  },
+                  {
+                    "name": "hmean(tri(2.0*time_fraction),cos(2.0\u03c0*skill_difference))",
+                    "coefficient": 0.05737760053649021
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5949,
+                "validation_rows": 1908,
+                "test_rows": 1935,
+                "discovery_games": 356,
+                "validation_games": 119,
+                "test_games": 119
+              }
+            },
+            "core": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.0289743046546166,
+                  "log_loss": 0.11691485116347526,
+                  "roc_auc": 0.8624425078673444
+                },
+                "test": {
+                  "brier": 0.026037579577853888,
+                  "log_loss": 0.11427332705238612,
+                  "roc_auc": 0.7646248055604781
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.027971162421396745,
+                  "log_loss": 0.10882799382593249,
+                  "roc_auc": 0.9016279351246672
+                },
+                "test": {
+                  "brier": 0.02681925167685393,
+                  "log_loss": 0.1147505440350401,
+                  "roc_auc": 0.7850237265441944
+                },
+                "features": [
+                  {
+                    "name": "(cos(3.0\u03c0*score_difference)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+                    "coefficient": 1.1420541408963536
+                  },
+                  {
+                    "name": "relu(tri(3.0*score_difference)-cos(3.0\u03c0*contested_nodes))",
+                    "coefficient": -0.5378600847450349
+                  },
+                  {
+                    "name": "(step(score_difference>50%)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+                    "coefficient": -0.14925868136580542
+                  },
+                  {
+                    "name": "(cos(3.0\u03c0*score_difference)-cos(2.0\u03c0*opponent_pending_action))\u00b2",
+                    "coefficient": 0.14416532204672522
+                  },
+                  {
+                    "name": "sin(2.0\u03c0*our_target_distance)*sin(2.0\u03c0*opponent_controlled_nodes)",
+                    "coefficient": -0.13710714120637452
+                  },
+                  {
+                    "name": "max(cos(3.0\u03c0*our_target_distance),cos(1.0\u03c0*opponent_target_distance))",
+                    "coefficient": -0.11952961763315548
+                  },
+                  {
+                    "name": "max(tri(2.0*our_target_distance),cos(1.0\u03c0*opponent_target_distance))",
+                    "coefficient": 0.107551468045968
+                  },
+                  {
+                    "name": "hmean(tri(2.0*our_target_distance),cos(1.0\u03c0*opponent_target_distance))",
+                    "coefficient": 0.07967133068768043
+                  },
+                  {
+                    "name": "(gauss(our_target_progress,c=50%,w=0.2)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+                    "coefficient": 0.07599275879611668
+                  },
+                  {
+                    "name": "min(cos(2.0\u03c0*opponent_pending_action),tri(3.0*opponent_target_progress))",
+                    "coefficient": 0.030575651691982245
+                  },
+                  {
+                    "name": "(step(opponent_pending_action>25%)-cos(3.0\u03c0*our_target_distance))\u00b2",
+                    "coefficient": 0.02463684836459909
+                  },
+                  {
+                    "name": "relu(tri(3.0*opponent_target_progress)-step(score_difference>50%))",
+                    "coefficient": -0.014995901564024553
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5949,
+                "validation_rows": 1908,
+                "test_rows": 1935,
+                "discovery_games": 356,
+                "validation_games": 119,
+                "test_games": 119
+              }
+            },
+            "scenario": {
+              "baseline": {
+                "validation": {
+                  "brier": 0.0289743046546166,
+                  "log_loss": 0.11691485116347526,
+                  "roc_auc": 0.8624425078673444
+                },
+                "test": {
+                  "brier": 0.026037579577853888,
+                  "log_loss": 0.11427332705238612,
+                  "roc_auc": 0.7646248055604781
+                }
+              },
+              "potage": {
+                "validation": {
+                  "brier": 0.026276844941154363,
+                  "log_loss": 0.10275557690186325,
+                  "roc_auc": 0.9100172476397966
+                },
+                "test": {
+                  "brier": 0.027889872735090145,
+                  "log_loss": 0.118918115505327,
+                  "roc_auc": 0.771752613857877
+                },
+                "features": [
+                  {
+                    "name": "|gauss(our_start_to_center_node,c=75%,w=0.2)-cos(1.0\u03c0*opponent_speed)|/\u03a3",
+                    "coefficient": -0.536862003089709
+                  },
+                  {
+                    "name": "gauss(our_start_to_center_node,c=75%,w=0.2)*cos(1.0\u03c0*opponent_speed)",
+                    "coefficient": -0.4023989116441263
+                  },
+                  {
+                    "name": "(cos(3.0\u03c0*score_difference)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+                    "coefficient": 0.371960273109445
+                  },
+                  {
+                    "name": "(gauss(our_start_to_center_node,c=75%,w=0.2)-cos(3.0\u03c0*score_difference))\u00b2",
+                    "coefficient": 0.3532608946767313
+                  },
+                  {
+                    "name": "|gauss(our_start_to_center_node,c=75%,w=0.2)-sin(2.0\u03c0*our_target_distance)|/\u03a3",
+                    "coefficient": 0.14711228493376033
+                  },
+                  {
+                    "name": "|gauss(our_start_to_center_node,c=75%,w=0.2)-sin(3.0\u03c0*our_target_distance)|/\u03a3",
+                    "coefficient": -0.12632828581026065
+                  },
+                  {
+                    "name": "|pulse(start_separation:67%-100%)-cos(1.0\u03c0*opponent_speed)|/\u03a3",
+                    "coefficient": 0.10960094075975571
+                  },
+                  {
+                    "name": "pulse(start_separation:67%-100%)*sin(2.0\u03c0*our_start_to_center_node)",
+                    "coefficient": -0.1092578416804763
+                  },
+                  {
+                    "name": "max(cos(3.0\u03c0*contested_nodes),cos(2.0\u03c0*our_start_to_center_node))",
+                    "coefficient": -0.09654289496164474
+                  },
+                  {
+                    "name": "relu(sin(3.0\u03c0*our_target_distance)-gauss(start_separation,c=50%,w=0.5))",
+                    "coefficient": -0.03738247977232861
+                  },
+                  {
+                    "name": "relu(tri(3.0*opponent_target_progress)-step(score_difference>50%))",
+                    "coefficient": -0.021865411497786136
+                  },
+                  {
+                    "name": "|pulse(start_separation:67%-100%)-cos(1.0\u03c0*opponent_speed)|",
+                    "coefficient": -0.02045546778000615
+                  }
+                ]
+              },
+              "split": {
+                "discovery_rows": 5949,
+                "validation_rows": 1908,
+                "test_rows": 1935,
+                "discovery_games": 356,
+                "validation_games": 119,
+                "test_games": 119
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "summary": {
+    "speed": {
+      "context": {
+        "brier_mean": 0.11783689683092761,
+        "brier_std": 0.0072599581383676675,
+        "auc_mean": 0.7806047015720977,
+        "auc_std": 0.08043197810155833,
+        "scenario_terms_mean": 0.0,
+        "top_feature_consensus": [
+          {
+            "name": "max(pulse(skill_difference:0%-33%),step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|step(score_difference>50%)-gauss(skill_difference,c=75%,w=0.2)|",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(score_difference>50%),cos(0.5\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(cos(1.0\u03c0*perspective),gauss(skill_difference,c=75%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(pulse(skill_difference:0%-33%)-gauss(score_difference,c=25%,w=0.2))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|pulse(skill_difference:0%-33%)-step(score_difference>50%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "gauss(skill_difference,c=75%,w=0.2)/(1+|step(score_difference>50%)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(sin(3.0\u03c0*skill_difference),tri(3.0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(1.0\u03c0*skill_difference)-tri(2.0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(gauss(score_difference,c=25%,w=0.2),step(score_difference>75%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(cos(2.0\u03c0*skill_difference),cos(0.5\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "gauss(score_difference,c=25%,w=0.2)/(1+|pulse(skill_difference:0%-33%)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(3.0\u03c0*score_difference),sin(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|gauss(skill_difference,c=25%,w=0.2)-cos(3.0\u03c0*skill_difference)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "step(skill_difference>25%)/(1+|step(score_difference>50%)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(1.0\u03c0*perspective)-cos(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(tri(3.0*skill_difference)-tri(2.0*skill_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(pulse(score_difference:0%-33%),cos(2.0\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(1.0\u03c0*perspective)-tri(3.0*skill_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|step(score_difference>50%)-step(skill_difference>25%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(3.0\u03c0*score_difference)*sin(2.0\u03c0*score_difference)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|tri(3.0*skill_difference)-sin(3.0\u03c0*skill_difference)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(step(skill_difference>25%)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(tri(3.0*skill_difference),sin(0.5\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "gauss(skill_difference,c=25%,w=0.2)*tri(2.0*score_difference)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(skill_difference,c=25%,w=0.2)-tri(3.0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(skill_difference,c=25%,w=0.2),tri(2.0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(3.0\u03c0*score_difference)*gauss(skill_difference,c=25%,w=0.2)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(gauss(score_difference,c=25%,w=0.2),sin(0.5\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "tri(3.0*skill_difference)*tri(3.0*score_difference)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "min(sin(3.0\u03c0*skill_difference),tri(2.0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|cos(3.0\u03c0*skill_difference)-cos(1.0\u03c0*perspective)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|pulse(score_difference:33%-67%)-step(score_difference>75%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(skill_difference,c=25%,w=0.2),cos(3.0\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          }
+        ]
+      },
+      "core": {
+        "brier_mean": 0.11982953535282082,
+        "brier_std": 0.0022144559429822723,
+        "auc_mean": 0.7749424053706949,
+        "auc_std": 0.03809866118228117,
+        "scenario_terms_mean": 0.0,
+        "top_feature_consensus": [
+          {
+            "name": "min(tri(2.0*score_difference),cos(2.0\u03c0*contested_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(3.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(tri(2.0*score_difference)-cos(1.0\u03c0*opponent_controlled_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(score_difference>50%),cos(1.0\u03c0*opponent_controlled_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(2.0\u03c0*opponent_score_rate)*cos(2.0\u03c0*contested_nodes)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(score_difference>50%)-pulse(score_difference:33%-67%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(score_difference>50%),pulse(opponent_target_distance:0%-33%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "min(tri(2.0*score_difference),sin(2.0\u03c0*opponent_score_rate))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(step(opponent_controlled_nodes>25%)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(score_difference>50%),cos(1.0\u03c0*opponent_target_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(3.0\u03c0*score_difference),sin(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(2.0\u03c0*our_pending_action),tri(0.5*opponent_controlled_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(score_difference,c=25%,w=0.2)-cos(1.0\u03c0*opponent_controlled_nodes))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(3.0\u03c0*contested_nodes)-tri(2.0*opponent_score_rate))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(3.0\u03c0*contested_nodes)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(gauss(score_difference,c=25%,w=0.2),step(score_difference>75%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "cos(3.0\u03c0*score_difference)*cos(2.0\u03c0*contested_nodes)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|step(score_difference>50%)-pulse(score_difference:33%-67%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(3.0\u03c0*score_difference)-sin(3.0\u03c0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(3.0\u03c0*contested_nodes)-cos(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "gauss(score_difference,c=25%,w=0.2)/(1+|tri(2.0*our_target_progress)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(step(opponent_controlled_nodes>25%)-sin(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(1.0\u03c0*our_target_progress)-pulse(score_difference:0%-33%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(pulse(opponent_controlled_nodes:67%-100%)-step(opponent_pending_action>25%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "cos(2.0\u03c0*score_difference)/(1+|step(our_pending_action>75%)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|sin(3.0\u03c0*our_score_rate)-sin(2.0\u03c0*opponent_score_rate)|",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(opponent_controlled_nodes>25%)-tri(3.0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(3.0\u03c0*score_difference),gauss(score_difference,c=75%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(3.0\u03c0*score_difference)*sin(3.0\u03c0*our_score_rate)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(sin(3.0\u03c0*score_difference)-sin(3.0\u03c0*our_score_rate))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(1.0\u03c0*our_target_progress),sin(2.0\u03c0*opponent_score_rate))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(tri(3.0*score_difference)-sin(2.0\u03c0*opponent_score_rate))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(gauss(score_difference,c=25%,w=0.2)-gauss(opponent_controlled_nodes,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          }
+        ]
+      },
+      "scenario": {
+        "brier_mean": 0.12101642946456109,
+        "brier_std": 0.004963677051292908,
+        "auc_mean": 0.7703005320516002,
+        "auc_std": 0.05201602184498855,
+        "scenario_terms_mean": 7.0,
+        "top_feature_consensus": [
+          {
+            "name": "min(tri(2.0*score_difference),cos(2.0\u03c0*contested_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(3.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(step(speed_difference>25%)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(speed_difference>25%),tri(2.0*opponent_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(tri(2.0*our_start_to_center_node),step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(tri(2.0*our_start_to_center_node)-step(speed_difference>25%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(score_difference>50%),pulse(opponent_target_distance:0%-33%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(sin(3.0\u03c0*our_start_to_center_node)-sin(3.0\u03c0*start_separation))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "min(tri(2.0*score_difference),step(opponent_controlled_nodes>25%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(step(opponent_controlled_nodes>25%)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(sin(2.0\u03c0*opponent_score_rate)-tri(3.0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(score_difference,c=25%,w=0.2)-sin(1.0\u03c0*our_start_to_center_node))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(score_difference,c=25%,w=0.2)-tri(0.5*opponent_controlled_nodes))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(3.0\u03c0*contested_nodes)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(2.0\u03c0*opponent_start_to_center_node)-sin(1.0\u03c0*our_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(gauss(score_difference,c=25%,w=0.2),step(score_difference>75%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "pulse(opponent_controlled_nodes:67%-100%)*cos(3.0\u03c0*our_start_to_center_node)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(score_difference>50%),cos(1.0\u03c0*our_speed))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(tri(2.0*start_separation)-cos(3.0\u03c0*our_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(cos(3.0\u03c0*contested_nodes)-cos(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(tri(2.0*start_separation),cos(2.0\u03c0*opponent_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|gauss(score_difference,c=25%,w=0.2)-pulse(score_difference:33%-67%)|",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(pulse(score_difference:33%-67%)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(gauss(start_separation,c=75%,w=0.2)-sin(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(step(start_separation>50%)-sin(0.5\u03c0*our_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(gauss(opponent_score_rate,c=75%,w=0.5),gauss(score_difference,c=25%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|sin(1.0\u03c0*our_start_to_center_node)-step(speed_difference>50%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(pulse(start_separation:33%-67%)-sin(0.5\u03c0*our_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(start_separation,c=75%,w=0.2),cos(1.0\u03c0*our_speed))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|sin(0.5\u03c0*our_start_to_center_node)-step(speed_difference>50%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(2.0\u03c0*score_difference)-pulse(opponent_controlled_nodes:67%-100%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "step(opponent_controlled_nodes>25%)*pulse(opponent_start_to_center_node:67%-100%)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(opponent_controlled_nodes>25%)-sin(2.0\u03c0*opponent_start_to_center_node))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(tri(2.0*score_difference)-sin(2.0\u03c0*opponent_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(tri(2.0*score_difference)-sin(0.5\u03c0*our_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          }
+        ]
+      }
+    },
+    "initial_position": {
+      "context": {
+        "brier_mean": 0.03134805540290852,
+        "brier_std": 0.005419183464417959,
+        "auc_mean": 0.832431071522601,
+        "auc_std": 0.07448215239752821,
+        "scenario_terms_mean": 0.0,
+        "top_feature_consensus": [
+          {
+            "name": "relu(step(skill_difference>75%)-step(score_difference>50%))",
+            "runs": 2,
+            "fraction": 0.6666666666666666
+          },
+          {
+            "name": "hmean(cos(3.0\u03c0*skill_difference),pulse(time_fraction:33%-67%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(cos(3.0\u03c0*skill_difference),pulse(skill_difference:33%-67%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|pulse(skill_difference:33%-67%)-sin(3.0\u03c0*skill_difference)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(cos(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(tri(2.0*time_fraction),gauss(skill_difference,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(cos(3.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(3.0\u03c0*score_difference),tri(2.0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|sin(3.0\u03c0*score_difference)-sin(2.0\u03c0*skill_difference)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(3.0\u03c0*skill_difference)-tri(3.0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(tri(2.0*skill_difference),cos(0.5\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(1.0\u03c0*perspective),gauss(skill_difference,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(skill_difference,c=25%,w=0.5),sin(2.0\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|pulse(skill_difference:33%-67%)-cos(1.0\u03c0*perspective)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "gauss(skill_difference,c=25%,w=0.5)/(1+|tri(2.0*skill_difference)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "min(cos(1.0\u03c0*perspective),tri(3.0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "pulse(skill_difference:33%-67%)*tri(3.0*score_difference)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|pulse(skill_difference:33%-67%)-tri(3.0*skill_difference)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(tri(3.0*skill_difference),gauss(skill_difference,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(2.0\u03c0*skill_difference)-cos(2.0\u03c0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(step(skill_difference>75%),cos(3.0\u03c0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|cos(3.0\u03c0*score_difference)-tri(2.0*skill_difference)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|cos(1.0\u03c0*perspective)-tri(3.0*skill_difference)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(cos(1.0\u03c0*skill_difference),gauss(skill_difference,c=25%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(step(skill_difference>50%),cos(2.0\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|sin(2.0\u03c0*score_difference)-step(skill_difference>50%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(3.0\u03c0*score_difference)-step(skill_difference>75%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "cos(1.0\u03c0*perspective)*step(skill_difference>75%)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|sin(2.0\u03c0*score_difference)-step(skill_difference>75%)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(tri(2.0*time_fraction),cos(2.0\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(tri(2.0*skill_difference)-sin(2.0\u03c0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(tri(2.0*skill_difference),gauss(score_difference,c=25%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(tri(2.0*skill_difference),sin(3.0\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(pulse(time_fraction:33%-67%),cos(2.0\u03c0*skill_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(2.0\u03c0*score_difference)*step(skill_difference>75%)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          }
+        ]
+      },
+      "core": {
+        "brier_mean": 0.031710032611805626,
+        "brier_std": 0.005450733549131725,
+        "auc_mean": 0.7983224247012344,
+        "auc_std": 0.09744575996008027,
+        "scenario_terms_mean": 0.0,
+        "top_feature_consensus": [
+          {
+            "name": "max(gauss(opponent_score_rate,c=75%,w=0.5),gauss(score_difference,c=25%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|tri(0.5*opponent_target_distance)-gauss(score_difference,c=25%,w=0.2)|",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(contested_nodes,c=50%,w=0.2)-step(score_difference>50%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "step(agent_distance>75%)*cos(3.0\u03c0*contested_nodes)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(cos(3.0\u03c0*contested_nodes),gauss(score_difference,c=25%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(contested_nodes,c=50%,w=0.2)-cos(2.0\u03c0*our_pending_action))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(step(agent_distance>75%)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(3.0\u03c0*our_target_distance),step(our_pending_action>75%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(3.0\u03c0*contested_nodes),pulse(agent_distance:33%-67%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(contested_nodes,c=50%,w=0.2),step(agent_distance>75%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "gauss(contested_nodes,c=50%,w=0.2)/(1+|step(score_difference>50%)|)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(contested_nodes,c=50%,w=0.5)-pulse(opponent_target_progress:0%-33%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(pulse(opponent_score_rate:33%-67%),cos(1.0\u03c0*agent_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "cos(3.0\u03c0*our_score_rate)*pulse(opponent_score_rate:33%-67%)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(2.0\u03c0*opponent_score_rate),sin(2.0\u03c0*agent_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "step(agent_distance>75%)*tri(3.0*score_difference)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(agent_distance>75%)-cos(3.0\u03c0*contested_nodes))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(3.0\u03c0*our_score_rate),tri(3.0*score_difference))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(gauss(agent_distance,c=50%,w=0.5),cos(3.0\u03c0*contested_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "step(agent_distance>75%)*cos(3.0\u03c0*our_target_progress)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(agent_distance>75%)-cos(3.0\u03c0*our_controlled_nodes))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "step(agent_distance>75%)*cos(3.0\u03c0*opponent_target_progress)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(contested_nodes,c=50%,w=0.5),sin(2.0\u03c0*agent_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(pulse(opponent_score_rate:33%-67%),sin(2.0\u03c0*agent_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(tri(2.0*our_target_distance),cos(1.0\u03c0*opponent_target_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(score_difference>50%)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(tri(2.0*our_target_distance),cos(1.0\u03c0*opponent_target_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(our_target_progress,c=50%,w=0.2)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(opponent_pending_action>25%)-cos(3.0\u03c0*our_target_distance))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(3.0\u03c0*score_difference)-cos(2.0\u03c0*opponent_pending_action))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "sin(2.0\u03c0*our_target_distance)*sin(2.0\u03c0*opponent_controlled_nodes)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(3.0\u03c0*score_difference)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "min(cos(2.0\u03c0*opponent_pending_action),tri(3.0*opponent_target_progress))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(3.0\u03c0*our_target_distance),cos(1.0\u03c0*opponent_target_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(tri(3.0*score_difference)-cos(3.0\u03c0*contested_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(tri(3.0*opponent_target_progress)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          }
+        ]
+      },
+      "scenario": {
+        "brier_mean": 0.03240013792900867,
+        "brier_std": 0.005736407699178849,
+        "auc_mean": 0.7823199034467709,
+        "auc_std": 0.12002505595311722,
+        "scenario_terms_mean": 11.0,
+        "top_feature_consensus": [
+          {
+            "name": "step(opponent_start_to_center_node>75%)*sin(3.0\u03c0*our_start_to_center_node)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(2.0\u03c0*speed_difference),cos(2.0\u03c0*our_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(2.0\u03c0*speed_difference),cos(3.0\u03c0*contested_nodes))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(pulse(our_start_to_center_node:33%-67%)-cos(2.0\u03c0*speed_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(pulse(our_start_to_center_node:33%-67%)-gauss(opponent_start_to_center_node,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(sin(2.0\u03c0*contested_nodes)-gauss(opponent_start_to_center_node,c=25%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "pulse(our_start_to_center_node:33%-67%)*step(opponent_start_to_center_node>75%)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(contested_nodes,c=50%,w=0.2),step(opponent_start_to_center_node>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "step(opponent_start_to_center_node>75%)*cos(2.0\u03c0*our_start_to_center_node)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(opponent_start_to_center_node>75%)-sin(3.0\u03c0*our_start_to_center_node))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(pulse(our_start_to_center_node:33%-67%)-cos(1.0\u03c0*opponent_start_to_center_node))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(2.0\u03c0*speed_difference),step(start_separation>25%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "tri(2.0*opponent_start_to_center_node)*step(our_start_to_center_node>50%)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(start_separation>75%)-gauss(opponent_start_to_center_node,c=75%,w=0.2))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(opponent_start_to_center_node,c=75%,w=0.2),sin(2.0\u03c0*agent_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(tri(2.0*opponent_start_to_center_node)-step(our_start_to_center_node>50%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(start_separation,c=75%,w=0.2),sin(2.0\u03c0*agent_distance))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(sin(2.0\u03c0*start_separation)-step(our_start_to_center_node>50%))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(step(agent_distance>75%),sin(2.0\u03c0*start_separation))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(2.0\u03c0*agent_distance),step(our_start_to_center_node>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(sin(2.0\u03c0*agent_distance),gauss(contested_nodes,c=50%,w=0.2))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(step(agent_distance>75%)-tri(2.0*opponent_start_to_center_node))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "min(step(agent_distance>75%),step(our_start_to_center_node>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "hmean(gauss(our_start_to_center_node,c=75%,w=0.2),sin(2.0\u03c0*start_separation))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "gauss(our_start_to_center_node,c=75%,w=0.2)*cos(1.0\u03c0*opponent_speed)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|pulse(start_separation:67%-100%)-cos(1.0\u03c0*opponent_speed)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(tri(3.0*opponent_target_progress)-step(score_difference>50%))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "pulse(start_separation:67%-100%)*sin(2.0\u03c0*our_start_to_center_node)",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "max(cos(3.0\u03c0*contested_nodes),cos(2.0\u03c0*our_start_to_center_node))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|pulse(start_separation:67%-100%)-cos(1.0\u03c0*opponent_speed)|",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(cos(3.0\u03c0*score_difference)-gauss(contested_nodes,c=50%,w=0.2))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|gauss(our_start_to_center_node,c=75%,w=0.2)-sin(2.0\u03c0*our_target_distance)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "(gauss(our_start_to_center_node,c=75%,w=0.2)-cos(3.0\u03c0*score_difference))\u00b2",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|gauss(our_start_to_center_node,c=75%,w=0.2)-sin(3.0\u03c0*our_target_distance)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "|gauss(our_start_to_center_node,c=75%,w=0.2)-cos(1.0\u03c0*opponent_speed)|/\u03a3",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          },
+          {
+            "name": "relu(sin(3.0\u03c0*our_target_distance)-gauss(start_separation,c=50%,w=0.5))",
+            "runs": 1,
+            "fraction": 0.3333333333333333
+          }
+        ]
+      }
+    }
+  }
+}

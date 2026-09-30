@@ -1,0 +1,237 @@
+{
+  "generation": {
+    "games_requested": 3000,
+    "games_kept": 2974,
+    "draws": 26
+  },
+  "seed": 701,
+  "snapshot_ticks": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90
+  ],
+  "rows": 53532,
+  "positive_rate": 0.5,
+  "split": {
+    "discovery_rows": 32112,
+    "validation_rows": 10710,
+    "test_rows": 10710,
+    "discovery_games": 1784,
+    "validation_games": 595,
+    "test_games": 595
+  },
+  "baseline": {
+    "validation": {
+      "brier": 0.09514242691328162,
+      "log_loss": 0.2926136122492353,
+      "roc_auc": 0.9457487221468108
+    },
+    "test": {
+      "brier": 0.07974520995882736,
+      "log_loss": 0.24882404687828316,
+      "roc_auc": 0.9614496779103798
+    }
+  },
+  "potage_raw": {
+    "validation": {
+      "brier": 0.09136600288628757,
+      "log_loss": 0.28136157060963557,
+      "roc_auc": 0.9501385216395926
+    },
+    "test": {
+      "brier": 0.07943647052272601,
+      "log_loss": 0.24858740081631236,
+      "roc_auc": 0.9615833435770824
+    },
+    "features": [
+      {
+        "name": "our_controlled_nodes",
+        "coefficient": 0.1932100499699746
+      },
+      {
+        "name": "opponent_controlled_nodes",
+        "coefficient": -0.19321003424343944
+      },
+      {
+        "name": "our_nearest_node_distance",
+        "coefficient": -0.1299244739638377
+      },
+      {
+        "name": "opponent_nearest_node_distance",
+        "coefficient": 0.129924415964053
+      },
+      {
+        "name": "our_pending_action",
+        "coefficient": -0.07068361181565067
+      },
+      {
+        "name": "opponent_pending_action",
+        "coefficient": 0.07068356237511952
+      },
+      {
+        "name": "our_target_progress",
+        "coefficient": 0.05625749140293724
+      },
+      {
+        "name": "opponent_target_progress",
+        "coefficient": -0.05625745743277858
+      },
+      {
+        "name": "score_difference",
+        "coefficient": -0.04658038068326284
+      }
+    ]
+  },
+  "potage_am": {
+    "validation": {
+      "brier": 0.08954536923477835,
+      "log_loss": 0.2764453270988251,
+      "roc_auc": 0.9519402009169681
+    },
+    "test": {
+      "brier": 0.07890472878593682,
+      "log_loss": 0.246379789962273,
+      "roc_auc": 0.9622434071667882
+    },
+    "features": [
+      {
+        "name": "max(opponent_controlled_nodes,our_nearest_node_distance)",
+        "coefficient": -0.20726879187528727
+      },
+      {
+        "name": "max(our_controlled_nodes,opponent_nearest_node_distance)",
+        "coefficient": 0.1771916404548535
+      },
+      {
+        "name": "our_target_distance*our_pending_action",
+        "coefficient": -0.17467602282224573
+      },
+      {
+        "name": "opponent_target_distance*opponent_pending_action",
+        "coefficient": 0.1719118233266758
+      },
+      {
+        "name": "opponent_target_progress/(1+|agent_distance|)",
+        "coefficient": -0.10784456025555421
+      },
+      {
+        "name": "|opponent_controlled_nodes-our_target_progress|/\u03a3",
+        "coefficient": -0.10139154037431714
+      },
+      {
+        "name": "opponent_controlled_nodes*our_score_rate",
+        "coefficient": -0.06802685243096619
+      },
+      {
+        "name": "our_nearest_node_distance*opponent_score_rate",
+        "coefficient": -0.05663741078085684
+      },
+      {
+        "name": "our_controlled_nodes*opponent_score_rate",
+        "coefficient": 0.05658944573955638
+      },
+      {
+        "name": "|score_difference-our_score_rate|/\u03a3",
+        "coefficient": 0.054046734327848366
+      },
+      {
+        "name": "opponent_nearest_node_distance*our_score_rate",
+        "coefficient": 0.03878031845966044
+      },
+      {
+        "name": "contested_nodes/(1+|our_target_distance|)",
+        "coefficient": -0.033084692976870875
+      },
+      {
+        "name": "|opponent_nearest_node_distance-opponent_score_rate|/\u03a3",
+        "coefficient": -0.02809117093620202
+      },
+      {
+        "name": "opponent_controlled_nodes/(1+|score_difference|)",
+        "coefficient": -0.008105598460323707
+      },
+      {
+        "name": "opponent_nearest_node_distance/(1+|score_difference|)",
+        "coefficient": 0.003835993190335361
+      },
+      {
+        "name": "our_nearest_node_distance/(1+|opponent_controlled_nodes|)",
+        "coefficient": -0.0035297587523411777
+      }
+    ]
+  },
+  "full_state_tree": {
+    "validation": {
+      "brier": 0.08362791340035375,
+      "log_loss": 0.260964615935063,
+      "roc_auc": 0.9577071961682277
+    },
+    "test": {
+      "brier": 0.07173834125896766,
+      "log_loss": 0.22455653667755118,
+      "roc_auc": 0.9686743019647945
+    }
+  },
+  "stability_runs": [
+    {
+      "seed": 19,
+      "games": 1000,
+      "baseline_test_brier": 0.08029985288203896,
+      "potage_raw_test_brier": 0.07674900401446925,
+      "potage_am_test_brier": 0.0759773982620934,
+      "tree_test_brier": 0.08176155094199461,
+      "top_am_features": [
+        "relu(opponent_controlled_nodes-opponent_target_distance)",
+        "hmean(our_controlled_nodes,our_score_rate)",
+        "relu(opponent_target_distance-opponent_pending_action)",
+        "our_target_progress/(1+|control_progress_spread|)",
+        "our_nearest_node_distance*our_pending_action",
+        "relu(opponent_target_distance-time_fraction)",
+        "score_difference*our_nearest_node_distance",
+        "our_target_distance*our_target_progress"
+      ]
+    },
+    {
+      "seed": 41,
+      "games": 1000,
+      "baseline_test_brier": 0.08713481458295132,
+      "potage_raw_test_brier": 0.08622431943970144,
+      "potage_am_test_brier": 0.08529258309304795,
+      "tree_test_brier": 0.09007213780824466,
+      "top_am_features": [
+        "opponent_target_distance*opponent_pending_action",
+        "our_target_distance*our_pending_action",
+        "hmean(our_controlled_nodes,opponent_score_rate)",
+        "max(opponent_controlled_nodes,our_nearest_node_distance)",
+        "|contested_nodes-our_pending_action|",
+        "(contested_nodes-opponent_pending_action)\u00b2",
+        "opponent_target_progress/(1+|score_difference|)",
+        "hmean(score_difference,opponent_target_progress)"
+      ]
+    },
+    {
+      "seed": 97,
+      "games": 1000,
+      "baseline_test_brier": 0.08455192157113783,
+      "potage_raw_test_brier": 0.0838300093400589,
+      "potage_am_test_brier": 0.0832064106474298,
+      "tree_test_brier": 0.08045965211085007,
+      "top_am_features": [
+        "max(our_controlled_nodes,opponent_nearest_node_distance)",
+        "opponent_nearest_node_distance*opponent_pending_action",
+        "our_nearest_node_distance*our_pending_action",
+        "contested_nodes/(1+|our_target_distance|)",
+        "opponent_target_distance*agent_distance",
+        "time_fraction*opponent_pending_action",
+        "our_target_distance*agent_distance",
+        "our_pending_action*opponent_score_rate"
+      ]
+    }
+  ]
+}

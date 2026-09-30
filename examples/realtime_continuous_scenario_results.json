@@ -1,0 +1,92 @@
+{
+  "seed": 1201,
+  "games": 1200,
+  "recipe": "carrier_am",
+  "train_generation": {
+    "games_requested": 1200,
+    "games_kept": 1112,
+    "draws": 88
+  },
+  "in_support_generation": {
+    "games_requested": 400,
+    "games_kept": 372,
+    "draws": 28
+  },
+  "heldout_speed_generation": {
+    "games_requested": 400,
+    "games_kept": 373,
+    "draws": 27
+  },
+  "results": [
+    {
+      "feature_space": "core",
+      "recipe": "carrier_am",
+      "test": {
+        "in_support": {
+          "brier": 0.060256216427204856,
+          "log_loss": 0.19742626042029726,
+          "roc_auc": 0.97688111378037
+        },
+        "heldout_speed": {
+          "brier": 0.06616835296764739,
+          "log_loss": 0.214101788372334,
+          "roc_auc": 0.9723307679017847
+        }
+      },
+      "selected_features": [
+        "relu(cos(1.0\u03c0*our_controlled_nodes)-cos(2.0\u03c0*opponent_controlled_nodes))",
+        "(sin(2.0\u03c0*opponent_target_progress)-cos(2.0\u03c0*opponent_pending_action))\u00b2",
+        "min(cos(2.0\u03c0*our_controlled_nodes),pulse(opponent_controlled_nodes:67%-100%))",
+        "|cos(1.0\u03c0*opponent_controlled_nodes)-tri(0.5*opponent_target_distance)|/\u03a3",
+        "hmean(cos(2.0\u03c0*opponent_pending_action),cos(1.0\u03c0*our_target_progress))",
+        "relu(cos(2.0\u03c0*opponent_controlled_nodes)-tri(0.5*our_controlled_nodes))",
+        "min(cos(2.0\u03c0*our_pending_action),sin(3.0\u03c0*our_target_distance))",
+        "(tri(0.5*our_controlled_nodes)-step(opponent_controlled_nodes>25%))\u00b2",
+        "max(tri(0.5*opponent_controlled_nodes),step(our_controlled_nodes>25%))",
+        "hmean(sin(2.0\u03c0*our_target_progress),sin(2.0\u03c0*opponent_target_distance))",
+        "(tri(2.0*our_target_distance)-cos(2.0\u03c0*our_controlled_nodes))\u00b2",
+        "sin(2.0\u03c0*opponent_target_progress)*cos(1.0\u03c0*opponent_controlled_nodes)"
+      ],
+      "selected_scenario_features": []
+    },
+    {
+      "feature_space": "scenario",
+      "recipe": "carrier_am",
+      "test": {
+        "in_support": {
+          "brier": 0.060362176082939006,
+          "log_loss": 0.19796253684508355,
+          "roc_auc": 0.9766877887831177
+        },
+        "heldout_speed": {
+          "brier": 0.06720554998220761,
+          "log_loss": 0.2159098752167415,
+          "roc_auc": 0.9718436988356752
+        }
+      },
+      "selected_features": [
+        "relu(cos(1.0\u03c0*our_controlled_nodes)-cos(2.0\u03c0*opponent_controlled_nodes))",
+        "relu(cos(1.0\u03c0*our_start_to_center_node)-step(speed_difference>25%))",
+        "min(sin(2.0\u03c0*our_target_progress),step(opponent_start_to_center_node>50%))",
+        "relu(cos(1.0\u03c0*opponent_controlled_nodes)-cos(2.0\u03c0*our_controlled_nodes))",
+        "|step(opponent_start_to_center_node>50%)-cos(1.0\u03c0*our_start_to_center_node)|/\u03a3",
+        "|pulse(speed_difference:0%-33%)-tri(2.0*our_start_to_center_node)|/\u03a3",
+        "(sin(2.0\u03c0*opponent_target_progress)-cos(2.0\u03c0*opponent_pending_action))\u00b2",
+        "relu(tri(0.5*our_controlled_nodes)-step(speed_difference>25%))",
+        "max(tri(0.5*opponent_controlled_nodes),sin(3.0\u03c0*opponent_target_distance))",
+        "(cos(1.0\u03c0*our_start_to_center_node)-tri(2.0*opponent_start_to_center_node))\u00b2",
+        "|pulse(speed_difference:0%-33%)-step(opponent_start_to_center_node>50%)|/\u03a3",
+        "max(tri(0.5*our_controlled_nodes),sin(3.0\u03c0*our_target_distance))"
+      ],
+      "selected_scenario_features": [
+        "relu(cos(1.0\u03c0*our_start_to_center_node)-step(speed_difference>25%))",
+        "min(sin(2.0\u03c0*our_target_progress),step(opponent_start_to_center_node>50%))",
+        "|step(opponent_start_to_center_node>50%)-cos(1.0\u03c0*our_start_to_center_node)|/\u03a3",
+        "|pulse(speed_difference:0%-33%)-tri(2.0*our_start_to_center_node)|/\u03a3",
+        "relu(tri(0.5*our_controlled_nodes)-step(speed_difference>25%))",
+        "(cos(1.0\u03c0*our_start_to_center_node)-tri(2.0*opponent_start_to_center_node))\u00b2",
+        "|pulse(speed_difference:0%-33%)-step(opponent_start_to_center_node>50%)|/\u03a3"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "variant": "combined",
+  "strength": 24.0,
+  "pairs_per_phase": 500,
+  "games_per_pair": 2,
+  "seed": 503,
+  "bootstrap_repetitions": 2000,
+  "phases": [
+    {
+      "opening_plies": 0,
+      "paired_score": 0.6395,
+      "mean_disc_margin": 7.87,
+      "decision_change_rate": 0.5164719433931216,
+      "mean_factor_gain_per_decision": 0.23868685206516352,
+      "wins": 629,
+      "draws": 21,
+      "losses": 350,
+      "paired_effect": {
+        "estimate": 0.13949999999999996,
+        "ci_low": 0.10950000000000004,
+        "ci_high": 0.16951249999999993
+      }
+    },
+    {
+      "opening_plies": 6,
+      "paired_score": 0.654,
+      "mean_disc_margin": 8.423,
+      "decision_change_rate": 0.5211510263929618,
+      "mean_factor_gain_per_decision": 0.2447779203323558,
+      "wins": 645,
+      "draws": 18,
+      "losses": 337,
+      "paired_effect": {
+        "estimate": 0.15400000000000003,
+        "ci_low": 0.12549999999999994,
+        "ci_high": 0.18200000000000005
+      }
+    },
+    {
+      "opening_plies": 10,
+      "paired_score": 0.6675,
+      "mean_disc_margin": 10.287,
+      "decision_change_rate": 0.518376843599653,
+      "mean_factor_gain_per_decision": 0.24685667902305644,
+      "wins": 656,
+      "draws": 23,
+      "losses": 321,
+      "paired_effect": {
+        "estimate": 0.16749999999999998,
+        "ci_low": 0.13948749999999996,
+        "ci_high": 0.1975
+      }
+    },
+    {
+      "opening_plies": 20,
+      "paired_score": 0.7115,
+      "mean_disc_margin": 11.431,
+      "decision_change_rate": 0.4932442319886835,
+      "mean_factor_gain_per_decision": 0.23969765702486082,
+      "wins": 698,
+      "draws": 27,
+      "losses": 275,
+      "paired_effect": {
+        "estimate": 0.21150000000000002,
+        "ci_low": 0.1855,
+        "ci_high": 0.236
+      }
+    },
+    {
+      "opening_plies": 30,
+      "paired_score": 0.6855,
+      "mean_disc_margin": 9.959,
+      "decision_change_rate": 0.466447070981076,
+      "mean_factor_gain_per_decision": 0.21809134749940798,
+      "wins": 671,
+      "draws": 29,
+      "losses": 300,
+      "paired_effect": {
+        "estimate": 0.1855,
+        "ci_low": 0.16200000000000003,
+        "ci_high": 0.20799999999999996
+      }
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "pairs": 1000,
+  "seed": 701,
+  "recipe": "carrier_am",
+  "method": "correlation",
+  "phases": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "generation": {
+    "pairs_requested": 1000,
+    "pairs_with_draw_or_mismatch": 29,
+    "rows": 17739,
+    "positive_switches": 3123
+  },
+  "positive_rate": 0.17605276509386097,
+  "split": {
+    "discovery_rows": 10656,
+    "validation_rows": 3555,
+    "test_rows": 3528,
+    "discovery_games": 600,
+    "validation_games": 200,
+    "test_games": 200
+  },
+  "baseline": {
+    "validation": {
+      "brier": 0.11265858344004069,
+      "log_loss": 0.37109725756178774,
+      "roc_auc": 0.756500335391157
+    },
+    "test": {
+      "brier": 0.13215775984042144,
+      "log_loss": 0.4170892202817273,
+      "roc_auc": 0.7736016939371236
+    }
+  },
+  "potage": {
+    "validation": {
+      "brier": 0.09435709674361412,
+      "log_loss": 0.3079450741092333,
+      "roc_auc": 0.8526350628400493
+    },
+    "test": {
+      "brier": 0.10090849883332681,
+      "log_loss": 0.3271758148959786,
+      "roc_auc": 0.8737652747086709
+    },
+    "features": [
+      {
+        "name": "(gauss(score_difference,c=25%,w=0.2)-step(score_difference>75%))\u00b2",
+        "coefficient": 0.7076484048300306
+      },
+      {
+        "name": "cos(2.0\u03c0*score_difference)/(1+|step(score_difference>50%)|)",
+        "coefficient": -0.42693483136722266
+      },
+      {
+        "name": "|gauss(score_difference,c=25%,w=0.2)-gauss(score_difference,c=50%,w=0.2)|",
+        "coefficient": -0.23156832709173172
+      },
+      {
+        "name": "min(cos(1.0\u03c0*opponent_controlled_nodes),pulse(opponent_score_rate:67%-100%))",
+        "coefficient": -0.19955496538543424
+      },
+      {
+        "name": "max(gauss(score_difference,c=25%,w=0.2),step(score_difference>75%))",
+        "coefficient": -0.15774596074466618
+      },
+      {
+        "name": "max(sin(2.0\u03c0*opponent_score_rate),cos(3.0\u03c0*contested_nodes))",
+        "coefficient": 0.14388884041280106
+      },
+      {
+        "name": "cos(3.0\u03c0*score_difference)*step(opponent_controlled_nodes>25%)",
+        "coefficient": -0.12075034256513671
+      },
+      {
+        "name": "relu(step(agent_distance>75%)-step(score_difference>50%))",
+        "coefficient": 0.12040854569550874
+      },
+      {
+        "name": "|cos(2.0\u03c0*our_target_distance)-cos(2.0\u03c0*score_difference)|/\u03a3",
+        "coefficient": -0.06712673389052724
+      },
+      {
+        "name": "max(cos(1.0\u03c0*our_nearest_node_distance),sin(2.0\u03c0*opponent_controlled_nodes))",
+        "coefficient": -0.05569133245475206
+      },
+      {
+        "name": "(cos(3.0\u03c0*score_difference)-pulse(score_difference:33%-67%))\u00b2",
+        "coefficient": -0.038362738816542466
+      },
+      {
+        "name": "|cos(3.0\u03c0*score_difference)-cos(2.0\u03c0*score_difference)|/\u03a3",
+        "coefficient": 0.032488059465714474
+      }
+    ]
+  },
+  "phase_positive_rate": {
+    "10": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.2282938520485832
+    },
+    "20": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.201314214502437
+    },
+    "30": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.21727817626319204
+    },
+    "40": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.19445268167027882
+    },
+    "50": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.19095913128882988
+    },
+    "60": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.16171566131445383
+    },
+    "70": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.17080210583425584
+    },
+    "80": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.15420946104181246
+    },
+    "90": {
+      "rows": 1971,
+      "positive_rate": 0.17605276509386097,
+      "test_predicted_benefit": 0.15101481988228013
+    }
+  }
+}

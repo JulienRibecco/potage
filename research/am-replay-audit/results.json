@@ -1,0 +1,1128 @@
+{
+  "purpose": "AM-only paired defect audit; not an independent benchmark confirmation",
+  "modes": {
+    "legacy_batch": "batch-local AM statistics; all other current fixes retained",
+    "fixed": "training-reference AM statistics and bounded power exponents"
+  },
+  "metallic_glass_scope": "Focused raw-to-AM ridge audit on the research dataset; not a rerun of the historical neural cascade or MEGNet augmentation",
+  "environment": {
+    "python": "3.10.2",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2"
+  },
+  "source_sha256": {
+    "potage/__init__.py": "65b33225fa2212818daa4f4e25f0d17626d194b34daa4078e9a652a76a4ae313",
+    "potage/_accel.py": "ddf1eb2a27e887ed8199e2c306d3b0a21b695f666ace862e537aaedcedbc8677",
+    "potage/_algebra.py": "61019d5aa90ecaab55ca874bb6d2f5d90a63b8ebfea5e2ab956fdea9fa1916d4",
+    "potage/_budget.py": "6067d9a25a1611a5517352b13019ca221880588c3d120f094e7bbce5748eafbb",
+    "potage/_carriers.py": "a26ad20ecbf72fae98dea139479504fb79bb7b39256205a97dcfab012d4b0c45",
+    "potage/_config.py": "f6fb5324d8014581088c6c44da916c485bef20f7cdfe9b814efd6bbdc754772a",
+    "potage/_cross.py": "7238b2123e4c5098835aeee0d801737b9ca824ead8694ac6651f575cee34f7fc",
+    "potage/_dedup.py": "689dcf7ab2d41687c1ee4848930378ef3d9ed4609d484b8010162ca906e77e2d",
+    "potage/_diagnose.py": "4c99ed885ae18f2f91a01dcb81c00f181eb80af60e557e0eb47bef6f009276ec",
+    "potage/_dispatch.py": "6a41baf5652e64b05e99d22bc5baae816e40ddc61e6171290aa054a86adece78",
+    "potage/_feature_utils.py": "427324b2ba5a5dbc7c28ac7894acc7e0b44ee2707154037c21511096f6395621",
+    "potage/_fields.py": "531b1680af0b79bf0b93bcdbf4a68eecc6935b0a55d0b8be00bda2029ac0bf58",
+    "potage/_frequency.py": "d0d0336f16424b09666ad9056e1ce4544beb82e8f146b8c1b9de96c56774fe52",
+    "potage/_kfold.py": "7bc9f5c36559d29933d3dffbb446e4fb5766525b0ddd02326d44eb36bd62f473",
+    "potage/_library.py": "01e19e77261b1ae2b6ceff8a52a242b25d23672c9747c4e362b9ec6666a26a54",
+    "potage/_limits.py": "2c75df375ca04a3389dbca805782399c589bdc0d6b83e4c9737605699410e821",
+    "potage/_modulation.py": "f49134bc7150d88eed8262c667377a51bbcc8e7467486c93279dcac37c5d039d",
+    "potage/_pipe.py": "62a46dc8a183d805f38b141286e27ef78a890c979dd48999229b457c9606451b",
+    "potage/_presets.py": "fbcef5cf238738cf0863a4aa622e9c7387ac0d2281755d4942da6164aaf308eb",
+    "potage/_provenance.py": "6c8ae40bfd1f6f9e0b075716eb48d5083322c6d6118f10b939956905b79898fc",
+    "potage/_records.py": "e49c5cba167b816f5a51e135db0f4e9f9be3cbd6a8432d786c8ff3a22d8696bf",
+    "potage/_replay.py": "a7d662056d0fdd8693de730564630eca437bd0ed71d57a943b34f2f884a880e8",
+    "potage/_select.py": "504971b81a1495e6d6b90fecbb5669aa7e8e5eb3c46d5265f6d46a30a0ed867c",
+    "potage/_stages.py": "73d6c50d6632eb4d64e76ae08ff502d6efe79aebcf1cc7f2719598f816609d30",
+    "potage/_state.py": "697a1433c950ab370fca0a5d24920143651d1491c95f70a0974ee81ebd9a626f",
+    "potage/_workflows.py": "578315b5f84f3c2900d161122852cb2dc12ee0a976d8189da43a9c82102e5310",
+    "research/am-replay-audit/audit.py": "e45e9642515642d56ea46916e2d7559f3b3ed5106164dab89659abf7ff46c137",
+    "examples/concrete_strength.py": "2342d9f9e54d210102ef61554e7f3d22e6320b380c51f61b81bf843e6e20735c"
+  },
+  "datasets": {
+    "concrete": {
+      "rows": 1030,
+      "columns": 8,
+      "groups": 428,
+      "target_unit": "MPa",
+      "data_sha256": "c642d89bf571826ac1631a29cbe11cbba5b82038f8f28af47f2519efda41b737"
+    },
+    "metallic_glass": {
+      "rows": 843,
+      "columns": 81,
+      "groups": 841,
+      "target_unit": "K",
+      "data_sha256": "239d192c240b179491d4b8b359cb9e65d5b89ce1f002c2a76fe9533bc26a6735",
+      "source_file_sha256": "111386a26f110e947e358b020d81679c0542c35a2f32050a150fdd9d574f01a5"
+    }
+  },
+  "runs": [
+    {
+      "recipe": "concrete_am",
+      "seed": 42,
+      "split_rows": {
+        "discovery": 648,
+        "validation": 187,
+        "test": 195
+      },
+      "split_indices_sha256": [
+        "623d6b0fb340e2605a69b0e9e21ed92c95ce4875ea919c697d46885981a6ae1e",
+        "7600026aba3b6a5f0936151d9b81894f9c9aa9649fc8fe92efb53bade571281d",
+        "15ea0fa4c2d3857eefb97bcf7c77b20dd238ac69405c6ac2b904beb438c1fd4c"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.6519274807840932,
+        "mae": 7.504324274378206
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.8110036559832594,
+          "mae": 5.65436173243335
+        },
+        "test": {
+          "r2": 0.457603432100826,
+          "mae": 6.454841043493679
+        },
+        "features": [
+          "hmean(cement,age^3)",
+          "1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)",
+          "|age^3-1/|blast_furnace_slag||/\u03a3",
+          "log(cement/water^3)",
+          "log|age|",
+          "(cement-age)\u00b2",
+          "cement^3*blast_furnace_slag^3",
+          "1/|age|^(3\u00b7water^3)",
+          "age^3^(0.5\u00b7fine_aggregate^3)",
+          "|fly_ash-superplasticizer^3|/\u03a3",
+          "relu(fly_ash^3-cement^3)",
+          "fine_aggregate^3^(3\u00b7coarse_aggregate^3)"
+        ],
+        "families": [
+          "am_hmean",
+          "am_power",
+          "am_normdiff",
+          "am_logratio",
+          "log",
+          "am_sq_diff",
+          "am_product",
+          "am_power",
+          "am_power",
+          "am_normdiff",
+          "am_relu",
+          "am_power"
+        ],
+        "ridge_alpha": 31.622776601683793,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 100.81985888932728,
+          "small_batch_max_abs_prediction_change": 98.40983115306688,
+          "warnings": [
+            "36 selected feature(s) not found during transform (zero-filled): ['blast_furnace_slag/cement', 'age/cement', 'superplasticizer^2/cement', 'water^3/cement', 'coarse_aggregate^3/cement']...",
+            "5 selected feature(s) not found during transform (zero-filled): ['cement^3/1/|fly_ash|', '1/|superplasticizer|/1/|fly_ash|', 'log(fly_ash/sqrt|blast_furnace_slag|)', 'log(fly_ash/fly_ash^3)', 'log(sqrt|blast_furnace_slag|/1/|fly_ash|)']"
+          ]
+        },
+        "test_with_other_replay": {
+          "r2": 0.7702856903803018,
+          "mae": 5.949579384620833
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.8140137900775282,
+          "mae": 5.6152420114815875
+        },
+        "test": {
+          "r2": 0.8117663522123805,
+          "mae": 5.515506447780719
+        },
+        "features": [
+          "hmean(cement,age^3)",
+          "1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)",
+          "|age^3-1/|blast_furnace_slag||/\u03a3",
+          "log(cement/water^3)",
+          "log|age|",
+          "(cement-age)\u00b2",
+          "cement^3*blast_furnace_slag^3",
+          "|fly_ash-superplasticizer^3|/\u03a3",
+          "relu(fly_ash^3-cement^3)",
+          "age^fine_aggregate^3",
+          "cement^3*water^3"
+        ],
+        "families": [
+          "am_hmean",
+          "am_power",
+          "am_normdiff",
+          "am_logratio",
+          "log",
+          "am_sq_diff",
+          "am_product",
+          "am_normdiff",
+          "am_relu",
+          "am_power",
+          "am_product"
+        ],
+        "ridge_alpha": 5.623413251903491,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 7.105427357601002e-15,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.8222558514022925,
+          "mae": 5.3321189506538245
+        }
+      },
+      "selected_feature_jaccard": 0.6428571428571429,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.3541629201115545,
+        "mae": -0.9393345957129595
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "concrete"
+    },
+    {
+      "recipe": "concrete_am",
+      "seed": 19,
+      "split_rows": {
+        "discovery": 606,
+        "validation": 215,
+        "test": 209
+      },
+      "split_indices_sha256": [
+        "aa9452ce9d572c5702df046d3905112411e5f65740ac9f8252e64a4142470677",
+        "2ce028877bc8eb06ce3bf2c2efd2536feb4a647de8a739e9679a3d70e28347f4",
+        "539295182a14e7f5a869021c4d7b4cd62f2047a945ba6ae03409afa4a347e08c"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.617798226553101,
+        "mae": 7.963899996018996
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.8920757867571159,
+          "mae": 4.3880526067239645
+        },
+        "test": {
+          "r2": 0.36800209721075783,
+          "mae": 6.381613566098456
+        },
+        "features": [
+          "hmean(cement,age^3)",
+          "rank(water)^blast_furnace_slag",
+          "rank(age)",
+          "cement/(1+|rank(water)|)",
+          "1/|fly_ash|^(3\u00b71/|blast_furnace_slag|)",
+          "relu(superplasticizer-sqrt|blast_furnace_slag|)",
+          "|blast_furnace_slag-age^3|/\u03a3",
+          "blast_furnace_slag*water^3",
+          "log(blast_furnace_slag/fly_ash)",
+          "rank(water)^(0.5\u00b7water^3)",
+          "|age^3-1/|fly_ash||/\u03a3",
+          "rank(age)^(0.5\u00b7blast_furnace_slag^3)",
+          "superplasticizer^3/(1+|sqrt|blast_furnace_slag||)"
+        ],
+        "families": [
+          "am_hmean",
+          "am_power",
+          "rank",
+          "am_damped",
+          "am_power",
+          "am_relu",
+          "am_normdiff",
+          "am_product",
+          "am_logratio",
+          "am_power",
+          "am_normdiff",
+          "am_power",
+          "am_damped"
+        ],
+        "ridge_alpha": 1.7782794100389228,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 12.700988536992348,
+          "small_batch_max_abs_prediction_change": 12.803318432293771,
+          "warnings": [
+            "47 selected feature(s) not found during transform (zero-filled): ['blast_furnace_slag/cement', 'age/cement', 'superplasticizer^2/cement', 'water^3/cement', 'coarse_aggregate^3/cement']...",
+            "6 selected feature(s) not found during transform (zero-filled): ['cement^3/1/|fly_ash|', 'log(blast_furnace_slag/fly_ash)', 'log(fly_ash/fly_ash^3)', 'log(sqrt|blast_furnace_slag|/sqrt|superplasticizer|)', 'log(sqrt|blast_furnace_slag|/1/|fly_ash|)']..."
+          ]
+        },
+        "test_with_other_replay": {
+          "r2": 0.3998005668216509,
+          "mae": 6.277743535530224
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.8814794590934119,
+          "mae": 4.490487073662356
+        },
+        "test": {
+          "r2": 0.8259566469475683,
+          "mae": 4.981904230478952
+        },
+        "features": [
+          "hmean(cement,age^3)",
+          "rank(water)^blast_furnace_slag",
+          "rank(age)",
+          "cement/(1+|rank(water)|)",
+          "1/|fly_ash|^(3\u00b71/|blast_furnace_slag|)",
+          "relu(superplasticizer-sqrt|blast_furnace_slag|)",
+          "|blast_furnace_slag-age^3|/\u03a3",
+          "blast_furnace_slag*water^3",
+          "fly_ash",
+          "|blast_furnace_slag-sqrt|age||/\u03a3",
+          "rank(water)^(0.5\u00b71/|age|)",
+          "|age^3-1/|fly_ash||/\u03a3"
+        ],
+        "families": [
+          "am_hmean",
+          "am_power",
+          "rank",
+          "am_damped",
+          "am_power",
+          "am_relu",
+          "am_normdiff",
+          "am_product",
+          "raw",
+          "am_normdiff",
+          "am_power",
+          "am_normdiff"
+        ],
+        "ridge_alpha": 1.7782794100389228,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 7.105427357601002e-15,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.7870590115719736,
+          "mae": 5.3767027043688005
+        }
+      },
+      "selected_feature_jaccard": 0.5625,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.4579545497368105,
+        "mae": -1.3997093356195043
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "concrete"
+    },
+    {
+      "recipe": "concrete_am",
+      "seed": 97,
+      "split_rows": {
+        "discovery": 603,
+        "validation": 230,
+        "test": 197
+      },
+      "split_indices_sha256": [
+        "a45b2677b41797cb43b7fdb5c9d37f1c94eecf7a539d5e31e77c003476dd7f15",
+        "390e4f27b90d5a39401b1d970faed3c8b8cfca2628bfe6842ee0b6ecc6529e3a",
+        "6698b2cf69754cf902c4c836436a2c00a0bee9dfe074697a8ccea53eea901914"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.5838618179336885,
+        "mae": 8.945042346826856
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.8939470160219656,
+          "mae": 4.578750536396736
+        },
+        "test": {
+          "r2": 0.7162305712325581,
+          "mae": 7.2694573771481386
+        },
+        "features": [
+          "hmean(cement,age^3)",
+          "rank(water)^(2\u00b7blast_furnace_slag)",
+          "rank(water)^(3\u00b7sqrt|superplasticizer|)",
+          "cement^3*blast_furnace_slag^3",
+          "rank(age)^(3\u00b7coarse_aggregate^3)",
+          "cement^3*coarse_aggregate^3",
+          "rank(water)^(3\u00b71/|age|)",
+          "|age^3-1/|blast_furnace_slag||/\u03a3",
+          "age*cement^3",
+          "1/|fly_ash|^(0.5\u00b7fine_aggregate^3)",
+          "relu(fly_ash^3-cement^3)",
+          "1/|age|^(3\u00b7fine_aggregate^3)",
+          "(blast_furnace_slag^3-water^3)\u00b2"
+        ],
+        "families": [
+          "am_hmean",
+          "am_power",
+          "am_power",
+          "am_product",
+          "am_power",
+          "am_product",
+          "am_power",
+          "am_normdiff",
+          "am_product",
+          "am_power",
+          "am_relu",
+          "am_power",
+          "am_sq_diff"
+        ],
+        "ridge_alpha": 5.623413251903491,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 8.224219267219599,
+          "small_batch_max_abs_prediction_change": 9.014945724240729,
+          "warnings": [
+            "52 selected feature(s) not found during transform (zero-filled): ['blast_furnace_slag/cement', 'age/cement', 'water^3/cement', 'superplasticizer^3/cement', 'coarse_aggregate^3/cement']...",
+            "6 selected feature(s) not found during transform (zero-filled): ['cement^3/1/|fly_ash|', 'log(blast_furnace_slag/fly_ash)', 'log(fly_ash/fly_ash^3)', 'log(fly_ash/rank(age))', 'log(sqrt|blast_furnace_slag|/1/|fly_ash|)']..."
+          ]
+        },
+        "test_with_other_replay": {
+          "r2": 0.7217792738971005,
+          "mae": 6.958471430574599
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.898209006271017,
+          "mae": 4.392285741535548
+        },
+        "test": {
+          "r2": 0.7528464480994251,
+          "mae": 6.707800697810823
+        },
+        "features": [
+          "hmean(cement,age^3)",
+          "rank(water)^(2\u00b7blast_furnace_slag)",
+          "rank(water)^(3\u00b7sqrt|superplasticizer|)",
+          "cement^3*blast_furnace_slag^3",
+          "rank(age)^(3\u00b7coarse_aggregate^3)",
+          "cement^3*coarse_aggregate^3",
+          "rank(water)^(3\u00b71/|age|)",
+          "relu(fly_ash^3-cement^3)",
+          "cement/(1+|rank(water)|)",
+          "fine_aggregate^3^(3\u00b71/|fly_ash|)",
+          "rank(water)^(3\u00b7log|age|)",
+          "relu(superplasticizer-sqrt|blast_furnace_slag|)"
+        ],
+        "families": [
+          "am_hmean",
+          "am_power",
+          "am_power",
+          "am_product",
+          "am_power",
+          "am_product",
+          "am_power",
+          "am_relu",
+          "am_damped",
+          "am_power",
+          "am_power",
+          "am_relu"
+        ],
+        "ridge_alpha": 5.623413251903491,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 3.552713678800501e-15,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.7310794205853588,
+          "mae": 7.408022218008154
+        }
+      },
+      "selected_feature_jaccard": 0.47058823529411764,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.03661587686686707,
+        "mae": -0.5616566793373154
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "concrete"
+    },
+    {
+      "recipe": "glass_am",
+      "seed": 42,
+      "split_rows": {
+        "discovery": 504,
+        "validation": 170,
+        "test": 169
+      },
+      "split_indices_sha256": [
+        "f211bc19b076e23da30ab290f65ac605f4b07a1ca4d6a0c6d44600827d4cedd1",
+        "c93dc3678fe7937ff566c2bf524622c256470d101a2f03e2290aaf681441eda8",
+        "2fe2d64bede45ec2d61ee8c590a4e9764f26e7de6063fd5b97b320339d58020c"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.9439522828018428,
+        "mae": 29.832047640470133
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.9286232521484271,
+          "mae": 35.62763472554451
+        },
+        "test": {
+          "r2": 0.9331998411489709,
+          "mae": 37.00665333478223
+        },
+        "features": [
+          "wtd_mean_Tm",
+          "wtd_mean_atomic_size",
+          "max(wtd_std_Youngs_modulus^2,wtd_range_Density)",
+          "max(gmean_electronegativity^3,range_VEC)",
+          "wtd_range_Youngs_modulus^3/(1+|gmean_electronegativity^3|)",
+          "log(wtd_range_Density/log|wtd_gmean_Density|)"
+        ],
+        "families": [
+          "raw",
+          "raw",
+          "am_max",
+          "am_max",
+          "am_damped",
+          "am_logratio"
+        ],
+        "ridge_alpha": 10.0,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 53.754192460429294,
+          "small_batch_max_abs_prediction_change": 9.951872925739735e-07,
+          "warnings": [
+            "28 selected feature(s) not found during transform (zero-filled): ['wtd_mean_Tm/wtd_mean_atomic_size', 'gmean_electronegativity^3/wtd_mean_atomic_size', 'wtd_mean_Tm/gmean_electronegativity^3', 'wtd_mean_Tm/range_VEC', 'wtd_mean_Tm/wtd_std_Youngs_modulus^2']..."
+          ]
+        },
+        "test_with_other_replay": {
+          "r2": 0.933199574015489,
+          "mae": 37.006699674812005
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.928607350085479,
+          "mae": 35.64411934820247
+        },
+        "test": {
+          "r2": 0.933199574015489,
+          "mae": 37.006699674812005
+        },
+        "features": [
+          "wtd_mean_Tm",
+          "wtd_mean_atomic_size",
+          "max(wtd_std_Youngs_modulus^2,wtd_range_Density)",
+          "max(gmean_electronegativity^3,range_VEC)",
+          "wtd_range_Youngs_modulus^3/(1+|gmean_electronegativity^3|)",
+          "log(wtd_range_Density/log|wtd_gmean_Density|)"
+        ],
+        "families": [
+          "raw",
+          "raw",
+          "am_max",
+          "am_max",
+          "am_damped",
+          "am_logratio"
+        ],
+        "ridge_alpha": 10.0,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 0.0,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.9331998411489709,
+          "mae": 37.00665333478223
+        }
+      },
+      "selected_feature_jaccard": 1.0,
+      "delta_fixed_minus_legacy": {
+        "r2": -2.6713348189044694e-07,
+        "mae": 4.6340029776104075e-05
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "metallic_glass"
+    },
+    {
+      "recipe": "glass_am",
+      "seed": 19,
+      "split_rows": {
+        "discovery": 505,
+        "validation": 168,
+        "test": 170
+      },
+      "split_indices_sha256": [
+        "b415c02b4993c35bc2e04e37348508a240075fcd16e84a0261b664c2ca5b656b",
+        "4fa2564b11544faaab62012bf7e9cc072afafc3d934d47e4cdef70bf4bd5746b",
+        "88b3ef9d1436fd746bee3892e8aa38ec876e161aa151fb13653a6d8642d6695d"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.9516200975108514,
+        "mae": 26.355166011170148
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.9322106229316645,
+          "mae": 34.09865588626841
+        },
+        "test": {
+          "r2": 0.8432782299053813,
+          "mae": 55.55184139417198
+        },
+        "features": [
+          "(wtd_mean_Tm-wtd_range_atomic_size^3)\u00b2",
+          "|wtd_range_atomic_size^3-range_electronegativity^3|",
+          "log|wtd_std_Density|^(3\u00b7gmean_Youngs_modulus^3)",
+          "(log|wtd_gmean_Tm|-range_electronegativity^3)\u00b2",
+          "(log|wtd_gmean_Bulk_modulus|-range_electronegativity^3)\u00b2",
+          "log|wtd_gmean_Bulk_modulus|^log|wtd_std_Density|",
+          "log(wtd_mean_Tm/mean_VEC^3)"
+        ],
+        "families": [
+          "am_sq_diff",
+          "am_diff",
+          "am_power",
+          "am_sq_diff",
+          "am_sq_diff",
+          "am_power",
+          "am_logratio"
+        ],
+        "ridge_alpha": 0.0001,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 34.03404033210484,
+          "small_batch_max_abs_prediction_change": 191.9001879813469,
+          "warnings": [
+            "21 selected feature(s) not found during transform (zero-filled): ['wtd_mean_Tm/log|wtd_gmean_Tm|', 'wtd_mean_Tm/log|wtd_gmean_Bulk_modulus|', 'log|wtd_gmean_Tm|/log|wtd_gmean_Bulk_modulus|', 'wtd_mean_Tm/log|wtd_std_Density|', 'log|wtd_gmean_Tm|/log|wtd_std_Density|']..."
+          ]
+        },
+        "test_with_other_replay": {
+          "r2": 0.9241012352673258,
+          "mae": 35.375650180280545
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.9332489322988212,
+          "mae": 33.89120142342161
+        },
+        "test": {
+          "r2": 0.9241012352673258,
+          "mae": 35.375650180280545
+        },
+        "features": [
+          "(wtd_mean_Tm-wtd_range_atomic_size^3)\u00b2",
+          "|wtd_range_atomic_size^3-range_electronegativity^3|",
+          "log|wtd_std_Density|^(3\u00b7gmean_Youngs_modulus^3)",
+          "(log|wtd_gmean_Tm|-range_electronegativity^3)\u00b2",
+          "(log|wtd_gmean_Bulk_modulus|-range_electronegativity^3)\u00b2",
+          "log|wtd_gmean_Bulk_modulus|^log|wtd_std_Density|",
+          "log(wtd_mean_Tm/mean_VEC^3)"
+        ],
+        "families": [
+          "am_sq_diff",
+          "am_diff",
+          "am_power",
+          "am_sq_diff",
+          "am_sq_diff",
+          "am_power",
+          "am_logratio"
+        ],
+        "ridge_alpha": 0.0001,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.1368683772161603e-13,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.8432782299053813,
+          "mae": 55.55184139417198
+        }
+      },
+      "selected_feature_jaccard": 1.0,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.08082300536194453,
+        "mae": -20.176191213891435
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "metallic_glass"
+    },
+    {
+      "recipe": "glass_am",
+      "seed": 97,
+      "split_rows": {
+        "discovery": 506,
+        "validation": 168,
+        "test": 169
+      },
+      "split_indices_sha256": [
+        "542744872ad4dfce5a85b4cdf4edc8020a4b59e5c7d7b8f7e25841b7997e1c31",
+        "4c57919904ec2aacbc9c689d4fb0c7070a7382324aa632c7099808ca1d0a0805",
+        "12cbcaf214cdb9297decc920be42e9f4eb5bf77940d27ff88d787071090faa04"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.948808468995576,
+        "mae": 31.025463043701897
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.9314730730739973,
+          "mae": 35.81208020959483
+        },
+        "test": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        },
+        "features": [
+          "wtd_mean_Tm",
+          "hmean(wtd_std_electronegativity,wtd_range_atomic_mass^3)",
+          "wtd_mean_Tm/(1+|wtd_range_VEC|)",
+          "wtd_range_Density^3/(1+|mean_atomic_mass|)",
+          "wtd_mean_Tm*wtd_range_VEC"
+        ],
+        "families": [
+          "raw",
+          "am_hmean",
+          "am_damped",
+          "am_damped",
+          "am_product"
+        ],
+        "ridge_alpha": 17.78279410038923,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.1368683772161603e-13,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": [
+            "14 selected feature(s) not found during transform (zero-filled): ['wtd_mean_Tm/wtd_std_electronegativity', 'wtd_range_atomic_mass^3/wtd_std_electronegativity', 'wtd_mean_Tm/wtd_range_VEC', 'wtd_std_electronegativity/wtd_range_VEC', 'wtd_mean_Tm/mean_atomic_mass']..."
+          ]
+        },
+        "test_with_other_replay": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.9314730730739973,
+          "mae": 35.81208020959483
+        },
+        "test": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        },
+        "features": [
+          "wtd_mean_Tm",
+          "hmean(wtd_std_electronegativity,wtd_range_atomic_mass^3)",
+          "wtd_mean_Tm/(1+|wtd_range_VEC|)",
+          "wtd_range_Density^3/(1+|mean_atomic_mass|)",
+          "wtd_mean_Tm*wtd_range_VEC"
+        ],
+        "families": [
+          "raw",
+          "am_hmean",
+          "am_damped",
+          "am_damped",
+          "am_product"
+        ],
+        "ridge_alpha": 17.78279410038923,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.1368683772161603e-13,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        }
+      },
+      "selected_feature_jaccard": 1.0,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.0,
+        "mae": 0.0
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "metallic_glass"
+    },
+    {
+      "recipe": "glass_cross_am",
+      "seed": 42,
+      "split_rows": {
+        "discovery": 504,
+        "validation": 170,
+        "test": 169
+      },
+      "split_indices_sha256": [
+        "f211bc19b076e23da30ab290f65ac605f4b07a1ca4d6a0c6d44600827d4cedd1",
+        "c93dc3678fe7937ff566c2bf524622c256470d101a2f03e2290aaf681441eda8",
+        "2fe2d64bede45ec2d61ee8c590a4e9764f26e7de6063fd5b97b320339d58020c"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.9439522828018428,
+        "mae": 29.832047640470133
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.9206496436989875,
+          "mae": 36.88723700511858
+        },
+        "test": {
+          "r2": 0.9319484018968905,
+          "mae": 36.924983047407714
+        },
+        "features": [
+          "wtd_mean_Tm*wtd_mean_Tm",
+          "wtd_mean_atomic_size*wtd_mean_atomic_size",
+          "max(wtd_std_Youngs_modulus^2,wtd_range_Density)",
+          "max(gmean_electronegativity^3,range_VEC)",
+          "wtd_range_Youngs_modulus^3",
+          "log(gmean_electronegativity^3/log|wtd_gmean_Density|)"
+        ],
+        "families": [
+          "am_product",
+          "am_product",
+          "am_max",
+          "am_max",
+          "cube",
+          "am_logratio"
+        ],
+        "ridge_alpha": 1.0,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.1368683772161603e-13,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.9319484018968905,
+          "mae": 36.924983047407714
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.9310201705222919,
+          "mae": 34.511009690330056
+        },
+        "test": {
+          "r2": 0.9373417718768247,
+          "mae": 34.699856912682286
+        },
+        "features": [
+          "wtd_mean_Tm*wtd_mean_Tm",
+          "wtd_range_Density^(0.5\u00b7wtd_mean_atomic_size)",
+          "relu(wtd_std_Youngs_modulus^2-wtd_range_Density)",
+          "max(gmean_electronegativity^3,range_VEC)",
+          "wtd_mean_atomic_size^(3\u00b7wtd_range_Youngs_modulus^3)",
+          "log(wtd_mean_atomic_size/log|wtd_gmean_Density|)",
+          "log(wtd_mean_Tm/log|wtd_gmean_Density|)",
+          "gmean_electronegativity^3*wtd_range_Density"
+        ],
+        "families": [
+          "am_product",
+          "am_power",
+          "am_relu",
+          "am_max",
+          "am_power",
+          "am_logratio",
+          "am_logratio",
+          "am_product"
+        ],
+        "ridge_alpha": 0.0001,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 0.0,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.835232501097786,
+          "mae": 54.20602541175533
+        }
+      },
+      "selected_feature_jaccard": 0.16666666666666666,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.005393369979934115,
+        "mae": -2.2251261347254285
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "metallic_glass"
+    },
+    {
+      "recipe": "glass_cross_am",
+      "seed": 19,
+      "split_rows": {
+        "discovery": 505,
+        "validation": 168,
+        "test": 170
+      },
+      "split_indices_sha256": [
+        "b415c02b4993c35bc2e04e37348508a240075fcd16e84a0261b664c2ca5b656b",
+        "4fa2564b11544faaab62012bf7e9cc072afafc3d934d47e4cdef70bf4bd5746b",
+        "88b3ef9d1436fd746bee3892e8aa38ec876e161aa151fb13653a6d8642d6695d"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.9516200975108514,
+        "mae": 26.355166011170148
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.9295514234379988,
+          "mae": 33.15397406003653
+        },
+        "test": {
+          "r2": 0.9087031222691385,
+          "mae": 39.61337194753894
+        },
+        "features": [
+          "(wtd_mean_Tm-wtd_range_atomic_size^3)\u00b2",
+          "|wtd_range_atomic_size^3-range_electronegativity^3|",
+          "log|wtd_std_Density|^(3\u00b7gmean_Youngs_modulus^3)",
+          "log|wtd_gmean_Tm|*log|wtd_gmean_Tm|",
+          "relu(log|wtd_std_Density|-log|wtd_gmean_Bulk_modulus|)",
+          "range_atomic_mass^3/(1+|mean_VEC^3|)"
+        ],
+        "families": [
+          "am_sq_diff",
+          "am_diff",
+          "am_power",
+          "am_product",
+          "am_relu",
+          "am_damped"
+        ],
+        "ridge_alpha": 0.0001,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.680109676271968e-06,
+          "small_batch_max_abs_prediction_change": 208.19652755986135,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.9088873610238644,
+          "mae": 39.77744850991449
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.9298474735346861,
+          "mae": 32.715541004183486
+        },
+        "test": {
+          "r2": 0.9088873610238644,
+          "mae": 39.77744850991449
+        },
+        "features": [
+          "(wtd_mean_Tm-wtd_range_atomic_size^3)\u00b2",
+          "|wtd_range_atomic_size^3-range_electronegativity^3|",
+          "log|wtd_std_Density|^(3\u00b7gmean_Youngs_modulus^3)",
+          "log|wtd_gmean_Tm|*log|wtd_gmean_Tm|",
+          "relu(log|wtd_std_Density|-log|wtd_gmean_Bulk_modulus|)",
+          "range_atomic_mass^3/(1+|mean_VEC^3|)"
+        ],
+        "families": [
+          "am_sq_diff",
+          "am_diff",
+          "am_power",
+          "am_product",
+          "am_relu",
+          "am_damped"
+        ],
+        "ridge_alpha": 0.0001,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.1368683772161603e-13,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.9087031222691385,
+          "mae": 39.61337194753894
+        }
+      },
+      "selected_feature_jaccard": 1.0,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.00018423875472584061,
+        "mae": 0.16407656237555557
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "metallic_glass"
+    },
+    {
+      "recipe": "glass_cross_am",
+      "seed": 97,
+      "split_rows": {
+        "discovery": 506,
+        "validation": 168,
+        "test": 169
+      },
+      "split_indices_sha256": [
+        "542744872ad4dfce5a85b4cdf4edc8020a4b59e5c7d7b8f7e25841b7997e1c31",
+        "4c57919904ec2aacbc9c689d4fb0c7070a7382324aa632c7099808ca1d0a0805",
+        "12cbcaf214cdb9297decc920be42e9f4eb5bf77940d27ff88d787071090faa04"
+      ],
+      "raw_ridge_test": {
+        "r2": 0.948808468995576,
+        "mae": 31.025463043701897
+      },
+      "legacy_batch": {
+        "validation": {
+          "r2": 0.9314730730739973,
+          "mae": 35.81208020959483
+        },
+        "test": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        },
+        "features": [
+          "wtd_mean_Tm",
+          "hmean(wtd_std_electronegativity,wtd_range_atomic_mass^3)",
+          "wtd_mean_Tm/(1+|wtd_range_VEC|)",
+          "wtd_range_Density^3/(1+|mean_atomic_mass|)",
+          "wtd_mean_Tm*wtd_range_VEC"
+        ],
+        "families": [
+          "raw",
+          "am_hmean",
+          "am_damped",
+          "am_damped",
+          "am_product"
+        ],
+        "ridge_alpha": 17.78279410038923,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.1368683772161603e-13,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        }
+      },
+      "fixed": {
+        "validation": {
+          "r2": 0.9314730730739973,
+          "mae": 35.81208020959483
+        },
+        "test": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        },
+        "features": [
+          "wtd_mean_Tm",
+          "hmean(wtd_std_electronegativity,wtd_range_atomic_mass^3)",
+          "wtd_mean_Tm/(1+|wtd_range_VEC|)",
+          "wtd_range_Density^3/(1+|mean_atomic_mass|)",
+          "wtd_mean_Tm*wtd_range_VEC"
+        ],
+        "families": [
+          "raw",
+          "am_hmean",
+          "am_damped",
+          "am_damped",
+          "am_product"
+        ],
+        "ridge_alpha": 17.78279410038923,
+        "batch_diagnostic": {
+          "rows_checked": 16,
+          "single_row_max_abs_prediction_change": 1.1368683772161603e-13,
+          "small_batch_max_abs_prediction_change": 0.0,
+          "warnings": []
+        },
+        "test_with_other_replay": {
+          "r2": 0.8676370377722729,
+          "mae": 48.33451452168453
+        }
+      },
+      "selected_feature_jaccard": 1.0,
+      "delta_fixed_minus_legacy": {
+        "r2": 0.0,
+        "mae": 0.0
+      },
+      "unaffected_family_control": {
+        "same_features": true,
+        "max_abs_prediction_change": 0.0
+      },
+      "dataset": "metallic_glass"
+    }
+  ],
+  "elapsed_seconds": 22.050258499999472,
+  "emulation_validation": {
+    "legacy_function_sha256": {
+      "build_stage1_am": "c508d504aa6bee5f8376b997e2c0b5e410594d493338912db851d4dd952e03e4",
+      "_build_cross_am": "a1165de009af5af23533da65c5d3f78dd0a49fcc8e60ca7e861ce3b9bbbaccd0"
+    },
+    "comparisons": [
+      {
+        "case": "train",
+        "kind": "single",
+        "features": 128,
+        "max_abs_difference": 0.0
+      },
+      {
+        "case": "train",
+        "kind": "cross",
+        "features": 88,
+        "max_abs_difference": 0.0
+      },
+      {
+        "case": "holdout",
+        "kind": "single",
+        "features": 128,
+        "max_abs_difference": 0.0
+      },
+      {
+        "case": "holdout",
+        "kind": "cross",
+        "features": 88,
+        "max_abs_difference": 0.0
+      },
+      {
+        "case": "single_row",
+        "kind": "single",
+        "features": 114,
+        "max_abs_difference": 0.0
+      },
+      {
+        "case": "single_row",
+        "kind": "cross",
+        "features": 88,
+        "max_abs_difference": 0.0
+      },
+      {
+        "case": "constant_column",
+        "kind": "single",
+        "features": 123,
+        "max_abs_difference": 0.0
+      },
+      {
+        "case": "constant_column",
+        "kind": "cross",
+        "features": 88,
+        "max_abs_difference": 0.0
+      }
+    ],
+    "note": "Compared by feature name because the unified cross-set builder changed candidate ordering; the audit deliberately holds current ordering fixed in both arms."
+  }
+}

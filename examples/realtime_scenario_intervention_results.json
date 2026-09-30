@@ -1,0 +1,218 @@
+{
+  "pairs_per_run": 1000,
+  "seeds": [
+    19,
+    41,
+    97
+  ],
+  "runs": [
+    {
+      "kind": "speed",
+      "seed": 19,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 988,
+      "draw_pairs": 12,
+      "control_win_rate": 0.6700404858299596,
+      "treated_win_rate": 0.7449392712550608,
+      "paired_effect": 0.07489878542510121,
+      "treated_wins_control_losses": 135,
+      "treated_losses_control_wins": 61,
+      "paired_effect_ci": [
+        0.048582995951417005,
+        0.10225202429149806
+      ]
+    },
+    {
+      "kind": "speed",
+      "seed": 19,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 988,
+      "draw_pairs": 12,
+      "control_win_rate": 0.32894736842105265,
+      "treated_win_rate": 0.47368421052631576,
+      "paired_effect": 0.14473684210526316,
+      "treated_wins_control_losses": 186,
+      "treated_losses_control_wins": 43,
+      "paired_effect_ci": [
+        0.11538461538461539,
+        0.17408906882591094
+      ]
+    },
+    {
+      "kind": "speed",
+      "seed": 41,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 993,
+      "draw_pairs": 7,
+      "control_win_rate": 0.6998992950654582,
+      "treated_win_rate": 0.7593152064451159,
+      "paired_effect": 0.059415911379657606,
+      "treated_wins_control_losses": 123,
+      "treated_losses_control_wins": 64,
+      "paired_effect_ci": [
+        0.03323262839879154,
+        0.0866062437059416
+      ]
+    },
+    {
+      "kind": "speed",
+      "seed": 41,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 988,
+      "draw_pairs": 12,
+      "control_win_rate": 0.32894736842105265,
+      "treated_win_rate": 0.46356275303643724,
+      "paired_effect": 0.1346153846153846,
+      "treated_wins_control_losses": 169,
+      "treated_losses_control_wins": 36,
+      "paired_effect_ci": [
+        0.1082995951417004,
+        0.16093117408906882
+      ]
+    },
+    {
+      "kind": "speed",
+      "seed": 97,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 992,
+      "draw_pairs": 8,
+      "control_win_rate": 0.6481854838709677,
+      "treated_win_rate": 0.7449596774193549,
+      "paired_effect": 0.0967741935483871,
+      "treated_wins_control_losses": 144,
+      "treated_losses_control_wins": 48,
+      "paired_effect_ci": [
+        0.07056451612903226,
+        0.12298387096774194
+      ]
+    },
+    {
+      "kind": "speed",
+      "seed": 97,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 984,
+      "draw_pairs": 16,
+      "control_win_rate": 0.3282520325203252,
+      "treated_win_rate": 0.45528455284552843,
+      "paired_effect": 0.12703252032520326,
+      "treated_wins_control_losses": 164,
+      "treated_losses_control_wins": 39,
+      "paired_effect_ci": [
+        0.10060975609756098,
+        0.15447154471544716
+      ]
+    },
+    {
+      "kind": "initial_position",
+      "seed": 19,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 986,
+      "draw_pairs": 14,
+      "control_win_rate": 0.6713995943204868,
+      "treated_win_rate": 0.7342799188640974,
+      "paired_effect": 0.06288032454361055,
+      "treated_wins_control_losses": 93,
+      "treated_losses_control_wins": 31,
+      "paired_effect_ci": [
+        0.04259634888438134,
+        0.08519269776876268
+      ]
+    },
+    {
+      "kind": "initial_position",
+      "seed": 19,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 879,
+      "draw_pairs": 121,
+      "control_win_rate": 0.36746302616609783,
+      "treated_win_rate": 0.5255972696245734,
+      "paired_effect": 0.15813424345847554,
+      "treated_wins_control_losses": 162,
+      "treated_losses_control_wins": 23,
+      "paired_effect_ci": [
+        0.1285551763367463,
+        0.18657565415244595
+      ]
+    },
+    {
+      "kind": "initial_position",
+      "seed": 41,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 994,
+      "draw_pairs": 6,
+      "control_win_rate": 0.6971830985915493,
+      "treated_win_rate": 0.7474849094567404,
+      "paired_effect": 0.05030181086519115,
+      "treated_wins_control_losses": 86,
+      "treated_losses_control_wins": 36,
+      "paired_effect_ci": [
+        0.028169014084507043,
+        0.07243460764587525
+      ]
+    },
+    {
+      "kind": "initial_position",
+      "seed": 41,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 867,
+      "draw_pairs": 133,
+      "control_win_rate": 0.37254901960784315,
+      "treated_win_rate": 0.5259515570934256,
+      "paired_effect": 0.15340253748558247,
+      "treated_wins_control_losses": 153,
+      "treated_losses_control_wins": 20,
+      "paired_effect_ci": [
+        0.12687427912341406,
+        0.18223760092272204
+      ]
+    },
+    {
+      "kind": "initial_position",
+      "seed": 97,
+      "focal_player": 1,
+      "pairs_requested": 1000,
+      "pairs_kept": 995,
+      "draw_pairs": 5,
+      "control_win_rate": 0.6492462311557788,
+      "treated_win_rate": 0.700502512562814,
+      "paired_effect": 0.05125628140703518,
+      "treated_wins_control_losses": 82,
+      "treated_losses_control_wins": 31,
+      "paired_effect_ci": [
+        0.031130653266331666,
+        0.07236180904522613
+      ]
+    },
+    {
+      "kind": "initial_position",
+      "seed": 97,
+      "focal_player": -1,
+      "pairs_requested": 1000,
+      "pairs_kept": 854,
+      "draw_pairs": 146,
+      "control_win_rate": 0.3770491803278688,
+      "treated_win_rate": 0.522248243559719,
+      "paired_effect": 0.1451990632318501,
+      "treated_wins_control_losses": 146,
+      "treated_losses_control_wins": 22,
+      "paired_effect_ci": [
+        0.117096018735363,
+        0.17447306791569087
+      ]
+    }
+  ],
+  "mean_effect_by_kind": {
+    "speed": 0.10624560623316616,
+    "initial_position": 0.10352904349862417
+  }
+}

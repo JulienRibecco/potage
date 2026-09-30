@@ -1,0 +1,290 @@
+{
+  "simulation": {
+    "n_matches": 6000,
+    "seed": 73,
+    "positive_rate": 0.5061666666666667,
+    "features": [
+      "time_minutes",
+      "our_score",
+      "opponent_score",
+      "our_gold",
+      "opponent_gold",
+      "our_health",
+      "opponent_health",
+      "our_map_control",
+      "opponent_map_control",
+      "our_objective_pressure",
+      "opponent_objective_pressure",
+      "our_counter_units",
+      "opponent_counter_units",
+      "our_heavy_units",
+      "opponent_heavy_units",
+      "our_alive",
+      "opponent_alive",
+      "noise_0",
+      "noise_1",
+      "noise_2",
+      "noise_3",
+      "noise_4",
+      "noise_5"
+    ],
+    "planted_factors": [
+      "relative_gold",
+      "objective_finish",
+      "counter_matchup",
+      "time_x_map"
+    ]
+  },
+  "split": {
+    "discovery": 3600,
+    "validation": 1200,
+    "test": 1200
+  },
+  "baseline": {
+    "validation": {
+      "brier": 0.2345525158811823,
+      "log_loss": 0.661042347522928,
+      "roc_auc": 0.6393842495228517
+    },
+    "test": {
+      "brier": 0.23720941452133204,
+      "log_loss": 0.6665426442227583,
+      "roc_auc": 0.6221874644048774
+    }
+  },
+  "potage_raw": {
+    "validation": {
+      "brier": 0.2117423710024287,
+      "log_loss": 0.6098333739869973,
+      "roc_auc": 0.722692810965937
+    },
+    "test": {
+      "brier": 0.212965016952534,
+      "log_loss": 0.6140662887309741,
+      "roc_auc": 0.7207869960077901
+    },
+    "n_features": 8,
+    "features": [
+      {
+        "name": "opponent_gold",
+        "standardized_coefficient": -0.708209865323922,
+        "matches_planted": []
+      },
+      {
+        "name": "our_gold",
+        "standardized_coefficient": 0.6960245692821991,
+        "matches_planted": []
+      },
+      {
+        "name": "our_counter_units",
+        "standardized_coefficient": 0.3208773623116367,
+        "matches_planted": []
+      },
+      {
+        "name": "opponent_heavy_units",
+        "standardized_coefficient": 0.2346126547457043,
+        "matches_planted": []
+      },
+      {
+        "name": "opponent_counter_units",
+        "standardized_coefficient": -0.20463740048148407,
+        "matches_planted": []
+      },
+      {
+        "name": "our_heavy_units",
+        "standardized_coefficient": -0.18237954820431723,
+        "matches_planted": []
+      },
+      {
+        "name": "our_objective_pressure",
+        "standardized_coefficient": 0.02016192692477335,
+        "matches_planted": []
+      },
+      {
+        "name": "opponent_objective_pressure",
+        "standardized_coefficient": 0.018991076266938557,
+        "matches_planted": []
+      }
+    ],
+    "recovered_planted_factors": [],
+    "family_counts": {
+      "raw": 8
+    }
+  },
+  "potage_am": {
+    "validation": {
+      "brier": 0.1623482656057409,
+      "log_loss": 0.49592766563173085,
+      "roc_auc": 0.8432425524585291
+    },
+    "test": {
+      "brier": 0.16589558941272728,
+      "log_loss": 0.5010706846642831,
+      "roc_auc": 0.8347969584749034
+    },
+    "n_features": 16,
+    "features": [
+      {
+        "name": "opponent_map_control",
+        "standardized_coefficient": 1.2586468322435138,
+        "matches_planted": []
+      },
+      {
+        "name": "our_map_control",
+        "standardized_coefficient": -1.1690491964967253,
+        "matches_planted": []
+      },
+      {
+        "name": "our_gold*our_map_control",
+        "standardized_coefficient": 1.157276802254532,
+        "matches_planted": []
+      },
+      {
+        "name": "our_gold*opponent_map_control",
+        "standardized_coefficient": -1.0071382597574692,
+        "matches_planted": []
+      },
+      {
+        "name": "opponent_gold*opponent_map_control",
+        "standardized_coefficient": -0.8761017032773998,
+        "matches_planted": []
+      },
+      {
+        "name": "opponent_gold*our_map_control",
+        "standardized_coefficient": 0.7081176595225191,
+        "matches_planted": []
+      },
+      {
+        "name": "our_gold/(1+|opponent_gold|)",
+        "standardized_coefficient": 0.5463806047661345,
+        "matches_planted": [
+          "relative_gold"
+        ]
+      },
+      {
+        "name": "our_counter_units*opponent_heavy_units",
+        "standardized_coefficient": 0.5114734877996172,
+        "matches_planted": [
+          "counter_matchup"
+        ]
+      },
+      {
+        "name": "|our_health-opponent_objective_pressure|",
+        "standardized_coefficient": -0.5076395062626503,
+        "matches_planted": [
+          "objective_finish"
+        ]
+      },
+      {
+        "name": "|opponent_health-our_objective_pressure|",
+        "standardized_coefficient": 0.47257617686814396,
+        "matches_planted": [
+          "objective_finish"
+        ]
+      },
+      {
+        "name": "opponent_counter_units*our_heavy_units",
+        "standardized_coefficient": -0.41449561247878325,
+        "matches_planted": [
+          "counter_matchup"
+        ]
+      },
+      {
+        "name": "|time_minutes-our_map_control|/\u03a3",
+        "standardized_coefficient": 0.3028681251991538,
+        "matches_planted": [
+          "time_x_map"
+        ]
+      },
+      {
+        "name": "|time_minutes-opponent_map_control|/\u03a3",
+        "standardized_coefficient": -0.2508581243066113,
+        "matches_planted": [
+          "time_x_map"
+        ]
+      },
+      {
+        "name": "max(our_score,opponent_heavy_units)",
+        "standardized_coefficient": -0.09214436803872242,
+        "matches_planted": []
+      },
+      {
+        "name": "our_objective_pressure/(1+|opponent_health|)",
+        "standardized_coefficient": 0.07171192687998178,
+        "matches_planted": [
+          "objective_finish"
+        ]
+      },
+      {
+        "name": "noise_1*noise_4",
+        "standardized_coefficient": -0.06656494792554771,
+        "matches_planted": []
+      }
+    ],
+    "recovered_planted_factors": [
+      "counter_matchup",
+      "objective_finish",
+      "relative_gold",
+      "time_x_map"
+    ],
+    "family_counts": {
+      "am_damped": 2,
+      "am_diff": 2,
+      "am_max": 1,
+      "am_normdiff": 2,
+      "am_product": 7,
+      "raw": 2
+    }
+  },
+  "oracle": {
+    "validation": {
+      "brier": 0.15835274388804668,
+      "log_loss": 0.4839273618018463,
+      "roc_auc": 0.8485043797628011
+    },
+    "test": {
+      "brier": 0.15835885383195336,
+      "log_loss": 0.4821142437317832,
+      "roc_auc": 0.8489738881125486
+    }
+  },
+  "pipeline_recap": "Pipeline: 5 stages, 3,600 samples (base R\u00b2=0.0484)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       23\u219223               \u2014           \u2014  omp      0.0s\n   2  select(23d)                23\u21928           23\u219223      0.1419  greedy   0.0s\n   3  am(23d)                 23\u21921926               \u2014           \u2014  omp      3.3s\n   4  fuse                  1949\u21921949               \u2014           \u2014  \u2014        0.0s\n   5  select(1949d)           1949\u219216     1,949\u21921,949      0.3133  greedy   4.9s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 7,722 / 100,000 (7.7%)\nMemory: peak ~289 MB / 2601 MB (11.1%)\nUnused families: am_hmean, am_logratio, am_min, am_relu, am_sq_diff  (never selected \u2014 consider excluding to free budget)",
+  "stability_runs": [
+    {
+      "seed": 19,
+      "baseline_test_brier": 0.2410831442877545,
+      "potage_am_test_brier": 0.1681804575508794,
+      "oracle_test_brier": 0.15719016703452712,
+      "recovered_planted_factors": [
+        "counter_matchup",
+        "objective_finish",
+        "relative_gold",
+        "time_x_map"
+      ]
+    },
+    {
+      "seed": 41,
+      "baseline_test_brier": 0.2352594122369564,
+      "potage_am_test_brier": 0.1652549577566206,
+      "oracle_test_brier": 0.1557831036836528,
+      "recovered_planted_factors": [
+        "counter_matchup",
+        "objective_finish",
+        "relative_gold",
+        "time_x_map"
+      ]
+    },
+    {
+      "seed": 97,
+      "baseline_test_brier": 0.23625080164633913,
+      "potage_am_test_brier": 0.1709747553955287,
+      "oracle_test_brier": 0.15644134518238761,
+      "recovered_planted_factors": [
+        "counter_matchup",
+        "objective_finish",
+        "relative_gold",
+        "time_x_map"
+      ]
+    }
+  ]
+}

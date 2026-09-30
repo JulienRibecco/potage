@@ -1,0 +1,433 @@
+{
+  "seed": 401,
+  "tune_pairs": 100,
+  "test_pairs": 500,
+  "games_per_pair": 2,
+  "opening_plies": 10,
+  "strengths": [
+    0.0,
+    2.0,
+    4.0,
+    8.0,
+    12.0,
+    16.0,
+    24.0,
+    32.0
+  ],
+  "bootstrap_repetitions": 2000,
+  "tuning": {
+    "mobility": [
+      {
+        "strength": 0.0,
+        "paired_score": 0.5,
+        "mean_disc_margin": 0.0,
+        "decision_change_rate": 0.0,
+        "mean_factor_gain_per_decision": 0.0,
+        "wins": 99,
+        "draws": 2,
+        "losses": 99,
+        "paired_effect": {
+          "estimate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      {
+        "strength": 2.0,
+        "paired_score": 0.55,
+        "mean_disc_margin": 2.705,
+        "decision_change_rate": 0.04458216713314674,
+        "mean_factor_gain_per_decision": 0.01534386245501799,
+        "wins": 108,
+        "draws": 4,
+        "losses": 88,
+        "paired_effect": {
+          "estimate": 0.050000000000000044,
+          "ci_low": -0.0025000000000000022,
+          "ci_high": 0.10750000000000004
+        }
+      },
+      {
+        "strength": 4.0,
+        "paired_score": 0.5225,
+        "mean_disc_margin": 1.045,
+        "decision_change_rate": 0.10171862509992007,
+        "mean_factor_gain_per_decision": 0.0371203037569944,
+        "wins": 103,
+        "draws": 3,
+        "losses": 94,
+        "paired_effect": {
+          "estimate": 0.022499999999999964,
+          "ci_low": -0.03749999999999998,
+          "ci_high": 0.08250000000000002
+        }
+      },
+      {
+        "strength": 8.0,
+        "paired_score": 0.5475,
+        "mean_disc_margin": 1.625,
+        "decision_change_rate": 0.2080913278590026,
+        "mean_factor_gain_per_decision": 0.07941117564590426,
+        "wins": 105,
+        "draws": 9,
+        "losses": 86,
+        "paired_effect": {
+          "estimate": 0.04749999999999999,
+          "ci_low": -0.017500000000000016,
+          "ci_high": 0.11499999999999999
+        }
+      },
+      {
+        "strength": 12.0,
+        "paired_score": 0.6325,
+        "mean_disc_margin": 5.32,
+        "decision_change_rate": 0.28825054857370835,
+        "mean_factor_gain_per_decision": 0.11072877185983111,
+        "wins": 124,
+        "draws": 5,
+        "losses": 71,
+        "paired_effect": {
+          "estimate": 0.13249999999999995,
+          "ci_low": 0.07250000000000001,
+          "ci_high": 0.18999999999999995
+        }
+      },
+      {
+        "strength": 16.0,
+        "paired_score": 0.555,
+        "mean_disc_margin": 3.11,
+        "decision_change_rate": 0.3649402390438247,
+        "mean_factor_gain_per_decision": 0.13902722443559096,
+        "wins": 108,
+        "draws": 6,
+        "losses": 86,
+        "paired_effect": {
+          "estimate": 0.05500000000000005,
+          "ci_low": -0.012500000000000011,
+          "ci_high": 0.12250000000000005
+        }
+      },
+      {
+        "strength": 24.0,
+        "paired_score": 0.6725,
+        "mean_disc_margin": 7.545,
+        "decision_change_rate": 0.4527402700555997,
+        "mean_factor_gain_per_decision": 0.1696452210749271,
+        "wins": 132,
+        "draws": 5,
+        "losses": 63,
+        "paired_effect": {
+          "estimate": 0.1725,
+          "ci_low": 0.10750000000000004,
+          "ci_high": 0.23750000000000004
+        }
+      },
+      {
+        "strength": 32.0,
+        "paired_score": 0.6425,
+        "mean_disc_margin": 8.375,
+        "decision_change_rate": 0.5120541940625623,
+        "mean_factor_gain_per_decision": 0.1963704589227602,
+        "wins": 127,
+        "draws": 3,
+        "losses": 70,
+        "paired_effect": {
+          "estimate": 0.14249999999999996,
+          "ci_low": 0.07250000000000001,
+          "ci_high": 0.20750000000000002
+        }
+      }
+    ],
+    "safety": [
+      {
+        "strength": 0.0,
+        "paired_score": 0.5,
+        "mean_disc_margin": 0.0,
+        "decision_change_rate": 0.0,
+        "mean_factor_gain_per_decision": 0.0,
+        "wins": 99,
+        "draws": 2,
+        "losses": 99,
+        "paired_effect": {
+          "estimate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      {
+        "strength": 2.0,
+        "paired_score": 0.5275,
+        "mean_disc_margin": 0.845,
+        "decision_change_rate": 0.03119376124775045,
+        "mean_factor_gain_per_decision": 0.006298740251949611,
+        "wins": 103,
+        "draws": 5,
+        "losses": 92,
+        "paired_effect": {
+          "estimate": 0.02749999999999997,
+          "ci_low": -0.02250000000000002,
+          "ci_high": 0.08006249999999962
+        }
+      },
+      {
+        "strength": 4.0,
+        "paired_score": 0.545,
+        "mean_disc_margin": 3.9,
+        "decision_change_rate": 0.053482338854520056,
+        "mean_factor_gain_per_decision": 0.011025743364597884,
+        "wins": 106,
+        "draws": 6,
+        "losses": 88,
+        "paired_effect": {
+          "estimate": 0.04500000000000004,
+          "ci_low": -0.007500000000000007,
+          "ci_high": 0.09999999999999998
+        }
+      },
+      {
+        "strength": 8.0,
+        "paired_score": 0.5475,
+        "mean_disc_margin": 4.12,
+        "decision_change_rate": 0.10476000796654053,
+        "mean_factor_gain_per_decision": 0.021949478855473676,
+        "wins": 107,
+        "draws": 5,
+        "losses": 88,
+        "paired_effect": {
+          "estimate": 0.04749999999999999,
+          "ci_low": -0.012500000000000011,
+          "ci_high": 0.10999999999999999
+        }
+      },
+      {
+        "strength": 12.0,
+        "paired_score": 0.62,
+        "mean_disc_margin": 5.38,
+        "decision_change_rate": 0.15323383084577114,
+        "mean_factor_gain_per_decision": 0.031517412935323376,
+        "wins": 122,
+        "draws": 4,
+        "losses": 74,
+        "paired_effect": {
+          "estimate": 0.12,
+          "ci_low": 0.06499999999999995,
+          "ci_high": 0.1775
+        }
+      },
+      {
+        "strength": 16.0,
+        "paired_score": 0.5975,
+        "mean_disc_margin": 4.91,
+        "decision_change_rate": 0.20379241516966068,
+        "mean_factor_gain_per_decision": 0.04243180306054556,
+        "wins": 117,
+        "draws": 5,
+        "losses": 78,
+        "paired_effect": {
+          "estimate": 0.09750000000000003,
+          "ci_low": 0.03749999999999998,
+          "ci_high": 0.15749999999999997
+        }
+      },
+      {
+        "strength": 24.0,
+        "paired_score": 0.6025,
+        "mean_disc_margin": 4.34,
+        "decision_change_rate": 0.2920634920634921,
+        "mean_factor_gain_per_decision": 0.06222718253968255,
+        "wins": 118,
+        "draws": 5,
+        "losses": 77,
+        "paired_effect": {
+          "estimate": 0.10250000000000004,
+          "ci_low": 0.030000000000000027,
+          "ci_high": 0.17000000000000004
+        }
+      },
+      {
+        "strength": 32.0,
+        "paired_score": 0.575,
+        "mean_disc_margin": 4.705,
+        "decision_change_rate": 0.3550424314189856,
+        "mean_factor_gain_per_decision": 0.07371225577264656,
+        "wins": 112,
+        "draws": 6,
+        "losses": 82,
+        "paired_effect": {
+          "estimate": 0.07499999999999996,
+          "ci_low": 0.0024999999999999467,
+          "ci_high": 0.14500000000000002
+        }
+      }
+    ],
+    "combined": [
+      {
+        "strength": 0.0,
+        "paired_score": 0.5,
+        "mean_disc_margin": 0.0,
+        "decision_change_rate": 0.0,
+        "mean_factor_gain_per_decision": 0.0,
+        "wins": 99,
+        "draws": 2,
+        "losses": 99,
+        "paired_effect": {
+          "estimate": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      {
+        "strength": 2.0,
+        "paired_score": 0.5275,
+        "mean_disc_margin": 2.285,
+        "decision_change_rate": 0.06397441023590564,
+        "mean_factor_gain_per_decision": 0.030654404904704776,
+        "wins": 105,
+        "draws": 1,
+        "losses": 94,
+        "paired_effect": {
+          "estimate": 0.02749999999999997,
+          "ci_low": -0.030000000000000027,
+          "ci_high": 0.08499999999999996
+        }
+      },
+      {
+        "strength": 4.0,
+        "paired_score": 0.535,
+        "mean_disc_margin": 2.25,
+        "decision_change_rate": 0.13099041533546327,
+        "mean_factor_gain_per_decision": 0.061351837060702887,
+        "wins": 105,
+        "draws": 4,
+        "losses": 91,
+        "paired_effect": {
+          "estimate": 0.03500000000000003,
+          "ci_low": -0.030000000000000027,
+          "ci_high": 0.09750000000000003
+        }
+      },
+      {
+        "strength": 8.0,
+        "paired_score": 0.6075,
+        "mean_disc_margin": 6.415,
+        "decision_change_rate": 0.27191413237924866,
+        "mean_factor_gain_per_decision": 0.1328513218048102,
+        "wins": 119,
+        "draws": 5,
+        "losses": 76,
+        "paired_effect": {
+          "estimate": 0.10750000000000004,
+          "ci_low": 0.04500000000000004,
+          "ci_high": 0.16749999999999998
+        }
+      },
+      {
+        "strength": 12.0,
+        "paired_score": 0.6325,
+        "mean_disc_margin": 6.85,
+        "decision_change_rate": 0.35252084160381103,
+        "mean_factor_gain_per_decision": 0.1729108773322747,
+        "wins": 125,
+        "draws": 3,
+        "losses": 72,
+        "paired_effect": {
+          "estimate": 0.13249999999999995,
+          "ci_low": 0.06999999999999995,
+          "ci_high": 0.1925
+        }
+      },
+      {
+        "strength": 16.0,
+        "paired_score": 0.645,
+        "mean_disc_margin": 6.84,
+        "decision_change_rate": 0.42828843106180664,
+        "mean_factor_gain_per_decision": 0.20333960644479665,
+        "wins": 126,
+        "draws": 6,
+        "losses": 68,
+        "paired_effect": {
+          "estimate": 0.14500000000000002,
+          "ci_low": 0.08499999999999996,
+          "ci_high": 0.20750000000000002
+        }
+      },
+      {
+        "strength": 24.0,
+        "paired_score": 0.6875,
+        "mean_disc_margin": 9.74,
+        "decision_change_rate": 0.5243830207305035,
+        "mean_factor_gain_per_decision": 0.2502796972688383,
+        "wins": 134,
+        "draws": 7,
+        "losses": 59,
+        "paired_effect": {
+          "estimate": 0.1875,
+          "ci_low": 0.1149375,
+          "ci_high": 0.25749999999999995
+        }
+      },
+      {
+        "strength": 32.0,
+        "paired_score": 0.665,
+        "mean_disc_margin": 10.465,
+        "decision_change_rate": 0.5841350873748282,
+        "mean_factor_gain_per_decision": 0.26802310360625686,
+        "wins": 131,
+        "draws": 4,
+        "losses": 65,
+        "paired_effect": {
+          "estimate": 0.16500000000000004,
+          "ci_low": 0.09750000000000003,
+          "ci_high": 0.22999999999999998
+        }
+      }
+    ]
+  },
+  "untouched_test": {
+    "mobility": {
+      "strength": 24.0,
+      "paired_score": 0.6205,
+      "mean_disc_margin": 6.699,
+      "decision_change_rate": 0.4461025559612637,
+      "mean_factor_gain_per_decision": 0.16990130708578088,
+      "wins": 607,
+      "draws": 27,
+      "losses": 366,
+      "paired_effect": {
+        "estimate": 0.12050000000000005,
+        "ci_low": 0.09099999999999997,
+        "ci_high": 0.14801249999999996
+      }
+    },
+    "safety": {
+      "strength": 12.0,
+      "paired_score": 0.5795,
+      "mean_disc_margin": 3.364,
+      "decision_change_rate": 0.1637937913973346,
+      "mean_factor_gain_per_decision": 0.03400067831777192,
+      "wins": 567,
+      "draws": 25,
+      "losses": 408,
+      "paired_effect": {
+        "estimate": 0.07950000000000002,
+        "ci_low": 0.050000000000000044,
+        "ci_high": 0.10701249999999991
+      }
+    },
+    "combined": {
+      "strength": 24.0,
+      "paired_score": 0.688,
+      "mean_disc_margin": 10.604,
+      "decision_change_rate": 0.5153504461653367,
+      "mean_factor_gain_per_decision": 0.2443868993802169,
+      "wins": 672,
+      "draws": 32,
+      "losses": 296,
+      "paired_effect": {
+        "estimate": 0.18799999999999994,
+        "ci_low": 0.16100000000000003,
+        "ci_high": 0.21650000000000003
+      }
+    }
+  }
+}

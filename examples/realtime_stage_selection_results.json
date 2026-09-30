@@ -1,0 +1,460 @@
+{
+  "generation": {
+    "games_requested": 600,
+    "games_kept": 595,
+    "draws": 5
+  },
+  "seed": 701,
+  "select": 12,
+  "recipes": [
+    "raw",
+    "raw_am",
+    "raw_carriers",
+    "deep_am",
+    "carrier_am"
+  ],
+  "methods": [
+    "omp",
+    "greedy",
+    "correlation"
+  ],
+  "rows": 10710,
+  "split": {
+    "discovery_rows": 6426,
+    "validation_rows": 2142,
+    "test_rows": 2142,
+    "discovery_games": 357,
+    "validation_games": 119,
+    "test_games": 119
+  },
+  "baseline": {
+    "validation": {
+      "brier": 0.09880367709580128,
+      "log_loss": 0.31162308544961403,
+      "roc_auc": 0.9411285211252257
+    },
+    "test": {
+      "brier": 0.08775968662364826,
+      "log_loss": 0.2734241549453485,
+      "roc_auc": 0.953069681031454
+    }
+  },
+  "results": [
+    {
+      "recipe": "raw",
+      "method": "omp",
+      "selected_features": [
+        "our_controlled_nodes",
+        "opponent_controlled_nodes",
+        "opponent_nearest_node_distance",
+        "our_nearest_node_distance",
+        "score_difference",
+        "opponent_target_distance",
+        "our_target_distance",
+        "opponent_pending_action",
+        "our_pending_action",
+        "opponent_target_progress",
+        "our_target_progress",
+        "opponent_score_rate"
+      ],
+      "validation": {
+        "brier": 0.09906819943381805,
+        "log_loss": 0.31699218682813585,
+        "roc_auc": 0.9404833828956418
+      },
+      "test": {
+        "brier": 0.08791920622749928,
+        "log_loss": 0.2749924323104047,
+        "roc_auc": 0.9532527607993089
+      },
+      "pipeline_recap": "Pipeline: 2 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  omp      0.0s\n   2  select(17d)               17\u219212           17\u219217      0.6668  omp      0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 176 / 100,000 (0.2%)\nMemory: peak ~11 MB / 2428 MB (0.4%)"
+    },
+    {
+      "recipe": "raw",
+      "method": "greedy",
+      "selected_features": [
+        "our_target_progress",
+        "opponent_target_progress",
+        "score_difference"
+      ],
+      "validation": {
+        "brier": 0.09864446040410879,
+        "log_loss": 0.31512919628428326,
+        "roc_auc": 0.940513024381866
+      },
+      "test": {
+        "brier": 0.08863845745788221,
+        "log_loss": 0.27551726386987224,
+        "roc_auc": 0.9524602869470229
+      },
+      "pipeline_recap": "Pipeline: 2 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  greedy   0.0s\n   2  select(17d)                17\u21923           17\u219217      0.6612  greedy   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 176 / 100,000 (0.2%)\nMemory: peak ~11 MB / 2409 MB (0.4%)"
+    },
+    {
+      "recipe": "raw",
+      "method": "correlation",
+      "selected_features": [
+        "our_target_progress",
+        "opponent_target_progress",
+        "opponent_pending_action",
+        "our_pending_action",
+        "opponent_controlled_nodes",
+        "score_difference",
+        "our_controlled_nodes",
+        "our_target_distance",
+        "opponent_target_distance",
+        "time_fraction",
+        "agent_distance",
+        "our_nearest_node_distance"
+      ],
+      "validation": {
+        "brier": 0.09900626753035478,
+        "log_loss": 0.3168685152783999,
+        "roc_auc": 0.9405304605502331
+      },
+      "test": {
+        "brier": 0.08807287042390437,
+        "log_loss": 0.2757592645522643,
+        "roc_auc": 0.9531350666628307
+      },
+      "pipeline_recap": "Pipeline: 2 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  correlation   0.0s\n   2  select(17d)               17\u219212           17\u219217      0.6363  correlation   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 176 / 100,000 (0.2%)\nMemory: peak ~11 MB / 2396 MB (0.4%)"
+    },
+    {
+      "recipe": "raw_am",
+      "method": "omp",
+      "selected_features": [
+        "|opponent_controlled_nodes-opponent_nearest_node_distance|",
+        "|our_controlled_nodes-our_nearest_node_distance|",
+        "hmean(score_difference,contested_nodes)",
+        "hmean(score_difference,agent_distance)",
+        "our_target_distance/(1+|opponent_score_rate|)",
+        "opponent_target_distance/(1+|our_score_rate|)",
+        "(time_fraction-opponent_controlled_nodes)\u00b2",
+        "|our_target_distance-our_pending_action|/\u03a3",
+        "contested_nodes*our_target_progress",
+        "|opponent_target_distance-opponent_pending_action|/\u03a3",
+        "|our_controlled_nodes-agent_distance|/\u03a3",
+        "hmean(our_target_progress,agent_distance)"
+      ],
+      "validation": {
+        "brier": 0.09815570347425216,
+        "log_loss": 0.3115549471372557,
+        "roc_auc": 0.9424990039588821
+      },
+      "test": {
+        "brier": 0.08771542899610171,
+        "log_loss": 0.27510052390780804,
+        "roc_auc": 0.9535631245962437
+      },
+      "pipeline_recap": "Pipeline: 4 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  omp      0.0s\n   2  am(17d)                   17\u219224       2,992\u2192960      0.6786  omp      1.1s\n   3  fuse                      41\u219241               \u2014           \u2014  \u2014        0.0s\n   4  select(41d)               41\u219212           41\u219241      0.6741  omp      0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 3,192 / 100,000 (3.2%)\nMemory: peak ~264 MB / 2395 MB (11.0%)\nUnused families: am_max, am_min, am_relu, raw  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "raw_am",
+      "method": "greedy",
+      "selected_features": [
+        "our_target_progress/(1+|opponent_target_progress|)",
+        "opponent_target_progress/(1+|score_difference|)",
+        "opponent_nearest_node_distance*opponent_pending_action",
+        "our_nearest_node_distance*our_pending_action",
+        "|our_controlled_nodes-opponent_nearest_node_distance|/\u03a3",
+        "|opponent_controlled_nodes-our_nearest_node_distance|/\u03a3",
+        "our_target_progress/(1+|score_difference|)",
+        "score_difference/(1+|opponent_controlled_nodes|)",
+        "|score_difference-agent_distance|/\u03a3",
+        "agent_distance",
+        "opponent_pending_action"
+      ],
+      "validation": {
+        "brier": 0.09542509901323297,
+        "log_loss": 0.3053420962358842,
+        "roc_auc": 0.9436907660667753
+      },
+      "test": {
+        "brier": 0.08857766595352684,
+        "log_loss": 0.2744339948660367,
+        "roc_auc": 0.9528499853100282
+      },
+      "pipeline_recap": "Pipeline: 4 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  greedy   0.0s\n   2  am(17d)                   17\u219224       2,992\u2192960      0.6758  greedy   2.3s\n   3  fuse                      41\u219241               \u2014           \u2014  \u2014        0.0s\n   4  select(41d)               41\u219211           41\u219241      0.6696  greedy   0.1s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 3,192 / 100,000 (3.2%)\nMemory: peak ~264 MB / 2339 MB (11.3%)\nUnused families: am_max, am_relu, am_sq_diff  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "raw_am",
+      "method": "correlation",
+      "selected_features": [
+        "our_target_progress/(1+|score_difference|)",
+        "|opponent_score_rate-control_progress_spread|/\u03a3",
+        "opponent_target_progress/(1+|our_target_progress|)",
+        "our_pending_action/(1+|our_score_rate|)",
+        "|our_score_rate-control_progress_spread|/\u03a3",
+        "opponent_nearest_node_distance*opponent_pending_action",
+        "|our_controlled_nodes-our_target_progress|/\u03a3",
+        "|time_fraction-score_difference|/\u03a3",
+        "our_nearest_node_distance*our_pending_action",
+        "opponent_target_progress/(1+|score_difference|)",
+        "|opponent_controlled_nodes-our_pending_action|",
+        "|time_fraction-opponent_score_rate|/\u03a3"
+      ],
+      "validation": {
+        "brier": 0.09528029518879765,
+        "log_loss": 0.3054192797746499,
+        "roc_auc": 0.9437125612772342
+      },
+      "test": {
+        "brier": 0.08699839591269197,
+        "log_loss": 0.2708852570990184,
+        "roc_auc": 0.9541202101755735
+      },
+      "pipeline_recap": "Pipeline: 4 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  correlation   0.0s\n   2  am(17d)                   17\u219224       2,992\u2192960      0.6618  correlation   1.0s\n   3  fuse                      41\u219241               \u2014           \u2014  \u2014        0.0s\n   4  select(41d)               41\u219212           41\u219241      0.6642  correlation   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 3,192 / 100,000 (3.2%)\nMemory: peak ~264 MB / 2354 MB (11.2%)\nUnused families: am_max, am_min, am_sq_diff, raw  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "raw_carriers",
+      "method": "omp",
+      "selected_features": [
+        "cos(1.0\u03c0*our_controlled_nodes)",
+        "cos(1.0\u03c0*opponent_controlled_nodes)",
+        "our_nearest_node_distance",
+        "opponent_nearest_node_distance",
+        "sin(2.0\u03c0*opponent_target_progress)",
+        "step(score_difference>75%)",
+        "cos(3.0\u03c0*opponent_score_rate)",
+        "tri(2.0*our_target_progress)",
+        "tri(2.0*opponent_target_progress)",
+        "gauss(our_controlled_nodes,c=25%,w=0.5)",
+        "sin(2.0\u03c0*our_target_progress)",
+        "cos(2.0\u03c0*opponent_controlled_nodes)"
+      ],
+      "validation": {
+        "brier": 0.09682076802112796,
+        "log_loss": 0.3089918621794428,
+        "roc_auc": 0.9429078821070912
+      },
+      "test": {
+        "brier": 0.08675641852933784,
+        "log_loss": 0.27313806949178376,
+        "roc_auc": 0.9537941538271082
+      },
+      "pipeline_recap": "Pipeline: 4 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  omp      0.0s\n   2  carriers(17d)             17\u219224         408\u2192178      0.6706  omp      0.2s\n   3  fuse                      41\u219241               \u2014           \u2014  \u2014        0.0s\n   4  select(41d)               41\u219212           41\u219241      0.6693  omp      0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 608 / 100,000 (0.6%)\nMemory: peak ~28 MB / 2362 MB (1.2%)"
+    },
+    {
+      "recipe": "raw_carriers",
+      "method": "greedy",
+      "selected_features": [
+        "gauss(our_target_progress,c=50%,w=0.2)",
+        "gauss(opponent_target_progress,c=50%,w=0.2)",
+        "score_difference",
+        "sin(3.0\u03c0*opponent_target_progress)",
+        "our_target_progress",
+        "opponent_pending_action",
+        "cos(2.0\u03c0*our_target_distance)"
+      ],
+      "validation": {
+        "brier": 0.09781733178450938,
+        "log_loss": 0.3127008287507909,
+        "roc_auc": 0.9413874482254775
+      },
+      "test": {
+        "brier": 0.08772477000148769,
+        "log_loss": 0.27355816590946425,
+        "roc_auc": 0.9532309655888498
+      },
+      "pipeline_recap": "Pipeline: 4 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  greedy   0.0s\n   2  carriers(17d)             17\u219210         408\u2192178      0.6654  greedy   0.2s\n   3  fuse                      27\u219227               \u2014           \u2014  \u2014        0.0s\n   4  select(27d)                27\u21927           27\u219227      0.6633  greedy   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 594 / 100,000 (0.6%)\nMemory: peak ~28 MB / 2355 MB (1.2%)\nUnused families: carrier_tri  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "raw_carriers",
+      "method": "correlation",
+      "selected_features": [
+        "step(our_score_rate>50%)",
+        "step(opponent_target_progress>25%)",
+        "sin(2.0\u03c0*opponent_score_rate)",
+        "gauss(our_target_progress,c=50%,w=0.2)",
+        "step(opponent_pending_action>75%)",
+        "sin(3.0\u03c0*our_score_rate)",
+        "step(opponent_score_rate>50%)",
+        "step(our_pending_action>75%)",
+        "sin(2.0\u03c0*opponent_target_progress)",
+        "cos(2.0\u03c0*our_pending_action)",
+        "sin(3.0\u03c0*our_target_progress)",
+        "cos(3.0\u03c0*our_score_rate)"
+      ],
+      "validation": {
+        "brier": 0.09692876213099316,
+        "log_loss": 0.3064868665869554,
+        "roc_auc": 0.9428285475410206
+      },
+      "test": {
+        "brier": 0.08701058806892172,
+        "log_loss": 0.2718402639538494,
+        "roc_auc": 0.9535866634235395
+      },
+      "pipeline_recap": "Pipeline: 4 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  correlation   0.0s\n   2  carriers(17d)             17\u219224         408\u2192178      0.6554  correlation   0.3s\n   3  fuse                      41\u219241               \u2014           \u2014  \u2014        0.0s\n   4  select(41d)               41\u219212           41\u219241      0.6584  correlation   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 608 / 100,000 (0.6%)\nMemory: peak ~28 MB / 2366 MB (1.2%)\nUnused families: raw  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "deep_am",
+      "method": "omp",
+      "selected_features": [
+        "|opponent_controlled_nodes-opponent_nearest_node_distance|/(1+||our_controlled_nodes-our_nearest_node_distance||)",
+        "max(|our_controlled_nodes-our_nearest_node_distance|,|our_target_distance-our_pending_action|/\u03a3)",
+        "min(hmean(score_difference,contested_nodes),opponent_target_progress/(1+|opponent_score_rate|))",
+        "hmean(our_target_distance/(1+|opponent_score_rate|),|opponent_target_distance-opponent_pending_action|/\u03a3)",
+        "relu(hmean(score_difference,agent_distance)-contested_nodes*our_target_progress)",
+        "hmean(opponent_target_distance/(1+|our_score_rate|),hmean(score_difference,opponent_pending_action))",
+        "max(our_target_distance/(1+|opponent_score_rate|),|our_controlled_nodes-agent_distance|/\u03a3)",
+        "relu(hmean(score_difference,opponent_pending_action)-hmean(opponent_target_progress,agent_distance))",
+        "min(hmean(our_target_progress,agent_distance),|our_controlled_nodes-our_target_distance|)",
+        "contested_nodes*our_target_progress*|our_controlled_nodes-agent_distance|/\u03a3",
+        "|(time_fraction-opponent_controlled_nodes)\u00b2-|opponent_controlled_nodes-opponent_pending_action|/\u03a3|",
+        "relu(|opponent_pending_action-opponent_target_progress|/\u03a3-opponent_nearest_node_distance*our_pending_action)"
+      ],
+      "validation": {
+        "brier": 0.10095092391566388,
+        "log_loss": 0.32104007727475486,
+        "roc_auc": 0.9397728590346814
+      },
+      "test": {
+        "brier": 0.0880611233645402,
+        "log_loss": 0.2796526882573146,
+        "roc_auc": 0.9524454662039108
+      },
+      "pipeline_recap": "Pipeline: 5 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  omp      0.0s\n   2  am(17d)                   17\u219224       2,992\u2192960      0.6786  omp      1.1s\n   3  am(24d)                   24\u219224     6,072\u21922,037      0.6852  omp      2.6s\n   4  fuse                      65\u219265               \u2014           \u2014  \u2014        0.0s\n   5  select(65d)               65\u219212           65\u219265      0.6799  omp      0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 9,288 / 100,000 (9.3%)\nMemory: peak ~490 MB / 2364 MB (20.7%)\nUnused families: raw  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "deep_am",
+      "method": "greedy",
+      "selected_features": [
+        "min(opponent_nearest_node_distance*opponent_pending_action,our_target_progress/(1+|score_difference|))",
+        "hmean(our_nearest_node_distance*our_pending_action,control_progress_spread/(1+|opponent_score_rate|))",
+        "relu(our_target_progress/(1+|score_difference|)-hmean(our_score_rate,agent_distance))",
+        "opponent_nearest_node_distance*opponent_pending_action",
+        "|opponent_controlled_nodes-opponent_target_progress|/\u03a3*|score_difference-our_score_rate|/\u03a3",
+        "hmean(opponent_pending_action*our_score_rate,|score_difference-agent_distance|/\u03a3)",
+        "||opponent_controlled_nodes-opponent_target_progress|/\u03a3-time_fraction*score_difference|/\u03a3",
+        "|our_controlled_nodes-opponent_nearest_node_distance|/\u03a3",
+        "|opponent_controlled_nodes-our_nearest_node_distance|/\u03a3",
+        "our_nearest_node_distance*our_score_rate/(1+|hmean(our_target_progress,control_progress_spread)|)",
+        "our_nearest_node_distance*our_pending_action/(1+||contested_nodes-our_target_distance||)",
+        "our_target_progress/(1+|opponent_target_progress|)"
+      ],
+      "validation": {
+        "brier": 0.09230236959104875,
+        "log_loss": 0.29254833191101204,
+        "roc_auc": 0.9474944661960644
+      },
+      "test": {
+        "brier": 0.0885604921819271,
+        "log_loss": 0.2736454629862573,
+        "roc_auc": 0.9530975789008413
+      },
+      "pipeline_recap": "Pipeline: 5 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  greedy   0.0s\n   2  am(17d)                   17\u219224       2,992\u2192960      0.6758  greedy   1.9s\n   3  am(24d)                   24\u219224     6,072\u21921,759      0.6839  greedy   4.5s\n   4  fuse                      65\u219265               \u2014           \u2014  \u2014        0.0s\n   5  select(65d)               65\u219212           65\u219265      0.6748  greedy   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 9,288 / 100,000 (9.3%)\nMemory: peak ~490 MB / 2583 MB (19.0%)\nUnused families: raw  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "deep_am",
+      "method": "correlation",
+      "selected_features": [
+        "|opponent_score_rate-control_progress_spread|/\u03a3*opponent_nearest_node_distance*opponent_pending_action",
+        "max(our_nearest_node_distance*our_pending_action,|score_difference-our_nearest_node_distance|/\u03a3)",
+        "relu(|our_score_rate-control_progress_spread|/\u03a3-our_target_progress/(1+|score_difference|))",
+        "|time_fraction-opponent_score_rate|/\u03a3/(1+||time_fraction-score_difference|/\u03a3|)",
+        "|hmean(time_fraction,our_target_progress)-|opponent_controlled_nodes-opponent_target_progress|/\u03a3|/\u03a3",
+        "relu(|time_fraction-opponent_score_rate|/\u03a3-opponent_target_progress/(1+|score_difference|))",
+        "relu(relu(opponent_nearest_node_distance-our_controlled_nodes)-|our_score_rate-control_progress_spread|/\u03a3)",
+        "(opponent_nearest_node_distance*opponent_pending_action-|score_difference-our_nearest_node_distance|/\u03a3)\u00b2",
+        "hmean(our_pending_action/(1+|our_score_rate|),our_target_progress/(1+|opponent_target_progress|))",
+        "relu(relu(our_nearest_node_distance-opponent_controlled_nodes)-|opponent_score_rate-control_progress_spread|/\u03a3)",
+        "max(our_pending_action/(1+|our_score_rate|),|time_fraction-our_score_rate|/\u03a3)",
+        "hmean(opponent_target_progress/(1+|our_target_progress|),opponent_pending_action/(1+|opponent_score_rate|))"
+      ],
+      "validation": {
+        "brier": 0.09553562213016308,
+        "log_loss": 0.3023634363578801,
+        "roc_auc": 0.9441441064443206
+      },
+      "test": {
+        "brier": 0.08746736846418868,
+        "log_loss": 0.27082374207389526,
+        "roc_auc": 0.9538028719112918
+      },
+      "pipeline_recap": "Pipeline: 5 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  correlation   0.0s\n   2  am(17d)                   17\u219224       2,992\u2192960      0.6618  correlation   0.9s\n   3  am(24d)                   24\u219224     6,072\u21921,583      0.6722  correlation   2.2s\n   4  fuse                      65\u219265               \u2014           \u2014  \u2014        0.0s\n   5  select(65d)               65\u219212           65\u219265      0.6776  correlation   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 9,288 / 100,000 (9.3%)\nMemory: peak ~490 MB / 2561 MB (19.1%)\nUnused families: raw  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "carrier_am",
+      "method": "omp",
+      "selected_features": [
+        "relu(cos(2.0\u03c0*opponent_target_distance)-cos(1.0\u03c0*opponent_controlled_nodes))",
+        "hmean(cos(1.0\u03c0*our_controlled_nodes),cos(1.0\u03c0*our_nearest_node_distance))",
+        "(cos(1.0\u03c0*opponent_controlled_nodes)-step(score_difference>25%))\u00b2",
+        "relu(cos(2.0\u03c0*opponent_target_distance)-sin(2.0\u03c0*opponent_target_progress))",
+        "max(cos(2.0\u03c0*opponent_target_distance),step(score_difference>75%))",
+        "hmean(cos(3.0\u03c0*opponent_score_rate),sin(3.0\u03c0*opponent_target_distance))",
+        "relu(sin(3.0\u03c0*opponent_target_distance)-step(score_difference>75%))",
+        "(cos(1.0\u03c0*our_nearest_node_distance)-step(score_difference>25%))\u00b2",
+        "hmean(cos(2.0\u03c0*opponent_target_distance),gauss(our_controlled_nodes,c=25%,w=0.5))",
+        "hmean(cos(1.0\u03c0*opponent_controlled_nodes),step(score_difference>75%))",
+        "max(tri(2.0*our_target_progress),step(score_difference>50%))",
+        "(cos(1.0\u03c0*our_controlled_nodes)-step(score_difference>25%))\u00b2"
+      ],
+      "validation": {
+        "brier": 0.09747277951935543,
+        "log_loss": 0.3098985999883433,
+        "roc_auc": 0.9425617741650036
+      },
+      "test": {
+        "brier": 0.08658770827634747,
+        "log_loss": 0.2720711631714939,
+        "roc_auc": 0.9542169809100111
+      },
+      "pipeline_recap": "Pipeline: 5 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  omp      0.0s\n   2  carriers(17d)             17\u219224         408\u2192178      0.6706  omp      0.2s\n   3  am(24d)                   24\u219224     6,072\u21921,829      0.6775  omp      2.8s\n   4  fuse                      65\u219265               \u2014           \u2014  \u2014        0.0s\n   5  select(65d)               65\u219212           65\u219265      0.6729  omp      0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 6,704 / 100,000 (6.7%)\nMemory: peak ~490 MB / 2606 MB (18.8%)\nUnused families: am_damped, am_diff, am_min, am_normdiff, raw  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "carrier_am",
+      "method": "greedy",
+      "selected_features": [
+        "gauss(our_target_progress,c=50%,w=0.2)/(1+|step(our_score_rate>50%)|)",
+        "gauss(opponent_target_progress,c=50%,w=0.2)",
+        "relu(step(score_difference>25%)-gauss(our_target_progress,c=50%,w=0.2))",
+        "relu(cos(2.0\u03c0*our_target_distance)-step(our_score_rate>50%))",
+        "relu(pulse(our_target_progress:0%-33%)-sin(3.0\u03c0*opponent_target_progress))",
+        "gauss(our_target_progress,c=50%,w=0.2)/(1+|cos(3.0\u03c0*opponent_score_rate)|)",
+        "cos(2.0\u03c0*our_target_distance)*sin(3.0\u03c0*opponent_target_progress)",
+        "opponent_pending_action"
+      ],
+      "validation": {
+        "brier": 0.09585139588311876,
+        "log_loss": 0.3005324922466991,
+        "roc_auc": 0.9444230851381947
+      },
+      "test": {
+        "brier": 0.0870716086954614,
+        "log_loss": 0.2712981571884006,
+        "roc_auc": 0.9538691293510868
+      },
+      "pipeline_recap": "Pipeline: 5 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  greedy   0.0s\n   2  carriers(17d)             17\u219210         408\u2192178      0.6654  greedy   0.2s\n   3  am(10d)                   10\u219216         990\u2192380      0.6694  greedy   0.7s\n   4  fuse                      43\u219243               \u2014           \u2014  \u2014        0.0s\n   5  select(43d)                43\u21928           43\u219243      0.6664  greedy   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 1,600 / 100,000 (1.6%)\nMemory: peak ~72 MB / 2561 MB (2.8%)\nUnused families: am_max, am_normdiff, am_sq_diff, carrier_tri  (never selected \u2014 consider excluding to free budget)"
+    },
+    {
+      "recipe": "carrier_am",
+      "method": "correlation",
+      "selected_features": [
+        "(step(our_score_rate>50%)-sin(2.0\u03c0*opponent_target_progress))\u00b2",
+        "(step(opponent_score_rate>50%)-sin(2.0\u03c0*our_target_progress))\u00b2",
+        "hmean(sin(2.0\u03c0*opponent_score_rate),sin(3.0\u03c0*our_target_progress))",
+        "hmean(gauss(our_score_rate,c=75%,w=0.5),tri(2.0*our_score_rate))",
+        "hmean(sin(3.0\u03c0*our_target_progress),tri(2.0*opponent_score_rate))",
+        "gauss(opponent_target_progress,c=50%,w=0.2)/(1+|cos(1.0\u03c0*our_target_progress)|)",
+        "|sin(2.0\u03c0*opponent_score_rate)-tri(2.0*opponent_score_rate)|/\u03a3",
+        "|step(our_score_rate>50%)-sin(3.0\u03c0*our_score_rate)|/\u03a3",
+        "relu(step(our_pending_action>75%)-gauss(our_target_progress,c=50%,w=0.2))",
+        "hmean(gauss(our_target_progress,c=50%,w=0.2),step(opponent_pending_action>75%))",
+        "|step(opponent_score_rate>50%)-sin(3.0\u03c0*opponent_score_rate)|/\u03a3",
+        "relu(step(our_score_rate>50%)-gauss(our_target_progress,c=50%,w=0.2))"
+      ],
+      "validation": {
+        "brier": 0.09571453686562416,
+        "log_loss": 0.30297630342384463,
+        "roc_auc": 0.9440804644297807
+      },
+      "test": {
+        "brier": 0.08689646695146153,
+        "log_loss": 0.27033152831989365,
+        "roc_auc": 0.9540713889041454
+      },
+      "pipeline_recap": "Pipeline: 5 stages, 6,426 samples (base R\u00b2=0.6589)\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates   R\u00b2(total)  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                       20\u219217               \u2014           \u2014  correlation   0.0s\n   2  carriers(17d)             17\u219224         408\u2192178      0.6554  correlation   0.1s\n   3  am(24d)                   24\u219224     6,072\u21921,855      0.6713  correlation   2.4s\n   4  fuse                      65\u219265               \u2014           \u2014  \u2014        0.0s\n   5  select(65d)               65\u219212           65\u219265      0.6763  correlation   0.0s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget: 6,704 / 100,000 (6.7%)\nMemory: peak ~490 MB / 2604 MB (18.8%)\nUnused families: am_diff, am_min, am_product, raw  (never selected \u2014 consider excluding to free budget)"
+    }
+  ]
+}

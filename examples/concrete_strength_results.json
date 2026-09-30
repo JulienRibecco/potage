@@ -1,0 +1,392 @@
+{
+  "dataset": {
+    "name": "Concrete Compressive Strength",
+    "uci_doi": "https://doi.org/10.24432/C5PK67",
+    "openml_data_id": 44959,
+    "rows": 1030,
+    "features": [
+      "cement",
+      "blast_furnace_slag",
+      "fly_ash",
+      "water",
+      "superplasticizer",
+      "coarse_aggregate",
+      "fine_aggregate",
+      "age"
+    ],
+    "target": "strength_mpa"
+  },
+  "protocol": "group",
+  "seeds": {
+    "test": 42,
+    "validation": 43
+  },
+  "split": {
+    "discovery_rows": 648,
+    "validation_rows": 187,
+    "test_rows": 195,
+    "total_unique_recipes": 428,
+    "discovery_unique_recipes": 256,
+    "validation_unique_recipes": 86,
+    "test_unique_recipes": 86
+  },
+  "baselines": {
+    "mean": {
+      "validation": {
+        "r2": -0.001001378598726399,
+        "mae_mpa": 13.6057892332085,
+        "rmse_mpa": 16.488596001112548
+      },
+      "test": {
+        "r2": -0.00457746931846037,
+        "mae_mpa": 12.980415335255358,
+        "rmse_mpa": 16.19263266153282
+      },
+      "fit_seconds": 0.001023291999445064
+    },
+    "raw_ridge": {
+      "validation": {
+        "r2": 0.5516971560751998,
+        "mae_mpa": 8.90326333148457,
+        "rmse_mpa": 11.0344854499111
+      },
+      "test": {
+        "r2": 0.6519274807840932,
+        "mae_mpa": 7.504324274378206,
+        "rmse_mpa": 9.531486020914375
+      },
+      "fit_seconds": 0.0031038749984872993,
+      "ridge_alpha": 1.7782794100389228
+    },
+    "quadratic_ridge": {
+      "validation": {
+        "r2": 0.6804672115164829,
+        "mae_mpa": 6.710486442972896,
+        "rmse_mpa": 9.315883612868193
+      },
+      "test": {
+        "r2": 0.8147049481684823,
+        "mae_mpa": 5.336709631834533,
+        "rmse_mpa": 6.9543678356333585
+      },
+      "fit_seconds": 0.00498837499981164,
+      "ridge_alpha": 0.0001
+    },
+    "hist_gradient_boosting": {
+      "validation": {
+        "r2": 0.8413599817090317,
+        "mae_mpa": 4.6518729762755004,
+        "rmse_mpa": 6.564062612738092
+      },
+      "test": {
+        "r2": 0.8944786296743168,
+        "mae_mpa": 4.0123009872933935,
+        "rmse_mpa": 5.24802576127379
+      },
+      "fit_seconds": 0.19785687500188942
+    },
+    "random_forest": {
+      "validation": {
+        "r2": 0.8039012617284187,
+        "mae_mpa": 5.481586808810805,
+        "rmse_mpa": 7.297997983990571
+      },
+      "test": {
+        "r2": 0.8780179701121136,
+        "mae_mpa": 4.315608940828539,
+        "rmse_mpa": 5.642527379028936
+      },
+      "fit_seconds": 0.30706245800320175
+    },
+    "extra_trees": {
+      "validation": {
+        "r2": 0.8608155001897183,
+        "mae_mpa": 4.601723838712827,
+        "rmse_mpa": 6.148395214999178
+      },
+      "test": {
+        "r2": 0.8932487724557937,
+        "mae_mpa": 4.005628312427218,
+        "rmse_mpa": 5.278520175723788
+      },
+      "fit_seconds": 0.19196487500084913
+    }
+  },
+  "potage": {
+    "stage_0_unary": {
+      "n_features": 7,
+      "selected_features": [
+        "log|age|",
+        "cement",
+        "superplasticizer",
+        "blast_furnace_slag",
+        "water^3",
+        "1/|fly_ash|",
+        "age"
+      ],
+      "family_counts": {
+        "cube": 1,
+        "log": 1,
+        "raw": 4,
+        "reciprocal": 1
+      },
+      "ridge_alpha": 0.5623413251903491,
+      "validation": {
+        "r2": 0.7545499400123328,
+        "mae_mpa": 6.414701823197318,
+        "rmse_mpa": 8.164844362413836
+      },
+      "test": {
+        "r2": 0.8326404019088075,
+        "mae_mpa": 5.276779273480555,
+        "rmse_mpa": 6.609232946639143
+      },
+      "cumulative_seconds": 0.009108666999964043
+    },
+    "stage_1_am": {
+      "n_features": 11,
+      "selected_features": [
+        "hmean(cement,age^3)",
+        "1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)",
+        "|age^3-1/|blast_furnace_slag||/\u03a3",
+        "log(cement/water^3)",
+        "log|age|",
+        "(cement-age)\u00b2",
+        "cement^3*blast_furnace_slag^3",
+        "|fly_ash-superplasticizer^3|/\u03a3",
+        "relu(fly_ash^3-cement^3)",
+        "age^fine_aggregate^3",
+        "cement^3*water^3"
+      ],
+      "family_counts": {
+        "am_hmean": 1,
+        "am_logratio": 1,
+        "am_normdiff": 2,
+        "am_power": 2,
+        "am_product": 2,
+        "am_relu": 1,
+        "am_sq_diff": 1,
+        "log": 1
+      },
+      "ridge_alpha": 5.623413251903491,
+      "validation": {
+        "r2": 0.8140137900775282,
+        "mae_mpa": 5.6152420114815875,
+        "rmse_mpa": 7.107333779367807
+      },
+      "test": {
+        "r2": 0.8117663522123805,
+        "mae_mpa": 5.515506447780719,
+        "rmse_mpa": 7.009295609459017
+      },
+      "cumulative_seconds": 0.6356945830011682
+    },
+    "stage_2_carriers": {
+      "n_features": 14,
+      "selected_features": [
+        "hmean(cement,age^3)",
+        "1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)",
+        "pulse(sqrt|age|:0%-33%)",
+        "cement^3/(1+|age|)",
+        "sin(3.0\u03c0*superplasticizer^2)",
+        "cos(1.0\u03c0*blast_furnace_slag)",
+        "fly_ash^(0.5\u00b7coarse_aggregate^3)",
+        "cement^3/age^3",
+        "|log|age|-sqrt|blast_furnace_slag||/\u03a3",
+        "coarse_aggregate^3/(1+|cement^3|)",
+        "step(1/|age|>50%)",
+        "relu(fly_ash^3-cement^3)",
+        "relu(1/|blast_furnace_slag|-age^3)",
+        "pulse(fine_aggregate^3:0%-33%)"
+      ],
+      "family_counts": {
+        "am_damped": 2,
+        "am_hmean": 1,
+        "am_normdiff": 1,
+        "am_power": 2,
+        "am_ratio": 1,
+        "am_relu": 2,
+        "carrier_cos": 1,
+        "carrier_pulse": 2,
+        "carrier_sin": 1,
+        "carrier_step": 1
+      },
+      "ridge_alpha": 0.5623413251903491,
+      "validation": {
+        "r2": 0.8532952265035781,
+        "mae_mpa": 4.957252127199455,
+        "rmse_mpa": 6.312312076702709
+      },
+      "test": {
+        "r2": 0.7295539317603197,
+        "mae_mpa": 6.466167726244019,
+        "rmse_mpa": 8.40167896973805
+      },
+      "cumulative_seconds": 0.9871049579996907
+    },
+    "stage_3_fm_pm": {
+      "n_features": 18,
+      "selected_features": [
+        "PM_sin_k0.5_p0.5_hmean(cement,age^3)\u2192superplasticizer^2",
+        "FM_sin_k0.5_d-2.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192cement",
+        "PM_sin_k1.0_p1.0_pulse(sqrt|age|:0%-33%)\u2192fine_aggregate^3",
+        "PM_sin_k1.0_p2.0_fly_ash^(0.5\u00b7coarse_aggregate^3)\u2192sqrt|superplasticizer|",
+        "FM_sin_k0.5_d1.0_relu(fly_ash^3-cement^3)\u2192tanh(age)",
+        "PM_sin_k2.0_p1.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192log|age|",
+        "FM_sin_k0.5_d2.0_cos(1.0\u03c0*blast_furnace_slag)\u2192water^3",
+        "cement^3*fine_aggregate^3",
+        "PM_sin_k0.5_p1.0_cos(1.0\u03c0*blast_furnace_slag)\u21921/|fly_ash|",
+        "pulse(sqrt|superplasticizer|:67%-100%)",
+        "FM_sin_k0.5_d2.0_pulse(fine_aggregate^3:0%-33%)\u2192cement^3",
+        "sqrt|age|*coarse_aggregate^3",
+        "FM_sin_k3.0_d-1.0_hmean(cement,age^3)\u2192water^3",
+        "PM_sin_k2.0_p2.0_hmean(cement,age^3)\u2192sqrt|blast_furnace_slag|",
+        "FM_sin_k0.5_d-2.0_coarse_aggregate^3/(1+|cement^3|)\u2192tanh(age)",
+        "PM_sin_k0.5_p1.0_step(1/|age|>50%)\u2192blast_furnace_slag^3",
+        "PM_sin_k0.5_p0.5_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192log|age|",
+        "PM_sin_k3.0_p1.0_|log|age|-sqrt|blast_furnace_slag||/\u03a3\u2192water^3"
+      ],
+      "family_counts": {
+        "am_product": 2,
+        "carrier_pulse": 1,
+        "fm_sin": 6,
+        "pm_sin": 9
+      },
+      "ridge_alpha": 10.0,
+      "validation": {
+        "r2": 0.9010507788889179,
+        "mae_mpa": 3.8881371647434966,
+        "rmse_mpa": 5.184089960932123
+      },
+      "test": {
+        "r2": 0.7486234634776188,
+        "mae_mpa": 6.2044805485923495,
+        "rmse_mpa": 8.100057766467621
+      },
+      "cumulative_seconds": 4.543021249999583
+    },
+    "stage_4_fm_nonsmooth": {
+      "n_features": 20,
+      "selected_features": [
+        "FM_tri_k0.5_d-2.0_FM_sin_k0.5_d-2.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192cement\u2192sqrt|age|",
+        "FM_tri_k0.5_d1.0_PM_sin_k0.5_p1.0_cos(1.0\u03c0*blast_furnace_slag)\u21921/|fly_ash|\u2192cement^3",
+        "FM_tri_k0.5_d-2.0_PM_sin_k1.0_p2.0_fly_ash^(0.5\u00b7coarse_aggregate^3)\u2192sqrt|superplasticizer|\u2192sqrt|age|",
+        "FM_tri_k1.0_d-1.0_FM_sin_k3.0_d-1.0_hmean(cement,age^3)\u2192water^3\u2192water^3",
+        "PM_sin_k1.0_p2.0_hmean(cement,age^3)\u2192sqrt|blast_furnace_slag|",
+        "FM_sin_k2.0_d-2.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192log|age|",
+        "PM_sin_k0.5_p0.5_|log|age|-sqrt|blast_furnace_slag||/\u03a3\u2192water^3",
+        "FM_tri_k3.0_d2.0_FM_sin_k0.5_d-2.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192cement\u2192fine_aggregate^3",
+        "PM_sin_k3.0_p2.0_relu(fly_ash^3-cement^3)\u21921/|age|",
+        "FM_tri_k3.0_d1.0_cement^3*fine_aggregate^3\u2192water^3",
+        "FM_tri_k2.0_d-2.0_pulse(sqrt|superplasticizer|:67%-100%)\u2192age",
+        "FM_tri_k3.0_d-1.0_FM_sin_k0.5_d2.0_cos(1.0\u03c0*blast_furnace_slag)\u2192water^3\u2192fly_ash",
+        "FM_tri_k0.5_d1.0_PM_sin_k1.0_p2.0_fly_ash^(0.5\u00b7coarse_aggregate^3)\u2192sqrt|superplasticizer|\u2192sqrt|superplasticizer|",
+        "FM_tri_k2.0_d2.0_FM_sin_k0.5_d1.0_relu(fly_ash^3-cement^3)\u2192tanh(age)\u2192superplasticizer",
+        "FM_tri_k0.5_d-2.0_cement^3*fine_aggregate^3\u2192cement",
+        "FM_sin_k0.5_d-2.0_hmean(cement,age^3)\u2192blast_furnace_slag^3",
+        "FM_sin_k0.5_d-2.0_sin(3.0\u03c0*superplasticizer^2)\u2192age",
+        "PM_sin_k3.0_p2.0_hmean(cement,age^3)\u2192fly_ash^3",
+        "FM_tri_k2.0_d-2.0_FM_sin_k3.0_d-1.0_hmean(cement,age^3)\u2192water^3\u2192blast_furnace_slag^3",
+        "PM_sin_k2.0_p0.5_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192superplasticizer"
+      ],
+      "family_counts": {
+        "fm_sin": 3,
+        "fm_tri": 12,
+        "pm_sin": 5
+      },
+      "ridge_alpha": 10.0,
+      "validation": {
+        "r2": 0.9187333216920428,
+        "mae_mpa": 3.772572367529876,
+        "rmse_mpa": 4.6981036475383275
+      },
+      "test": {
+        "r2": 0.7728132093670335,
+        "mae_mpa": 5.98921876125198,
+        "rmse_mpa": 7.700470922160467
+      },
+      "cumulative_seconds": 14.458528874998592
+    },
+    "stage_5_wm": {
+      "n_features": 18,
+      "selected_features": [
+        "FM_tri_k0.5_d-2.0_FM_sin_k0.5_d-2.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192cement\u2192sqrt|age|",
+        "FM_tri_k0.5_d1.0_PM_sin_k0.5_p1.0_cos(1.0\u03c0*blast_furnace_slag)\u21921/|fly_ash|\u2192cement^3",
+        "FM_tri_k0.5_d-2.0_PM_sin_k1.0_p2.0_fly_ash^(0.5\u00b7coarse_aggregate^3)\u2192sqrt|superplasticizer|\u2192sqrt|age|",
+        "FM_tri_k1.0_d-1.0_FM_sin_k3.0_d-1.0_hmean(cement,age^3)\u2192water^3\u2192water^3",
+        "WM_width_q30_m2.0_PM_sin_k1.0_p2.0_hmean(cement,age^3)\u2192sqrt|blast_furnace_slag|\u2192age",
+        "WM_center_q30_FM_tri_k2.0_d-2.0_pulse(sqrt|superplasticizer|:67%-100%)\u2192age\u21921/|age|",
+        "FM_tri_k2.0_d2.0_PM_sin_k0.5_p1.0_step(1/|age|>50%)\u2192blast_furnace_slag^3\u2192sqrt|blast_furnace_slag|",
+        "FM_tri_k0.5_d1.0_FM_sin_k0.5_d-2.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192cement\u2192cement",
+        "WM_center_q30_FM_tri_k3.0_d-1.0_FM_sin_k0.5_d2.0_cos(1.0\u03c0*blast_furnace_slag)\u2192water^3\u2192fly_ash\u2192age",
+        "WM_width_q50_m2.0_FM_tri_k3.0_d2.0_FM_sin_k0.5_d-2.0_1/|superplasticizer|^(3\u00b71/|blast_furnace_slag|)\u2192cement\u2192fine_aggregate^3\u2192superplasticizer^2",
+        "PM_sin_k2.0_p2.0_fly_ash^(0.5\u00b7coarse_aggregate^3)\u2192blast_furnace_slag",
+        "cement^3/(1+|water^3|)",
+        "PM_sin_k3.0_p2.0_cos(1.0\u03c0*blast_furnace_slag)\u2192cement",
+        "WM_center_q70_FM_tri_k1.0_d-1.0_FM_sin_k3.0_d-1.0_hmean(cement,age^3)\u2192water^3\u2192water^3\u2192superplasticizer^2",
+        "superplasticizer^3^water^3",
+        "FM_tri_k1.0_d1.0_FM_sin_k0.5_d-2.0_coarse_aggregate^3/(1+|cement^3|)\u2192tanh(age)\u2192sqrt|age|",
+        "FM_pulse_c25_w0.2_FM_sin_k0.5_d2.0_pulse(fine_aggregate^3:0%-33%)\u2192cement^3\u2192fly_ash",
+        "FM_tri_k0.5_d1.0_PM_sin_k1.0_p2.0_fly_ash^(0.5\u00b7coarse_aggregate^3)\u2192sqrt|superplasticizer|\u2192sqrt|superplasticizer|"
+      ],
+      "family_counts": {
+        "am_damped": 1,
+        "am_power": 1,
+        "fm_pulse": 1,
+        "fm_tri": 8,
+        "pm_sin": 2,
+        "wm_center": 3,
+        "wm_width": 2
+      },
+      "ridge_alpha": 17.78279410038923,
+      "validation": {
+        "r2": 0.9180133887666382,
+        "mae_mpa": 3.6093418875376195,
+        "rmse_mpa": 4.718867764321505
+      },
+      "test": {
+        "r2": 0.7923116649453276,
+        "mae_mpa": 5.590998829019551,
+        "rmse_mpa": 7.362610051659438
+      },
+      "cumulative_seconds": 26.800383833000524
+    }
+  },
+  "potage_recap": "Pipeline: 17 stages, 648 samples\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   #  Step                       Dims      Candidates          R\u00b2  Method   Time\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   1  raw                        8\u219223               \u2014           \u2014  omp      0.0s\n   2  select(23d)                23\u21927           23\u219223      0.7544  greedy   0.0s\n   3  am(23d)                  23\u2192334               \u2014           \u2014  omp      0.5s\n   4  fuse                    357\u2192357               \u2014           \u2014  \u2014        0.0s\n   5  select(357d)             357\u219211         357\u2192357      0.8157  greedy   0.0s\n   6  carriers(23d)            23\u2192249               \u2014           \u2014  omp      0.0s\n   7  fuse                    606\u2192606               \u2014           \u2014  \u2014        0.0s\n   8  select(606d)             606\u219214         606\u2192606      0.8531  greedy   0.2s\n   9  fm(23d,14d)             37\u21924188               \u2014           \u2014  omp      0.8s\n  10  fuse                  4794\u21924794               \u2014           \u2014  \u2014        0.0s\n  11  select(4794d)           4794\u219218     4,794\u21924,794      0.9023  greedy   2.5s\n  12  fm_nonsmooth(23d,18d)    41\u21924508               \u2014           \u2014  omp      0.7s\n  13  fuse                  9302\u21929302               \u2014           \u2014  \u2014        0.0s\n  14  select(9302d)           9302\u219220     9,302\u21929,302      0.9199  greedy   8.8s\n  15  wm(23d,20d)             43\u21921223               \u2014           \u2014  omp      0.6s\n  16  fuse                 10525\u219210525               \u2014           \u2014  \u2014        0.0s\n  17  select(10525d)         10525\u219218   10,525\u219210,525      0.9194  greedy  11.2s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nBudget (estimated): 29,826 / 100,000 (29.8%)\nMemory: peak ~197 MB / 2093 MB (9.4%)\nUnused families: am_diff, am_max, am_min, carrier_gauss, carrier_tri, sqrt, squared, tanh  (never selected \u2014 consider excluding to free budget)",
+  "validation_status": "rerun_after_module_separation",
+  "environment": {
+    "python": "3.10.2",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2"
+  },
+  "source_sha256": {
+    "potage/__init__.py": "65b33225fa2212818daa4f4e25f0d17626d194b34daa4078e9a652a76a4ae313",
+    "potage/_accel.py": "ddf1eb2a27e887ed8199e2c306d3b0a21b695f666ace862e537aaedcedbc8677",
+    "potage/_algebra.py": "61019d5aa90ecaab55ca874bb6d2f5d90a63b8ebfea5e2ab956fdea9fa1916d4",
+    "potage/_budget.py": "6067d9a25a1611a5517352b13019ca221880588c3d120f094e7bbce5748eafbb",
+    "potage/_carriers.py": "a26ad20ecbf72fae98dea139479504fb79bb7b39256205a97dcfab012d4b0c45",
+    "potage/_config.py": "f6fb5324d8014581088c6c44da916c485bef20f7cdfe9b814efd6bbdc754772a",
+    "potage/_cross.py": "7238b2123e4c5098835aeee0d801737b9ca824ead8694ac6651f575cee34f7fc",
+    "potage/_dedup.py": "689dcf7ab2d41687c1ee4848930378ef3d9ed4609d484b8010162ca906e77e2d",
+    "potage/_diagnose.py": "4c99ed885ae18f2f91a01dcb81c00f181eb80af60e557e0eb47bef6f009276ec",
+    "potage/_dispatch.py": "6a41baf5652e64b05e99d22bc5baae816e40ddc61e6171290aa054a86adece78",
+    "potage/_feature_utils.py": "427324b2ba5a5dbc7c28ac7894acc7e0b44ee2707154037c21511096f6395621",
+    "potage/_fields.py": "531b1680af0b79bf0b93bcdbf4a68eecc6935b0a55d0b8be00bda2029ac0bf58",
+    "potage/_frequency.py": "d0d0336f16424b09666ad9056e1ce4544beb82e8f146b8c1b9de96c56774fe52",
+    "potage/_kfold.py": "7bc9f5c36559d29933d3dffbb446e4fb5766525b0ddd02326d44eb36bd62f473",
+    "potage/_library.py": "01e19e77261b1ae2b6ceff8a52a242b25d23672c9747c4e362b9ec6666a26a54",
+    "potage/_limits.py": "2c75df375ca04a3389dbca805782399c589bdc0d6b83e4c9737605699410e821",
+    "potage/_modulation.py": "f49134bc7150d88eed8262c667377a51bbcc8e7467486c93279dcac37c5d039d",
+    "potage/_pipe.py": "62a46dc8a183d805f38b141286e27ef78a890c979dd48999229b457c9606451b",
+    "potage/_presets.py": "fbcef5cf238738cf0863a4aa622e9c7387ac0d2281755d4942da6164aaf308eb",
+    "potage/_provenance.py": "6c8ae40bfd1f6f9e0b075716eb48d5083322c6d6118f10b939956905b79898fc",
+    "potage/_records.py": "e49c5cba167b816f5a51e135db0f4e9f9be3cbd6a8432d786c8ff3a22d8696bf",
+    "potage/_replay.py": "a7d662056d0fdd8693de730564630eca437bd0ed71d57a943b34f2f884a880e8",
+    "potage/_select.py": "504971b81a1495e6d6b90fecbb5669aa7e8e5eb3c46d5265f6d46a30a0ed867c",
+    "potage/_stages.py": "73d6c50d6632eb4d64e76ae08ff502d6efe79aebcf1cc7f2719598f816609d30",
+    "potage/_state.py": "697a1433c950ab370fca0a5d24920143651d1491c95f70a0974ee81ebd9a626f",
+    "potage/_workflows.py": "578315b5f84f3c2900d161122852cb2dc12ee0a976d8189da43a9c82102e5310",
+    "examples/concrete_strength.py": "2342d9f9e54d210102ef61554e7f3d22e6320b380c51f61b81bf843e6e20735c"
+  }
+}

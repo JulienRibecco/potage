@@ -1,0 +1,488 @@
+{
+  "generation": {
+    "games_requested": 6000,
+    "games_kept": 5815,
+    "draws": 185
+  },
+  "seed": 211,
+  "fixed_validation_games": 1163,
+  "fixed_test_games": 1163,
+  "available_training_games": 3489,
+  "requested_sizes": [
+    250,
+    500,
+    1000,
+    2000,
+    3500
+  ],
+  "bootstrap_repetitions": 1000,
+  "curve": [
+    {
+      "train_games": 250,
+      "train_snapshots": 1250,
+      "models": {
+        "baseline": {
+          "brier": 0.17266692455626095,
+          "log_loss": 0.531477651981927,
+          "roc_auc": 0.8204492140552642,
+          "brier_ci_low": 0.1605974661830547,
+          "brier_ci_high": 0.1837373197950944
+        },
+        "raw": {
+          "brier": 0.15565056633086752,
+          "log_loss": 0.485887564846797,
+          "roc_auc": 0.8536910922610477,
+          "brier_ci_low": 0.14448406220876192,
+          "brier_ci_high": 0.16666485104816522
+        },
+        "am": {
+          "brier": 0.15250671768249185,
+          "log_loss": 0.47508047318953006,
+          "roc_auc": 0.8594273465363187,
+          "brier_ci_low": 0.14179057402771242,
+          "brier_ci_high": 0.16380288302659585
+        },
+        "am2": {
+          "brier": 0.15446915030886746,
+          "log_loss": 0.481721790588028,
+          "roc_auc": 0.8558572852144526,
+          "brier_ci_low": 0.14363410825268733,
+          "brier_ci_high": 0.1661565148311905
+        }
+      },
+      "deltas": {
+        "am_minus_raw": {
+          "estimate": -0.003143848648375663,
+          "ci_low": -0.0052180087562601314,
+          "ci_high": -0.001038009357797538
+        },
+        "am2_minus_am": {
+          "estimate": 0.001962432626375607,
+          "ci_low": 0.0007633989195385962,
+          "ci_high": 0.003202613114990517
+        }
+      },
+      "selected_features": {
+        "raw": [
+          "our_max_flips",
+          "opponent_max_flips",
+          "opponent_corners",
+          "our_c_squares",
+          "opponent_frontier",
+          "our_frontier"
+        ],
+        "am": [
+          "relu(our_mean_flips-opponent_corners)",
+          "|opponent_frontier-opponent_max_flips|/\u03a3",
+          "our_corners*opponent_frontier",
+          "our_frontier*opponent_c_squares",
+          "|opponent_c_squares-opponent_mean_flips|/\u03a3",
+          "opponent_corners*our_c_squares",
+          "|opponent_corners-our_mean_flips|/\u03a3",
+          "relu(opponent_edges-opponent_frontier)",
+          "opponent_potential_mobility/(1+|opponent_c_squares|)",
+          "relu(our_corners-empty_parity)",
+          "hmean(our_corners,our_c_squares)",
+          "opponent_potential_mobility/(1+|our_c_squares|)",
+          "relu(our_mean_flips-our_corners)",
+          "|opponent_x_squares-our_c_squares|/\u03a3"
+        ],
+        "am2": [
+          "relu(our_mean_flips-opponent_corners)",
+          "|opponent_frontier-opponent_max_flips|/\u03a3",
+          "relu(hmean(our_corners,our_c_squares)-relu(opponent_edges-opponent_frontier))",
+          "(our_frontier*opponent_c_squares-opponent_potential_mobility/(1+|opponent_c_squares|))\u00b2",
+          "relu(opponent_corners*our_c_squares-relu(opponent_edges-opponent_frontier))",
+          "|opponent_corners-our_mean_flips|/\u03a3/(1+||opponent_c_squares-opponent_mean_flips|/\u03a3|)",
+          "hmean(our_corners*opponent_frontier,relu(our_mean_flips-our_corners))",
+          "relu(opponent_potential_mobility/(1+|opponent_c_squares|)-opponent_potential_mobility/(1+|our_c_squares|))",
+          "our_frontier*opponent_c_squares/(1+||opponent_corners-our_mean_flips|/\u03a3|)",
+          "|our_corners*opponent_frontier-our_frontier*opponent_c_squares|/\u03a3",
+          "hmean(hmean(our_corners,our_c_squares),|opponent_x_squares-our_c_squares|/\u03a3)",
+          "relu(our_corners-empty_parity)*relu(our_mean_flips-our_corners)"
+        ]
+      }
+    },
+    {
+      "train_games": 500,
+      "train_snapshots": 2492,
+      "models": {
+        "baseline": {
+          "brier": 0.17327445167672823,
+          "log_loss": 0.5363447861365803,
+          "roc_auc": 0.8200258856841875,
+          "brier_ci_low": 0.15986138065512526,
+          "brier_ci_high": 0.18597401621990103
+        },
+        "raw": {
+          "brier": 0.1540409375720823,
+          "log_loss": 0.49080336405040587,
+          "roc_auc": 0.8566928644274812,
+          "brier_ci_low": 0.14217113193570546,
+          "brier_ci_high": 0.1655260199035304
+        },
+        "am": {
+          "brier": 0.15195453333600423,
+          "log_loss": 0.4788829477282459,
+          "roc_auc": 0.8602333856716806,
+          "brier_ci_low": 0.14060977833747987,
+          "brier_ci_high": 0.16283778994683237
+        },
+        "am2": {
+          "brier": 0.1529754039789458,
+          "log_loss": 0.48166461623785284,
+          "roc_auc": 0.8590563088672405,
+          "brier_ci_low": 0.14033594376557684,
+          "brier_ci_high": 0.16510635968757706
+        }
+      },
+      "deltas": {
+        "am_minus_raw": {
+          "estimate": -0.0020864042360780794,
+          "ci_low": -0.004205376538777482,
+          "ci_high": 0.00011336667435886073
+        },
+        "am2_minus_am": {
+          "estimate": 0.001020870642941582,
+          "ci_low": 8.924338210927627e-05,
+          "ci_high": 0.0019767299187035087
+        }
+      },
+      "selected_features": {
+        "raw": [
+          "our_max_flips",
+          "opponent_max_flips",
+          "opponent_corners",
+          "our_c_squares",
+          "opponent_frontier",
+          "our_frontier",
+          "opponent_c_squares",
+          "our_corners",
+          "our_mean_flips",
+          "empty_parity"
+        ],
+        "am": [
+          "relu(our_max_flips-opponent_corners)",
+          "hmean(opponent_mobility,opponent_mean_flips)",
+          "relu(opponent_edges-opponent_frontier)",
+          "hmean(our_corners,empty_parity)",
+          "|opponent_discs-our_max_flips|/\u03a3",
+          "our_frontier*opponent_c_squares",
+          "opponent_frontier*our_c_squares",
+          "progress/(1+|opponent_c_squares|)",
+          "opponent_frontier/(1+|opponent_corners|)",
+          "|our_c_squares-empty_parity|",
+          "max(opponent_corners,our_mean_flips)",
+          "|opponent_x_squares-opponent_c_squares|/\u03a3",
+          "opponent_potential_mobility*our_c_squares",
+          "|our_corners-opponent_mean_flips|/\u03a3",
+          "|our_potential_mobility-opponent_c_squares|/\u03a3",
+          "opponent_corners/(1+|opponent_edges|)"
+        ],
+        "am2": [
+          "relu(our_max_flips-opponent_corners)*|opponent_discs-our_max_flips|/\u03a3",
+          "hmean(opponent_mobility,opponent_mean_flips)/(1+||our_potential_mobility-opponent_c_squares|/\u03a3|)",
+          "opponent_frontier*our_c_squares/(1+||our_corners-opponent_mean_flips|/\u03a3|)",
+          "max(our_frontier*opponent_c_squares,opponent_potential_mobility*our_c_squares)",
+          "hmean(our_frontier*opponent_c_squares,opponent_frontier/(1+|opponent_corners|))",
+          "hmean(our_corners,empty_parity)*opponent_frontier/(1+|opponent_corners|)",
+          "relu(|our_c_squares-empty_parity|-relu(opponent_edges-opponent_frontier))",
+          "relu(max(opponent_corners,our_mean_flips)-relu(our_max_flips-opponent_corners))",
+          "opponent_corners/(1+|opponent_edges|)/(1+|max(opponent_corners,our_mean_flips)|)",
+          "opponent_frontier/(1+|opponent_corners|)*|opponent_x_squares-opponent_c_squares|/\u03a3",
+          "(hmean(opponent_mobility,opponent_mean_flips)-relu(opponent_edges-opponent_frontier))\u00b2",
+          "hmean(progress/(1+|opponent_c_squares|),|our_corners-opponent_mean_flips|/\u03a3)",
+          "relu(our_max_flips-opponent_corners)*|opponent_x_squares-opponent_c_squares|/\u03a3"
+        ]
+      }
+    },
+    {
+      "train_games": 1000,
+      "train_snapshots": 4985,
+      "models": {
+        "baseline": {
+          "brier": 0.17251268825894817,
+          "log_loss": 0.5283345575390875,
+          "roc_auc": 0.8205641583090879,
+          "brier_ci_low": 0.16053558420592584,
+          "brier_ci_high": 0.18429397991880395
+        },
+        "raw": {
+          "brier": 0.1530495752918078,
+          "log_loss": 0.4764701291845347,
+          "roc_auc": 0.8579131793294736,
+          "brier_ci_low": 0.1411590940864292,
+          "brier_ci_high": 0.16374766805841265
+        },
+        "am": {
+          "brier": 0.15060400331371135,
+          "log_loss": 0.4681165817830721,
+          "roc_auc": 0.8614513183093452,
+          "brier_ci_low": 0.13939307435178597,
+          "brier_ci_high": 0.16184144687672244
+        },
+        "am2": {
+          "brier": 0.15203031052955623,
+          "log_loss": 0.47296850212467256,
+          "roc_auc": 0.858668714461083,
+          "brier_ci_low": 0.14129466108267255,
+          "brier_ci_high": 0.16312856452591734
+        }
+      },
+      "deltas": {
+        "am_minus_raw": {
+          "estimate": -0.0024455719780964325,
+          "ci_low": -0.004142331772443452,
+          "ci_high": -0.0006493119612099093
+        },
+        "am2_minus_am": {
+          "estimate": 0.0014263072158448463,
+          "ci_low": 0.00041191700379496926,
+          "ci_high": 0.0024952284259747042
+        }
+      },
+      "selected_features": {
+        "raw": [
+          "our_max_flips",
+          "opponent_max_flips",
+          "opponent_corners",
+          "our_c_squares",
+          "opponent_frontier",
+          "our_frontier",
+          "our_mean_flips",
+          "opponent_edges",
+          "our_corners"
+        ],
+        "am": [
+          "relu(opponent_max_flips-our_corners)",
+          "hmean(our_mobility,our_mean_flips)",
+          "opponent_corners*opponent_potential_mobility",
+          "opponent_frontier*our_c_squares",
+          "our_potential_mobility/(1+|our_c_squares|)",
+          "our_potential_mobility/(1+|our_corners|)",
+          "relu(our_edges-our_frontier)",
+          "relu(opponent_frontier-opponent_c_squares)",
+          "our_discs*opponent_frontier",
+          "|opponent_corners-our_mean_flips|/\u03a3",
+          "our_potential_mobility/(1+|opponent_c_squares|)",
+          "our_frontier*opponent_c_squares",
+          "our_discs/(1+|our_c_squares|)",
+          "opponent_corners/(1+|opponent_c_squares|)",
+          "opponent_x_squares*our_c_squares",
+          "our_frontier*our_x_squares"
+        ],
+        "am2": [
+          "relu(relu(opponent_max_flips-our_corners)-|opponent_corners-our_mean_flips|/\u03a3)",
+          "hmean(hmean(our_mobility,our_mean_flips),our_discs*opponent_frontier)",
+          "|opponent_frontier*our_c_squares-our_potential_mobility/(1+|our_c_squares|)|",
+          "|our_potential_mobility/(1+|opponent_c_squares|)-our_frontier*opponent_c_squares|",
+          "hmean(|opponent_corners-our_mean_flips|/\u03a3,our_frontier*opponent_c_squares)",
+          "max(opponent_corners*opponent_potential_mobility,our_frontier*opponent_c_squares)",
+          "relu(relu(opponent_frontier-opponent_c_squares)-our_potential_mobility/(1+|our_corners|))",
+          "our_discs*opponent_frontier/(1+|relu(our_edges-our_frontier)|)",
+          "relu(relu(opponent_frontier-opponent_c_squares)-opponent_x_squares*our_c_squares)",
+          "|opponent_corners*opponent_potential_mobility-relu(our_edges-our_frontier)|/\u03a3",
+          "max(our_potential_mobility/(1+|our_corners|),our_discs/(1+|our_c_squares|))",
+          "relu(our_potential_mobility/(1+|our_corners|)-our_potential_mobility/(1+|our_c_squares|))",
+          "relu(opponent_frontier-opponent_c_squares)*opponent_corners/(1+|opponent_c_squares|)",
+          "our_frontier*opponent_c_squares*opponent_x_squares*our_c_squares",
+          "|our_frontier*opponent_c_squares-our_discs/(1+|our_c_squares|)|",
+          "our_discs*opponent_frontier/(1+|our_discs/(1+|our_c_squares|)|)"
+        ]
+      }
+    },
+    {
+      "train_games": 2000,
+      "train_snapshots": 9940,
+      "models": {
+        "baseline": {
+          "brier": 0.1728701493917009,
+          "log_loss": 0.5293139504835883,
+          "roc_auc": 0.8198482878785387,
+          "brier_ci_low": 0.16100231457026185,
+          "brier_ci_high": 0.18501607776755358
+        },
+        "raw": {
+          "brier": 0.15322242818930024,
+          "log_loss": 0.47666423836625205,
+          "roc_auc": 0.8575776373988817,
+          "brier_ci_low": 0.14279783035889074,
+          "brier_ci_high": 0.16522455231573846
+        },
+        "am": {
+          "brier": 0.14981739378437547,
+          "log_loss": 0.4653263781779384,
+          "roc_auc": 0.8630382636914091,
+          "brier_ci_low": 0.13934409336049663,
+          "brier_ci_high": 0.16083085705426078
+        },
+        "am2": {
+          "brier": 0.15160457411914935,
+          "log_loss": 0.4727185581027254,
+          "roc_auc": 0.8588414286248593,
+          "brier_ci_low": 0.14102812257284897,
+          "brier_ci_high": 0.1628181902949984
+        }
+      },
+      "deltas": {
+        "am_minus_raw": {
+          "estimate": -0.003405034404924771,
+          "ci_low": -0.0050313292143175,
+          "ci_high": -0.0017718587763481026
+        },
+        "am2_minus_am": {
+          "estimate": 0.0017871803347738779,
+          "ci_low": 0.0005300983729097834,
+          "ci_high": 0.0029394178750232675
+        }
+      },
+      "selected_features": {
+        "raw": [
+          "opponent_max_flips",
+          "our_corners",
+          "our_max_flips",
+          "opponent_c_squares",
+          "our_frontier",
+          "opponent_frontier",
+          "our_c_squares",
+          "opponent_corners",
+          "our_mean_flips",
+          "opponent_edges"
+        ],
+        "am": [
+          "relu(our_mean_flips-opponent_corners)",
+          "hmean(opponent_mobility,opponent_mean_flips)",
+          "relu(opponent_edges-opponent_frontier)",
+          "our_corners*our_potential_mobility",
+          "max(opponent_mobility,our_frontier)",
+          "our_corners/(1+|our_c_squares|)",
+          "|our_mobility-opponent_edges|/\u03a3",
+          "our_frontier/(1+|opponent_corners|)",
+          "opponent_frontier*our_c_squares",
+          "|our_c_squares-our_mean_flips|/\u03a3",
+          "(our_x_squares-opponent_c_squares)\u00b2",
+          "relu(our_frontier-opponent_corners)",
+          "|progress-our_corners|/\u03a3",
+          "relu(opponent_x_squares-our_edges)",
+          "our_potential_mobility*our_c_squares",
+          "relu(opponent_frontier-opponent_edges)"
+        ],
+        "am2": [
+          "relu(hmean(opponent_mobility,opponent_mean_flips)-relu(our_mean_flips-opponent_corners))",
+          "max(opponent_frontier*our_c_squares,relu(opponent_frontier-opponent_edges))",
+          "hmean(opponent_frontier*our_c_squares,(our_x_squares-opponent_c_squares)\u00b2)",
+          "our_potential_mobility*our_c_squares/(1+|our_corners*our_potential_mobility|)",
+          "relu(relu(our_frontier-opponent_corners)-our_frontier/(1+|opponent_corners|))",
+          "max(opponent_mobility,our_frontier)*opponent_frontier*our_c_squares",
+          "max(|our_mobility-opponent_edges|/\u03a3,|progress-our_corners|/\u03a3)",
+          "relu(our_corners/(1+|our_c_squares|)-relu(our_mean_flips-opponent_corners))",
+          "our_frontier/(1+|opponent_corners|)*relu(opponent_x_squares-our_edges)",
+          "our_corners*our_potential_mobility*relu(opponent_frontier-opponent_edges)",
+          "|hmean(opponent_mobility,opponent_mean_flips)-our_corners*our_potential_mobility|/\u03a3",
+          "our_corners*our_potential_mobility*opponent_frontier*our_c_squares",
+          "hmean(opponent_frontier*our_c_squares,|our_c_squares-our_mean_flips|/\u03a3)",
+          "|relu(opponent_edges-opponent_frontier)-(our_x_squares-opponent_c_squares)\u00b2|/\u03a3",
+          "hmean(|our_mobility-opponent_edges|/\u03a3,(our_x_squares-opponent_c_squares)\u00b2)",
+          "relu(our_corners*our_potential_mobility-our_frontier/(1+|opponent_corners|))"
+        ]
+      }
+    },
+    {
+      "train_games": 3489,
+      "train_snapshots": 17335,
+      "models": {
+        "baseline": {
+          "brier": 0.1730095549097557,
+          "log_loss": 0.5290538189885475,
+          "roc_auc": 0.8196960611879829,
+          "brier_ci_low": 0.16141968331610443,
+          "brier_ci_high": 0.18484260720848608
+        },
+        "raw": {
+          "brier": 0.1533039890387434,
+          "log_loss": 0.4754831622067193,
+          "roc_auc": 0.8575894296073051,
+          "brier_ci_low": 0.14247652161590416,
+          "brier_ci_high": 0.1646309280304699
+        },
+        "am": {
+          "brier": 0.1502959312208698,
+          "log_loss": 0.4661695754222622,
+          "roc_auc": 0.8623126259771154,
+          "brier_ci_low": 0.13924052741854107,
+          "brier_ci_high": 0.16238198088739123
+        },
+        "am2": {
+          "brier": 0.15169965126490748,
+          "log_loss": 0.4704584128588512,
+          "roc_auc": 0.8593149036600394,
+          "brier_ci_low": 0.13989294819903217,
+          "brier_ci_high": 0.16307397455331035
+        }
+      },
+      "deltas": {
+        "am_minus_raw": {
+          "estimate": -0.0030080578178736045,
+          "ci_low": -0.00470711417269917,
+          "ci_high": -0.0015082484764872865
+        },
+        "am2_minus_am": {
+          "estimate": 0.0014037200440376962,
+          "ci_low": 0.0004171514256935932,
+          "ci_high": 0.002442901867142588
+        }
+      },
+      "selected_features": {
+        "raw": [
+          "opponent_max_flips",
+          "our_corners",
+          "our_max_flips",
+          "opponent_c_squares",
+          "our_frontier",
+          "opponent_frontier",
+          "our_c_squares",
+          "opponent_corners",
+          "our_mean_flips",
+          "opponent_edges",
+          "opponent_mean_flips"
+        ],
+        "am": [
+          "relu(our_mean_flips-opponent_corners)",
+          "hmean(opponent_mobility,opponent_mean_flips)",
+          "relu(opponent_edges-opponent_frontier)",
+          "our_corners*our_potential_mobility",
+          "max(opponent_mobility,our_frontier)",
+          "opponent_frontier*our_c_squares",
+          "our_discs*opponent_c_squares",
+          "opponent_potential_mobility*our_c_squares",
+          "our_frontier/(1+|opponent_corners|)",
+          "|progress-opponent_c_squares|/\u03a3",
+          "|progress-our_c_squares|/\u03a3",
+          "opponent_mobility/(1+|opponent_potential_mobility|)",
+          "(progress-our_corners)\u00b2",
+          "|our_edges-opponent_max_flips|",
+          "our_discs/(1+|our_c_squares|)",
+          "our_discs*opponent_frontier"
+        ],
+        "am2": [
+          "relu(hmean(opponent_mobility,opponent_mean_flips)-relu(our_mean_flips-opponent_corners))",
+          "our_discs*opponent_frontier/(1+|our_discs/(1+|our_c_squares|)|)",
+          "opponent_potential_mobility*our_c_squares/(1+|our_corners*our_potential_mobility|)",
+          "|our_discs*opponent_c_squares-our_frontier/(1+|opponent_corners|)|",
+          "relu(|our_edges-opponent_max_flips|-our_frontier/(1+|opponent_corners|))",
+          "relu(our_corners*our_potential_mobility-opponent_potential_mobility*our_c_squares)",
+          "relu(our_discs/(1+|our_c_squares|)-our_frontier/(1+|opponent_corners|))",
+          "|max(opponent_mobility,our_frontier)-|our_edges-opponent_max_flips||",
+          "our_frontier/(1+|opponent_corners|)/(1+|(progress-our_corners)\u00b2|)",
+          "hmean(our_discs*opponent_c_squares,|progress-our_c_squares|/\u03a3)",
+          "our_discs*opponent_frontier/(1+|our_frontier/(1+|opponent_corners|)|)",
+          "our_discs*opponent_c_squares/(1+|(progress-our_corners)\u00b2|)",
+          "relu(relu(our_mean_flips-opponent_corners)-(progress-our_corners)\u00b2)",
+          "|relu(our_mean_flips-opponent_corners)-our_discs*opponent_c_squares|/\u03a3",
+          "opponent_frontier*our_c_squares/(1+|opponent_potential_mobility*our_c_squares|)",
+          "max(our_corners*our_potential_mobility,our_frontier/(1+|opponent_corners|))"
+        ]
+      }
+    }
+  ]
+}

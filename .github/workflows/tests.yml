@@ -1,0 +1,35 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install .
+      - run: python -m unittest discover -s tests -v
+      - name: Test installed core outside the checkout
+        working-directory: ${{ runner.temp }}
+        run: |
+          python - <<'PY'
+          import os, unittest
+          from pathlib import Path
+          import potage
+          root = Path(os.environ['GITHUB_WORKSPACE']).resolve()
+          assert root not in Path(potage.__file__).resolve().parents
+          suite = unittest.TestSuite(
+              unittest.defaultTestLoader.discover(str(root / 'tests'), pattern=pattern)
+              for pattern in ('test_core_contracts.py', 'test_refactor_contracts.py',
+                              'test_workflow_contracts.py')
+          )
+          result = unittest.TextTestRunner(verbosity=2).run(suite)
+          raise SystemExit(not result.wasSuccessful())
+          PY
+      - run: python examples/quick_start.py
