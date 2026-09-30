@@ -1,0 +1,1391 @@
+{
+  "dataset": {
+    "doi": "https://doi.org/10.24432/C5W894",
+    "source_url": "https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip",
+    "archive_sha256": "b70182d0d0508e9abbb79306ce5c0cec34869000f8220175ac83d11dbe845401",
+    "hour_csv_sha256": "e03de4ee4ef4dc376ac6e04bf829673c6269e8eba5c60fa121640fa2f829504f",
+    "rows": 17379,
+    "features": [
+      "season",
+      "yr",
+      "mnth",
+      "hr",
+      "holiday",
+      "weekday",
+      "workingday",
+      "weathersit",
+      "temp",
+      "atemp",
+      "hum",
+      "windspeed"
+    ],
+    "excluded_columns": [
+      "instant",
+      "dteday",
+      "casual",
+      "registered"
+    ],
+    "dates_used_for_splitting_only": true,
+    "deduplicated": false
+  },
+  "protocol": {
+    "selection_metric": "validation RMSE",
+    "test_evaluated": true,
+    "refit_on_validation": false,
+    "observed_weather": true,
+    "alphas": [
+      0.001,
+      0.0031622776601683794,
+      0.01,
+      0.03162277660168379,
+      0.1,
+      0.31622776601683794,
+      1.0,
+      3.1622776601683795,
+      10.0,
+      31.622776601683793,
+      100.0,
+      316.22776601683796,
+      1000.0,
+      3162.2776601683795,
+      10000.0
+    ],
+    "recipes": [
+      "unary",
+      "carriers",
+      "fft_carriers",
+      "carrier_am",
+      "carrier_fm",
+      "carrier_wm",
+      "fields",
+      "carrier_spaces"
+    ],
+    "select": 24,
+    "splits": {
+      "train": {
+        "rows": 13003,
+        "from": "2011-01-01",
+        "through": "2012-06-30",
+        "indices_sha256": "b377c6ca0fc0df1d6de22689e1bf74d620845c40a2586515acd2ed48a7a42221"
+      },
+      "validation": {
+        "rows": 2208,
+        "from": "2012-07-01",
+        "through": "2012-09-30",
+        "indices_sha256": "3856b94c8fd995de8f343a8dacbd6ec750582b1297d4e674e7e3b49931869078"
+      },
+      "test": {
+        "rows": 2168,
+        "from": "2012-10-01",
+        "through": "2012-12-31",
+        "indices_sha256": "5babd6f3bbf278b5ecaac40f84daee2b698713c4fbf36f1503902725b0553e89"
+      }
+    }
+  },
+  "environment": {
+    "python": "3.10.2",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.7.2"
+  },
+  "source_sha256": {
+    "potage/__init__.py": "65b33225fa2212818daa4f4e25f0d17626d194b34daa4078e9a652a76a4ae313",
+    "potage/_accel.py": "ddf1eb2a27e887ed8199e2c306d3b0a21b695f666ace862e537aaedcedbc8677",
+    "potage/_algebra.py": "61019d5aa90ecaab55ca874bb6d2f5d90a63b8ebfea5e2ab956fdea9fa1916d4",
+    "potage/_budget.py": "6067d9a25a1611a5517352b13019ca221880588c3d120f094e7bbce5748eafbb",
+    "potage/_carriers.py": "a26ad20ecbf72fae98dea139479504fb79bb7b39256205a97dcfab012d4b0c45",
+    "potage/_config.py": "f6fb5324d8014581088c6c44da916c485bef20f7cdfe9b814efd6bbdc754772a",
+    "potage/_cross.py": "7238b2123e4c5098835aeee0d801737b9ca824ead8694ac6651f575cee34f7fc",
+    "potage/_dedup.py": "689dcf7ab2d41687c1ee4848930378ef3d9ed4609d484b8010162ca906e77e2d",
+    "potage/_diagnose.py": "4c99ed885ae18f2f91a01dcb81c00f181eb80af60e557e0eb47bef6f009276ec",
+    "potage/_dispatch.py": "6a41baf5652e64b05e99d22bc5baae816e40ddc61e6171290aa054a86adece78",
+    "potage/_feature_utils.py": "427324b2ba5a5dbc7c28ac7894acc7e0b44ee2707154037c21511096f6395621",
+    "potage/_fields.py": "4296bda0c970f2c4993804bbd986f3564f9765dd8fad2a23243f732b7809bd09",
+    "potage/_frequency.py": "d0d0336f16424b09666ad9056e1ce4544beb82e8f146b8c1b9de96c56774fe52",
+    "potage/_kfold.py": "7bc9f5c36559d29933d3dffbb446e4fb5766525b0ddd02326d44eb36bd62f473",
+    "potage/_library.py": "01e19e77261b1ae2b6ceff8a52a242b25d23672c9747c4e362b9ec6666a26a54",
+    "potage/_limits.py": "2c75df375ca04a3389dbca805782399c589bdc0d6b83e4c9737605699410e821",
+    "potage/_modulation.py": "f49134bc7150d88eed8262c667377a51bbcc8e7467486c93279dcac37c5d039d",
+    "potage/_pipe.py": "863ef8f5f855ccb46c473546dd8532a084cf3ee5c6dd83dae7ba9607d9660d44",
+    "potage/_presets.py": "fbcef5cf238738cf0863a4aa622e9c7387ac0d2281755d4942da6164aaf308eb",
+    "potage/_provenance.py": "6c8ae40bfd1f6f9e0b075716eb48d5083322c6d6118f10b939956905b79898fc",
+    "potage/_records.py": "e49c5cba167b816f5a51e135db0f4e9f9be3cbd6a8432d786c8ff3a22d8696bf",
+    "potage/_replay.py": "a7d662056d0fdd8693de730564630eca437bd0ed71d57a943b34f2f884a880e8",
+    "potage/_select.py": "504971b81a1495e6d6b90fecbb5669aa7e8e5eb3c46d5265f6d46a30a0ed867c",
+    "potage/_stages.py": "73d6c50d6632eb4d64e76ae08ff502d6efe79aebcf1cc7f2719598f816609d30",
+    "potage/_state.py": "697a1433c950ab370fca0a5d24920143651d1491c95f70a0974ee81ebd9a626f",
+    "potage/_workflows.py": "578315b5f84f3c2900d161122852cb2dc12ee0a976d8189da43a9c82102e5310",
+    "examples/bike_sharing.py": "67e6bc73aa61f22def8596cee6aaa5fef8f06d6be5c4f30a636b98c39b06afbf"
+  },
+  "models": {
+    "raw_ridge": {
+      "validation": {
+        "r2": 0.2804116212523864,
+        "mae_rentals": 157.55597668566114,
+        "rmse_rentals": 195.99738278155036
+      },
+      "features": 12,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.056814874995325226,
+      "test": {
+        "r2": 0.2927472421213041,
+        "mae_rentals": 129.29008324104376,
+        "rmse_rentals": 169.53041203797957
+      }
+    },
+    "calendar_onehot_ridge": {
+      "validation": {
+        "r2": 0.6018454221790484,
+        "mae_rentals": 111.21489400917723,
+        "rmse_rentals": 145.7921224087471
+      },
+      "features": 61,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.1623440000039409,
+      "test": {
+        "r2": 0.6259021208231863,
+        "mae_rentals": 90.39696138097636,
+        "rmse_rentals": 123.29711529509804
+      }
+    },
+    "cyclical_ridge": {
+      "validation": {
+        "r2": 0.5488873392812909,
+        "mae_rentals": 115.91336251674338,
+        "rmse_rentals": 155.18534627890048
+      },
+      "features": 34,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.1075494999968214,
+      "test": {
+        "r2": 0.5745436865832694,
+        "mae_rentals": 94.69935329384063,
+        "rmse_rentals": 131.48850242411427
+      }
+    },
+    "cyclical_interactions_ridge": {
+      "validation": {
+        "r2": 0.7480806787358449,
+        "mae_rentals": 83.14940520712356,
+        "rmse_rentals": 115.96820643499746
+      },
+      "features": 50,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.14596770799835213,
+      "test": {
+        "r2": 0.6861280301248478,
+        "mae_rentals": 84.08648758003292,
+        "rmse_rentals": 112.93708115787366
+      }
+    },
+    "hist_gradient_boosting": {
+      "validation": {
+        "r2": 0.9306965046531853,
+        "mae_rentals": 39.827899951390386,
+        "rmse_rentals": 60.82551169599478
+      },
+      "features": 12,
+      "fit_seconds": 0.8284488749995944,
+      "test": {
+        "r2": 0.8828653983159815,
+        "mae_rentals": 44.54288135741378,
+        "rmse_rentals": 68.99266093073913
+      }
+    },
+    "potage_unary": {
+      "validation": {
+        "r2": 0.4346656842902519,
+        "mae_rentals": 135.15051738417665,
+        "rmse_rentals": 173.72442207017187
+      },
+      "features": 14,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.08016537499497645,
+      "selected_names": [
+        "temp^2",
+        "sqrt|hr|",
+        "yr",
+        "hr^3",
+        "hr",
+        "season==1",
+        "hum^3",
+        "mnth",
+        "mnth^3",
+        "tanh(hr)",
+        "weathersit==3",
+        "weekday",
+        "season==4",
+        "workingday"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        }
+      ],
+      "validation_batch_max_abs_difference": 1.7053025658242404e-13,
+      "discovery_seconds": 0.04936516700399807,
+      "source_names": [
+        [
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "season"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "weathersit"
+        ],
+        [
+          "weekday"
+        ],
+        [
+          "season"
+        ],
+        [
+          "workingday"
+        ]
+      ],
+      "test": {
+        "r2": 0.4645839994651936,
+        "mae_rentals": 113.92097445487161,
+        "rmse_rentals": 147.50473631744217
+      }
+    },
+    "potage_carriers": {
+      "validation": {
+        "r2": 0.6004429889297609,
+        "mae_rentals": 116.52595721329645,
+        "rmse_rentals": 146.04866094976725
+      },
+      "features": 22,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.1319072909973329,
+      "selected_names": [
+        "step(sqrt|hr|>25%)",
+        "temp^2",
+        "cos(2\u00d72\u03c0*hr)",
+        "yr",
+        "gauss(tanh(hr),c=75%,w=0.2)",
+        "sin(4\u00d72\u03c0*hr)",
+        "pulse(hr:0%-33%)",
+        "sin(3\u00d72\u03c0*hr^3)",
+        "cos(2\u00d72\u03c0*mnth)",
+        "hum^3",
+        "pulse(mnth:0%-33%)",
+        "sin(4\u00d72\u03c0*hr^3)",
+        "sqrt|hr|",
+        "pulse(sqrt|hr|:67%-100%)",
+        "sin(3\u00d72\u03c0*sqrt|hr|)",
+        "weekday",
+        "gauss(sqrt|hr|,c=50%,w=0.2)",
+        "step(sqrt|hr|>75%)",
+        "workingday",
+        "cos(1\u00d72\u03c0*hum^3)",
+        "gauss(hum^3,c=25%,w=0.5)",
+        "pulse(hum^3:33%-67%)"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        },
+        {
+          "name": "carriers(14d)",
+          "generated": 216,
+          "after_filter": 132,
+          "selected": 24
+        },
+        {
+          "name": "fuse",
+          "generated": 0,
+          "after_filter": 0,
+          "selected": 38
+        },
+        {
+          "name": "select(38d)",
+          "generated": 38,
+          "after_filter": 38,
+          "selected": 22
+        }
+      ],
+      "validation_batch_max_abs_difference": 1.1368683772161603e-13,
+      "discovery_seconds": 0.2126522920007119,
+      "source_names": [
+        [
+          "hr"
+        ],
+        [
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "weekday"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "workingday"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "hum"
+        ]
+      ],
+      "test": {
+        "r2": 0.5768883438198311,
+        "mae_rentals": 97.34958783945171,
+        "rmse_rentals": 131.12569033082136
+      }
+    },
+    "potage_fft_carriers": {
+      "validation": {
+        "r2": 0.5963980948187921,
+        "mae_rentals": 116.68786789269926,
+        "rmse_rentals": 146.78605731943549
+      },
+      "features": 24,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.11463866600388428,
+      "selected_names": [
+        "gauss(hr^3,c=75%,w=0.2)",
+        "temp^2",
+        "step(sqrt|hr|>25%)",
+        "yr",
+        "gauss(hr,c=75%,w=0.2)",
+        "cos(2.00\u00d72\u03c0*mnth)",
+        "gauss(hum^3,c=25%,w=0.5)",
+        "pulse(mnth:0%-33%)",
+        "pulse(hr^3:67%-100%)",
+        "gauss(hum^3,c=50%,w=0.5)",
+        "cos(3.00\u00d72\u03c0*sqrt|hr|)",
+        "pulse(hr:0%-33%)",
+        "pulse(tanh(hr):0%-33%)",
+        "sin\u00b2(3.00\u00d72\u03c0*hr^3)",
+        "sin(3.00\u00d72\u03c0*hr)",
+        "sin\u00b2(3.00\u00d72\u03c0*hr)",
+        "pulse(sqrt|hr|:67%-100%)",
+        "gauss(hr,c=50%,w=0.2)",
+        "cos(3.00\u00d72\u03c0*tanh(hr))",
+        "hr^3",
+        "step(sqrt|hr|>50%)",
+        "hr",
+        "weekday",
+        "workingday"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        },
+        {
+          "name": "fft_carriers(14d, 8feat, 12freqs)",
+          "generated": 156,
+          "after_filter": 98,
+          "selected": 24
+        },
+        {
+          "name": "fuse",
+          "generated": 0,
+          "after_filter": 0,
+          "selected": 38
+        },
+        {
+          "name": "select(38d)",
+          "generated": 38,
+          "after_filter": 38,
+          "selected": 24
+        }
+      ],
+      "validation_batch_max_abs_difference": 1.1368683772161603e-13,
+      "discovery_seconds": 0.17070795800100313,
+      "source_names": [
+        [
+          "hr"
+        ],
+        [
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "weekday"
+        ],
+        [
+          "workingday"
+        ]
+      ],
+      "test": {
+        "r2": 0.5717948403447172,
+        "mae_rentals": 97.63920433253347,
+        "rmse_rentals": 131.91258796403721
+      }
+    },
+    "potage_carrier_am": {
+      "validation": {
+        "r2": 0.7155360798317161,
+        "mae_rentals": 93.05185415319637,
+        "rmse_rentals": 123.23151763986964
+      },
+      "features": 24,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.5430677089971141,
+      "selected_names": [
+        "gauss(temp^2,c=25%,w=0.2)^(2\u00b7step(sqrt|hr|>25%))",
+        "(step(sqrt|hr|>25%)-cos(2\u00d72\u03c0*hr))\u00b2",
+        "yr",
+        "max(gauss(temp^2,c=25%,w=0.2),gauss(hum^3,c=25%,w=0.5))",
+        "max(cos(3\u00d72\u03c0*hr^3),pulse(mnth:0%-33%))",
+        "gauss(temp^2,c=25%,w=0.2)^(2\u00b7pulse(hr^3:33%-67%))",
+        "hmean(step(sqrt|hr|>25%),cos(2\u00d72\u03c0*mnth))",
+        "hmean(sin(3\u00d72\u03c0*sqrt|hr|),gauss(tanh(hr),c=75%,w=0.2))",
+        "gauss(temp^2,c=25%,w=0.2)^(2\u00b7step(sqrt|hr|>75%))",
+        "pulse(hr^3:33%-67%)*sin(4\u00d72\u03c0*hr^3)",
+        "gauss(hum^3,c=25%,w=0.5)^(2\u00b7pulse(hr^3:33%-67%))",
+        "cos(2\u00d72\u03c0*hr)*pulse(mnth:0%-33%)",
+        "cos(3\u00d72\u03c0*hr^3)*sin(4\u00d72\u03c0*hr^3)",
+        "hmean(cos(2\u00d72\u03c0*hr),gauss(tanh(hr),c=75%,w=0.2))",
+        "(pulse(hr^3:33%-67%)-gauss(hum^3,c=25%,w=0.5))\u00b2",
+        "gauss(temp^2,c=25%,w=0.2)*sin(3\u00d72\u03c0*sqrt|hr|)",
+        "min(cos(2\u00d72\u03c0*mnth),cos(2\u00d72\u03c0*hr))",
+        "cos(2\u00d72\u03c0*mnth)/(1+|pulse(mnth:0%-33%)|)",
+        "(cos(2\u00d72\u03c0*mnth)-cos(3\u00d72\u03c0*hr^3))\u00b2",
+        "max(gauss(hum^3,c=25%,w=0.5),cos(3\u00d72\u03c0*hr^3))",
+        "gauss(temp^2,c=25%,w=0.2)*sin(4\u00d72\u03c0*hr^3)",
+        "relu(step(sqrt|hr|>75%)-sin(3\u00d72\u03c0*sqrt|hr|))",
+        "cos(1\u00d72\u03c0*hum^3)",
+        "weekday"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        },
+        {
+          "name": "carriers(14d)",
+          "generated": 216,
+          "after_filter": 132,
+          "selected": 24
+        },
+        {
+          "name": "select(24d)",
+          "generated": 24,
+          "after_filter": 24,
+          "selected": 12
+        },
+        {
+          "name": "am(12d)",
+          "generated": 1212,
+          "after_filter": 596,
+          "selected": 24
+        },
+        {
+          "name": "fuse",
+          "generated": 0,
+          "after_filter": 0,
+          "selected": 62
+        },
+        {
+          "name": "select(62d)",
+          "generated": 62,
+          "after_filter": 62,
+          "selected": 24
+        }
+      ],
+      "validation_batch_max_abs_difference": 1.1368683772161603e-13,
+      "discovery_seconds": 1.5463684169953922,
+      "source_names": [
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "yr"
+        ],
+        [
+          "hum",
+          "temp"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "weekday"
+        ]
+      ],
+      "test": {
+        "r2": 0.5516703619468755,
+        "mae_rentals": 103.28878074439733,
+        "rmse_rentals": 134.97676580911707
+      }
+    },
+    "potage_carrier_fm": {
+      "validation": {
+        "r2": 0.6740444596873326,
+        "mae_rentals": 100.74557893157404,
+        "rmse_rentals": 131.9129355948645
+      },
+      "features": 24,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.32616541600145865,
+      "selected_names": [
+        "PM_sin_k3_p0.5_hr^3\u2192step(sqrt|hr|>25%)",
+        "temp^2",
+        "FM_sin_k1_d1_hr\u2192step(sqrt|hr|>25%)",
+        "yr",
+        "PM_sin_k2_p1_hr^3\u2192cos(2\u00d72\u03c0*mnth)",
+        "FM_sin_k4_d-1_hum^3\u2192pulse(hr^3:33%-67%)",
+        "FM_sin_k4_d1_hr^3\u2192step(sqrt|hr|>75%)",
+        "PM_sin_k4_p0.5_hr^3\u2192cos(2\u00d72\u03c0*hr)",
+        "FM_sin_k4_d1_yr\u2192cos(2\u00d72\u03c0*hr)",
+        "PM_sin_k3_p1_hr\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "FM_sin_k1_d-1_sqrt|hr|\u2192gauss(temp^2,c=25%,w=0.2)",
+        "PM_sin_k4_p0.5_temp^2\u2192step(sqrt|hr|>25%)",
+        "FM_sin_k2_d-1_temp^2\u2192pulse(hr^3:33%-67%)",
+        "mnth",
+        "cos(1\u00d72\u03c0*hum^3)",
+        "FM_sin_k4_d1_yr\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "FM_sin_k1_d1_yr\u2192cos(2\u00d72\u03c0*hr)",
+        "PM_sin_k2_p0.5_yr\u2192cos(2\u00d72\u03c0*hr)",
+        "step(sqrt|hr|>75%)",
+        "PM_sin_k1_p0.5_yr\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "sin(3\u00d72\u03c0*sqrt|hr|)",
+        "FM_sin_k2_d1_temp^2\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "mnth^3",
+        "pulse(hum^3:33%-67%)"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        },
+        {
+          "name": "carriers(14d)",
+          "generated": 216,
+          "after_filter": 132,
+          "selected": 24
+        },
+        {
+          "name": "select(24d)",
+          "generated": 24,
+          "after_filter": 24,
+          "selected": 8
+        },
+        {
+          "name": "select(14d)",
+          "generated": 14,
+          "after_filter": 14,
+          "selected": 8
+        },
+        {
+          "name": "fm(8d,8d)",
+          "generated": 1024,
+          "after_filter": 643,
+          "selected": 24
+        },
+        {
+          "name": "fuse",
+          "generated": 0,
+          "after_filter": 0,
+          "selected": 62
+        },
+        {
+          "name": "select(62d)",
+          "generated": 62,
+          "after_filter": 62,
+          "selected": 24
+        }
+      ],
+      "validation_batch_max_abs_difference": 1.1368683772161603e-13,
+      "discovery_seconds": 1.3762627909964067,
+      "source_names": [
+        [
+          "hr"
+        ],
+        [
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "yr"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "hr",
+          "yr"
+        ],
+        [
+          "hr",
+          "yr"
+        ],
+        [
+          "hr",
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hum"
+        ]
+      ],
+      "test": {
+        "r2": 0.5925103865708106,
+        "mae_rentals": 95.2024431286632,
+        "rmse_rentals": 128.68222586424764
+      }
+    },
+    "potage_carrier_wm": {
+      "validation": {
+        "r2": 0.6945634253739358,
+        "mae_rentals": 92.8798651152716,
+        "rmse_rentals": 127.69347973474679
+      },
+      "features": 24,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.2872555419962737,
+      "selected_names": [
+        "WM_center_q30_temp^2\u2192step(sqrt|hr|>25%)",
+        "WM_width_q70_m2.0_yr\u2192gauss(hum^3,c=25%,w=0.5)",
+        "WM_width_q70_m2.0_sqrt|hr|\u2192cos(2\u00d72\u03c0*hr)",
+        "WM_center_q30_hr^3\u2192step(sqrt|hr|>75%)",
+        "WM_width_q70_m2.0_hr\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "WM_width_q70_m2.0_season==1\u2192gauss(hum^3,c=25%,w=0.5)",
+        "WM_center_q30_temp^2\u2192pulse(hr^3:33%-67%)",
+        "temp^2",
+        "WM_width_q30_m2.0_yr\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "WM_width_q50_m2.0_hr\u2192cos(2\u00d72\u03c0*hr)",
+        "WM_center_q50_hr\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "mnth",
+        "pulse(hr^3:33%-67%)",
+        "pulse(hr:0%-33%)",
+        "WM_width_q30_m0.5_season==1\u2192cos(2\u00d72\u03c0*hr)",
+        "WM_width_q30_m2.0_yr\u2192cos(2\u00d72\u03c0*hr)",
+        "WM_width_q70_m2.0_yr\u2192gauss(temp^2,c=25%,w=0.2)",
+        "sin(4\u00d72\u03c0*hr)",
+        "WM_width_q30_m2.0_hum^3\u2192sin(3\u00d72\u03c0*sqrt|hr|)",
+        "sin(3\u00d72\u03c0*hr^3)",
+        "pulse(sqrt|hr|:67%-100%)",
+        "cos(2\u00d72\u03c0*mnth)",
+        "sin(3\u00d72\u03c0*sqrt|hr|)",
+        "step(sqrt|hr|>25%)"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        },
+        {
+          "name": "carriers(14d)",
+          "generated": 216,
+          "after_filter": 132,
+          "selected": 24
+        },
+        {
+          "name": "select(24d)",
+          "generated": 24,
+          "after_filter": 24,
+          "selected": 8
+        },
+        {
+          "name": "select(14d)",
+          "generated": 14,
+          "after_filter": 14,
+          "selected": 8
+        },
+        {
+          "name": "wm(8d,8d)",
+          "generated": 768,
+          "after_filter": 312,
+          "selected": 24
+        },
+        {
+          "name": "fuse",
+          "generated": 0,
+          "after_filter": 0,
+          "selected": 62
+        },
+        {
+          "name": "select(62d)",
+          "generated": 62,
+          "after_filter": 62,
+          "selected": 24
+        }
+      ],
+      "validation_batch_max_abs_difference": 1.1368683772161603e-13,
+      "discovery_seconds": 0.7942465410014847,
+      "source_names": [
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hum",
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hum",
+          "season"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "temp"
+        ],
+        [
+          "hr",
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "season"
+        ],
+        [
+          "hr",
+          "yr"
+        ],
+        [
+          "temp",
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ]
+      ],
+      "test": {
+        "r2": 0.6237040317700784,
+        "mae_rentals": 89.21580153844255,
+        "rmse_rentals": 123.65881354869626
+      }
+    },
+    "potage_fields": {
+      "validation": {
+        "r2": 0.6445148289525557,
+        "mae_rentals": 105.9244476353539,
+        "rmse_rentals": 137.75867156565425
+      },
+      "features": 24,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.1514901669943356,
+      "selected_names": [
+        "zone(hr^3+mnth,c8,r=0.4)",
+        "yr",
+        "zone(sqrt|hr|+hr,c7,r=0.4)",
+        "zone(hr^3+mnth,c8,r=0.15)",
+        "zone(hum^3+mnth,c2,r=0.4)",
+        "zone(hr^3+hum^3,c6,r=0.15)",
+        "zone(temp^2+sqrt|hr|,c8,r=0.4)",
+        "zone(sqrt|hr|+hr^3,c7,r=0.4)",
+        "zcount(hr^3+hr,r=0.4)",
+        "zone(temp^2+sqrt|hr|,c7,r=0.15)",
+        "zone(hr+hum^3,c8,r=0.4)",
+        "zone(hr^3+hum^3,c7,r=0.15)",
+        "mnth",
+        "weathersit==3",
+        "zone(temp^2+hr,c7,r=0.15)",
+        "zone(temp^2+hum^3,c6,r=0.15)",
+        "zcount(sqrt|hr|+hr^3,r=0.15)",
+        "zone(hr^3+hum^3,c6,r=0.4)",
+        "tanh(hr)",
+        "zone(temp^2+hr,c2,r=0.4)",
+        "zone(hr+mnth,c1,r=0.4)",
+        "weekday",
+        "zone(hr^3+hum^3,c4,r=0.4)",
+        "workingday"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        },
+        {
+          "name": "select(14d)",
+          "generated": 14,
+          "after_filter": 14,
+          "selected": 8
+        },
+        {
+          "name": "fields(8d)",
+          "generated": 303,
+          "after_filter": 299,
+          "selected": 24
+        },
+        {
+          "name": "fuse",
+          "generated": 0,
+          "after_filter": 0,
+          "selected": 38
+        },
+        {
+          "name": "select(38d)",
+          "generated": 38,
+          "after_filter": 38,
+          "selected": 24
+        }
+      ],
+      "validation_batch_max_abs_difference": 5.684341886080802e-14,
+      "discovery_seconds": 0.37168429200391984,
+      "source_names": [
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "hum",
+          "mnth"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "weathersit"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hum",
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr",
+          "temp"
+        ],
+        [
+          "hr",
+          "mnth"
+        ],
+        [
+          "weekday"
+        ],
+        [
+          "hr",
+          "hum"
+        ],
+        [
+          "workingday"
+        ]
+      ],
+      "test": {
+        "r2": 0.510559324278886,
+        "mae_rentals": 109.76419090970724,
+        "rmse_rentals": 141.0296156612427
+      }
+    },
+    "potage_carrier_spaces": {
+      "validation": {
+        "r2": 0.6052490599590201,
+        "mae_rentals": 115.85379739858642,
+        "rmse_rentals": 145.16763049437947
+      },
+      "features": 24,
+      "ridge_alpha": 0.001,
+      "readout_fit_seconds": 0.2020999579981435,
+      "selected_names": [
+        "step(sqrt|hr|>25%)",
+        "temp^2",
+        "cos(2\u00d72\u03c0*hr)",
+        "yr",
+        "sin(2\u00d72\u03c0*log(sqrt|hr|))",
+        "tanh(hr)",
+        "cos(2\u00d72\u03c0*mnth)",
+        "gauss(tanh(hum^3),c=25%,w=0.5)",
+        "sin(3\u00d72\u03c0*hr^3)",
+        "sin(4\u00d72\u03c0*hr)",
+        "pulse(hr:0%-33%)",
+        "pulse(mnth:0%-33%)",
+        "sin(1\u00d72\u03c0*log(hr^3))",
+        "pulse(log(hr^3):33%-67%)",
+        "gauss(log(hum^3),c=50%,w=0.5)",
+        "sin(4\u00d72\u03c0*hr^3)",
+        "step(sqrt|hr|>50%)",
+        "pulse(tanh(hum^3):67%-100%)",
+        "pulse(sqrt|hr|:67%-100%)",
+        "cos(3\u00d72\u03c0*tanh(temp^2))",
+        "cos(4\u00d72\u03c0*tanh(temp^2))",
+        "weekday",
+        "workingday",
+        "sin(4\u00d72\u03c0*tanh(temp^2))"
+      ],
+      "stages": [
+        {
+          "name": "raw",
+          "generated": 69,
+          "after_filter": 30,
+          "selected": 14
+        },
+        {
+          "name": "carriers(14d)",
+          "generated": 216,
+          "after_filter": 132,
+          "selected": 24
+        },
+        {
+          "name": "carriers(14d)",
+          "generated": 216,
+          "after_filter": 126,
+          "selected": 24
+        },
+        {
+          "name": "carriers(14d)",
+          "generated": 216,
+          "after_filter": 71,
+          "selected": 19
+        },
+        {
+          "name": "fuse",
+          "generated": 0,
+          "after_filter": 0,
+          "selected": 81
+        },
+        {
+          "name": "select(81d)",
+          "generated": 81,
+          "after_filter": 81,
+          "selected": 24
+        }
+      ],
+      "validation_batch_max_abs_difference": 1.1368683772161603e-13,
+      "discovery_seconds": 0.4647994590050075,
+      "source_names": [
+        [
+          "hr"
+        ],
+        [
+          "temp"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "yr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "mnth"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "hum"
+        ],
+        [
+          "hr"
+        ],
+        [
+          "temp"
+        ],
+        [
+          "temp"
+        ],
+        [
+          "weekday"
+        ],
+        [
+          "workingday"
+        ],
+        [
+          "temp"
+        ]
+      ],
+      "test": {
+        "r2": 0.579366473347577,
+        "mae_rentals": 97.26349645621005,
+        "rmse_rentals": 130.7411303278067
+      }
+    }
+  },
+  "chosen_potage_by_validation": "potage_carrier_am",
+  "chosen_overall_by_validation": "hist_gradient_boosting",
+  "selected_recipe_batch_max_abs_difference": 1.1368683772161603e-13
+}

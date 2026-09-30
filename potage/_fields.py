@@ -12,7 +12,7 @@ _DEFAULT_PCT_BY_DIM = {
 
 
 def _build_zones_for_group(pts, centers, col_ids, group_name,
-                           scales, dedup):
+                           scales, dedup, reference_pts=None):
     """Generate circle/sphere zone features for one column group."""
     cols, pnames, families = [], [], []
     fset = frozenset(col_ids)
@@ -20,6 +20,8 @@ def _build_zones_for_group(pts, centers, col_ids, group_name,
 
     d2 = ((pts[:, None, :] - centers[None, :, :]) ** 2).sum(axis=2)
     dists = np.sqrt(d2)
+    reference_dists = (dists if reference_pts is None else np.sqrt(
+        ((reference_pts[:, None, :] - centers[None, :, :]) ** 2).sum(axis=2)))
 
     fp_near = ('field_near', fset)
     if dedup is None or dedup.is_new(fp_near, 'field_nearest'):
@@ -29,8 +31,9 @@ def _build_zones_for_group(pts, centers, col_ids, group_name,
 
     for sigma in scales:
         in_zone = (dists <= sigma).astype(np.float64)
+        reference_zone = (reference_dists <= sigma).astype(np.float64)
         for k in range(n_centers):
-            if in_zone[:, k].std() < 1e-10:
+            if reference_zone[:, k].std() < 1e-10:
                 continue
             fp_z = ('field_zone', fset, k, round(sigma, 6))
             if dedup is None or dedup.is_new(fp_z, 'field_zone'):
@@ -41,7 +44,7 @@ def _build_zones_for_group(pts, centers, col_ids, group_name,
         fp_zc = ('field_zcount', fset, round(sigma, 6))
         if dedup is None or dedup.is_new(fp_zc, 'field_zcount'):
             zcount = in_zone.sum(axis=1)
-            if zcount.std() > 1e-10:
+            if reference_zone.sum(axis=1).std() > 1e-10:
                 cols.append(zcount)
                 pnames.append(derived_name(f'zcount({group_name},r={sigma})', group_name))
                 families.append('field_zcount')
@@ -109,7 +112,8 @@ def build_stage_fields(X, names, numeric_mask, config=None, dedup=None,
             pts = X_norm[:, list(group)]
 
             c, p, f = _build_zones_for_group(
-                pts, centers, col_ids, group_name, scales, dedup)
+                pts, centers, col_ids, group_name, scales, dedup,
+                reference_pts=ref_norm[:, list(group)] if reference_X is not None else None)
             cols.extend(c)
             pnames.extend(p)
             families.extend(f)

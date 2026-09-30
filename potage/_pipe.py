@@ -732,16 +732,16 @@ class Pipeline(StateMixin, ReplayMixin, BudgetMixin):
                      y_target=None):
         """Stage 2 (FFT-guided): detect carrier frequencies from data.
 
-        Instead of sweeping a fixed frequency grid, FFTs y-vs-sorted-feature
-        for each input column to find the actual periodicities in the
-        y-feature relationship.  Then generates sin/cos/tri/step/pulse/gauss
-        carriers at the detected frequencies only.
+        Instead of sweeping a fixed frequency grid, use FFTs of the target
+        against each sorted input feature to propose candidate frequencies.
+        Generate sin/cos/tri carriers from those frequencies, alongside
+        step/pulse/Gaussian candidates.
 
-        This is the data-driven counterpart of carriers().  The paper
-        "When Periodic Primitives Outperform Neural Networks" (Ribecco 2026)
-        proves that explicit frequency identification (FFT) + closed-form
-        estimation (Ridge) beats learned representations.  This method
-        applies the same principle to tabular feature engineering.
+        This data-driven counterpart of carriers() explores whether explicit
+        periodic features help a downstream estimator. Detected spectral peaks
+        are candidate structure, not proof of a physical periodicity or a
+        general advantage over learned representations. Frequency discovery
+        uses training targets and must stay inside the evaluation split.
 
         Parameters
         ----------

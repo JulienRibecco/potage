@@ -1,46 +1,53 @@
-> Historical research catalog. Saved scores and figures predate the transform
-> replay and selection-scoring fixes unless a result explicitly records a rerun.
-> Use the repository README and corrected concrete benchmark as the current
-> entry points. Commands below run from the repository root. In particular,
-> older conclusions about feature instability may mix statistical overfitting
-> with implementation defects; they need new experiments before reuse.
+# Potage research catalog
 
-The [AM-only replay audit](../research/am-replay-audit/README.md) revisits
-concrete strength and metallic-glass descriptors across three grouped splits.
-It isolates the AM defect from the other library fixes; it does not revalidate
-the historical full neural cascades or game/intervention results.
+This catalog maps research questions to scripts and saved reports. For library
+installation and usage, start with the [README](../README.md); API behavior is
+documented in the [reference](../REFERENCE.md).
 
-# potage — Domain-Agnostic Feature Engineering
+## Validation status
 
-Composable feature engineering library for tabular/scientific data.
-Build diverse feature libraries from raw columns using signal-inspired
-transformations (products, sinusoidal carriers, FM/PM modulation,
-Gaussian windows), then select the most predictive subset.
+| Record | Status | Entry point |
+|---|---|---|
+| Bike sharing | Current chronological comparison; eight Potage recipes and manual/tree baselines | [Report](../examples/bike_sharing_results.md) |
+| Concrete strength | Rerun after replay/scoring fixes and module separation; one previously inspected split | [Report](../examples/concrete_strength_results.md) |
+| AM replay audit | Paired diagnostic on concrete and metallic glass; three grouped splits, batch checks, negative controls | [Audit](../research/am-replay-audit/README.md) |
+| Game, intervention, and transport experiments below | Historical results; not rerun after the library fixes | Scripts and adjacent result reports under `examples/` |
 
-Pure numpy/scipy/sklearn. Zero external dependencies.
+Historical scores and figures are exploratory records, not current release
+benchmarks. Older interpretations of unstable features may mix statistical
+overfitting with implementation defects. Their simulator tests check code
+behavior; passing those tests does not revalidate the saved research findings.
+The AM audit does not revalidate the full metallic-glass neural cascade or the
+game/intervention experiments. Its [data notes](../research/am-replay-audit/DATA.md)
+explain which inputs are available for independent reproduction.
 
-## Install
+## Running the experiments
+
+Run commands from the repository root after completing the README setup:
 
 ```bash
-pip install numpy scipy scikit-learn
-# Then add potage/ to your Python path or copy it into your project
+python -m pip install -e '.[examples]'
 ```
 
-## Quick start
+Commands below write to ignored `artifacts/` paths so fresh runs do not overwrite
+the historical records. Most synthetic game experiments need no dataset
+download, but the larger settings and seed sweeps can take substantial time.
 
-```python
-from potage import SoupPipe, SoupConfig
+## Bike-sharing demand
 
-pipe = SoupPipe(X, y, feature_names)
-fs_raw = pipe.raw(select=15)              # stage 0: identity, sq, log
-fs_car = pipe.carriers(fs_raw, select=15) # stage 2: sin/cos carriers
-fs_all = pipe.fuse(fs_raw, fs_car)
-fs_final = pipe.select(fs_all, select=20)
+The [bike-sharing report](../examples/bike_sharing_results.md) compares current
+Potage recipes on fixed chronological training/validation/test windows. It
+includes the newly corrected field replay, checks batch agreement, and keeps
+manual calendar features and boosting as explicit baselines.
 
-X_new = pipe.transform(X_test)            # replay on new data
+```bash
+python examples/bike_sharing.py --recipes carriers --output artifacts/bike_carriers.json
 ```
 
-## Worked benchmark
+This scores validation only. The report explains when to use `--evaluate-test`;
+the saved held-out quarter should not become a target for further tuning.
+
+## Concrete-strength benchmark
 
 `examples/concrete_strength.py` evaluates Potage on the UCI Concrete
 Compressive Strength dataset. Its default protocol keeps identical ingredient
@@ -49,13 +56,15 @@ ages cannot leak into both discovery and test data.
 
 ```bash
 python examples/concrete_strength.py \
-    --output examples/concrete_strength_results.json \
-    --plot examples/concrete_strength_results.png
+    --output artifacts/concrete_strength_results.json \
+    --plot artifacts/concrete_strength_results.png
 ```
 
 The script compares raw and quadratic ridge models, three tree ensembles, and
 each Potage stage from unary transforms through window modulation. Use
 `--max-stage 1` for a quick smoke test.
+
+## Historical game and mechanism probes
 
 `examples/game_state_probe.py` is a falsifiable mechanism-recovery experiment.
 It generates game states with four planted win factors, fits an obvious-state
@@ -64,8 +73,8 @@ the hidden formula.
 
 ```bash
 python examples/game_state_probe.py \
-    --output examples/game_state_probe_results.json \
-    --plot examples/game_state_probe_results.png \
+    --output artifacts/game_state_probe_results.json \
+    --plot artifacts/game_state_probe_results.png \
     --stability-seeds 19 41 97
 ```
 
@@ -78,8 +87,8 @@ depth-versus-overfitting comparison explicit on untouched games.
 
 ```bash
 python examples/reversi_probe.py \
-    --output examples/reversi_probe_results.json \
-    --plot examples/reversi_probe_results.png \
+    --output artifacts/reversi_probe_results.json \
+    --plot artifacts/reversi_probe_results.png \
     --stability-seeds 19 41 97
 ```
 
@@ -91,8 +100,8 @@ bootstrapped by complete game.
 
 ```bash
 python examples/reversi_learning_curve.py \
-    --output examples/reversi_learning_curve_results.json \
-    --plot examples/reversi_learning_curve_results.png
+    --output artifacts/reversi_learning_curve_results.json \
+    --plot artifacts/reversi_learning_curve_results.png
 ```
 
 `examples/reversi_crossfit_probe.py` then repeats feature discovery across game
@@ -101,8 +110,8 @@ independently selected predictors on one untouched test set.
 
 ```bash
 python examples/reversi_crossfit_probe.py \
-    --output examples/reversi_crossfit_results.json \
-    --plot examples/reversi_crossfit_results.png
+    --output artifacts/reversi_crossfit_results.json \
+    --plot artifacts/reversi_crossfit_results.png
 ```
 
 Finally, `examples/reversi_intervention.py` tests whether acting on the stable
@@ -112,12 +121,12 @@ across game phases.
 
 ```bash
 python examples/reversi_intervention.py \
-    --output examples/reversi_intervention_results.json \
-    --plot examples/reversi_intervention_results.png
+    --output artifacts/reversi_intervention_results.json \
+    --plot artifacts/reversi_intervention_results.png
 
 python examples/reversi_intervention_phases.py \
-    --output examples/reversi_intervention_phases_results.json \
-    --plot examples/reversi_intervention_phases_results.png
+    --output artifacts/reversi_intervention_phases_results.json \
+    --plot artifacts/reversi_intervention_phases_results.png
 ```
 
 Connect Four is the next game probe. It changes the vocabulary from positional
@@ -125,10 +134,12 @@ pressure to tactical threats, immediate wins, and open threes:
 
 ```bash
 python examples/connect_four_probe.py \
-    --output examples/connect_four_probe_results.json \
-    --plot examples/connect_four_probe_results.png \
+    --output artifacts/connect_four_probe_results.json \
+    --plot artifacts/connect_four_probe_results.png \
     --stability-seeds 19 41 97
 ```
+
+## Historical timing and intervention probes
 
 For simultaneous-action timing, `examples/realtime_race_probe.py` uses a small
 arena with delayed target commands, node capture, and score snapshots. The
@@ -137,8 +148,8 @@ tempo and control factors without using the hidden latency directly:
 
 ```bash
 python examples/realtime_race_probe.py \
-    --output examples/realtime_race_probe_results.json \
-    --plot examples/realtime_race_probe_results.png \
+    --output artifacts/realtime_race_probe_results.json \
+    --plot artifacts/realtime_race_probe_results.png \
     --stability-seeds 19 41 97
 ```
 
@@ -149,8 +160,8 @@ selection strategy (`omp`, `greedy`, `correlation`):
 ```bash
 python examples/realtime_stage_selection_probe.py \
     --games 600 \
-    --output examples/realtime_stage_selection_results.json \
-    --plot examples/realtime_stage_selection_results.png
+    --output artifacts/realtime_stage_selection_results.json \
+    --plot artifacts/realtime_stage_selection_results.png
 ```
 
 Finally, `examples/realtime_latency_intervention.py` performs a matched causal
@@ -161,8 +172,8 @@ test: it replays the same game with one agent's command latency set to 0 versus
 python examples/realtime_latency_intervention.py \
     --pairs 1000 \
     --seeds 19 41 97 \
-    --output examples/realtime_latency_intervention_results.json \
-    --plot examples/realtime_latency_intervention_results.png
+    --output artifacts/realtime_latency_intervention_results.json \
+    --plot artifacts/realtime_latency_intervention_results.png
 ```
 
 `examples/realtime_heterogeneous_effect_probe.py` then predicts which matched
@@ -174,8 +185,8 @@ python examples/realtime_heterogeneous_effect_probe.py \
     --pairs 1000 \
     --recipe carrier_am \
     --method correlation \
-    --output examples/realtime_heterogeneous_effect_results.json \
-    --plot examples/realtime_heterogeneous_effect_results.png
+    --output artifacts/realtime_heterogeneous_effect_results.json \
+    --plot artifacts/realtime_heterogeneous_effect_results.png
 ```
 
 `examples/realtime_phase_branch_probe.py` performs the stricter phase-causal
@@ -187,9 +198,11 @@ python examples/realtime_phase_branch_probe.py \
     --pairs 500 \
     --recipe carrier_am \
     --method correlation \
-    --output examples/realtime_phase_branch_results.json \
-    --plot examples/realtime_phase_branch_results.png
+    --output artifacts/realtime_phase_branch_results.json \
+    --plot artifacts/realtime_phase_branch_results.png
 ```
+
+## Historical scenario and transport probes
 
 `examples/realtime_scenario_probe.py` varies initial geometry and agent speed,
 then compares Potage with and without those explicit scenario descriptors. This
@@ -200,8 +213,8 @@ conditional interactions.
 python examples/realtime_scenario_probe.py \
     --games 1500 \
     --recipes raw carrier_am \
-    --output examples/realtime_scenario_results.json \
-    --plot examples/realtime_scenario_results.png
+    --output artifacts/realtime_scenario_results.json \
+    --plot artifacts/realtime_scenario_results.png
 ```
 
 `examples/realtime_scenario_intervention.py` follows with matched causal tests
@@ -212,8 +225,8 @@ fixed:
 python examples/realtime_scenario_intervention.py \
     --pairs 1000 \
     --seeds 19 41 97 \
-    --output examples/realtime_scenario_intervention_results.json \
-    --plot examples/realtime_scenario_intervention_results.png
+    --output artifacts/realtime_scenario_intervention_results.json \
+    --plot artifacts/realtime_scenario_intervention_results.png
 ```
 
 `examples/realtime_scenario_crossfit_probe.py` holds out each initial geometry
@@ -224,8 +237,8 @@ scenarios.
 python examples/realtime_scenario_crossfit_probe.py \
     --games 800 \
     --recipe carrier_am \
-    --output examples/realtime_scenario_crossfit_results.json \
-    --plot examples/realtime_scenario_crossfit_results.png
+    --output artifacts/realtime_scenario_crossfit_results.json \
+    --plot artifacts/realtime_scenario_crossfit_results.png
 ```
 
 `examples/realtime_continuous_scenario_probe.py` samples start positions across
@@ -238,8 +251,8 @@ python examples/realtime_continuous_scenario_probe.py \
     --games 1200 \
     --recipe carrier_am \
     --select 12 \
-    --output examples/realtime_continuous_scenario_results.json \
-    --plot examples/realtime_continuous_scenario_results.png
+    --output artifacts/realtime_continuous_scenario_results.json \
+    --plot artifacts/realtime_continuous_scenario_results.png
 ```
 
 `examples/realtime_scenario_effect_probe.py` changes the target from final
@@ -253,8 +266,8 @@ python examples/realtime_scenario_effect_probe.py \
     --pairs 1000 \
     --recipe carrier_am \
     --method correlation \
-    --output examples/realtime_scenario_effect_results.json \
-    --plot examples/realtime_scenario_effect_results.png
+    --output artifacts/realtime_scenario_effect_results.json \
+    --plot artifacts/realtime_scenario_effect_results.png
 ```
 
 `examples/realtime_scenario_effect_transport.py` trains on a +1-speed or
@@ -266,8 +279,8 @@ python examples/realtime_scenario_effect_transport.py \
     --pairs 800 \
     --recipe carrier_am \
     --method correlation \
-    --output examples/realtime_scenario_effect_transport_results.json \
-    --plot examples/realtime_scenario_effect_transport_results.png
+    --output artifacts/realtime_scenario_effect_transport_results.json \
+    --plot artifacts/realtime_scenario_effect_transport_results.png
 ```
 
 `examples/realtime_scenario_effect_stability.py` repeats the paired-effect
@@ -280,35 +293,6 @@ python examples/realtime_scenario_effect_stability.py \
     --seeds 19 41 97 \
     --recipe carrier_am \
     --method correlation \
-    --output examples/realtime_scenario_effect_stability_results.json \
-    --plot examples/realtime_scenario_effect_stability_results.png
+    --output artifacts/realtime_scenario_effect_stability_results.json \
+    --plot artifacts/realtime_scenario_effect_stability_results.png
 ```
-
-## Stages
-
-| Method | What it does |
-|--------|-------------|
-| `raw()` | identity, sq, log, one-hot |
-| `am(fs)` | pairwise products, ratios |
-| `carriers(fs)` | sin/cos/tri carriers |
-| `fm(fs_carrier, fs_mod)` | frequency/phase modulation |
-| `wm(fs)` | Gaussian window modulation |
-
-## Feature types
-
-Columns are typed as `numeric`, `bool`, or `categorical`:
-- Numeric: all unary/binary ops
-- Bool: gating (products) only
-- Categorical: one-hot expand in stage 0, then gates
-
-## Dependencies
-
-- numpy
-- scipy
-- scikit-learn
-
-Optional: `signalfault.classify._nn` for `neuron_cluster_features()` only.
-
-## License
-
-CC BY 4.0

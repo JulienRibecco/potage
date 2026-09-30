@@ -27,7 +27,7 @@ jobs:
           suite = unittest.TestSuite(
               unittest.defaultTestLoader.discover(str(root / 'tests'), pattern=pattern)
               for pattern in ('test_core_contracts.py', 'test_refactor_contracts.py',
-                              'test_workflow_contracts.py')
+                              'test_workflow_contracts.py', 'test_field_replay.py')
           )
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           raise SystemExit(not result.wasSuccessful())

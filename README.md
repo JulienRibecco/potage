@@ -4,18 +4,33 @@ Potage builds candidate features from tabular data, selects useful combinations,
 and replays the chosen transformations on new rows. It grew out of scientific
 experiments with products, periodic signals, and localized effects.
 
+Potage automatically discovers nonlinear features that can recover patterns
+consistent with domain knowledge, reducing manual feature engineering while
+keeping the resulting expressions inspectable. It assists exploration; domain
+expertise and independent evaluation remain essential.
+
 The engineering focus is a reusable experiment component: compose stages,
 inspect named features, control candidate and memory budgets, and reuse the
 result with ordinary sklearn estimators. Research alpha; APIs may evolve.
 
 ## Install and try it
 
-Python 3.9 or newer, from this repository:
+Use Python 3.9 or newer. From a terminal:
 
 ```bash
-pip install -e .
+git clone https://github.com/JulienRibecco/potage.git
+cd potage
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
 python examples/quick_start.py
 ```
+
+On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1` instead.
+For the tagged release, run `git checkout v0.1.1` after cloning. The
+[GitHub release](https://github.com/JulienRibecco/potage/releases/tag/v0.1.1)
+also provides a wheel and source archive; this project is not currently
+published to PyPI.
 
 The demo needs no download or optional dependencies. It builds an explicitly
 synthetic nonlinear target, discovers features on training/validation data, and
@@ -98,12 +113,25 @@ compatibility aliases for `Pipeline` and `Config`.
 
 ## Research examples
 
-Start with the [concrete-strength benchmark](examples/concrete_strength_results.md):
-recipe-grouped splits, conventional baselines, and a progression of feature
-stages. Install the optional example dependencies to download data or plot:
+Start with [bike-sharing demand](examples/bike_sharing_results.md): a chronological
+comparison of eight Potage recipes against raw ridge, manual calendar features,
+and boosting. A small public dataset makes it easy to try:
 
 ```bash
-pip install -e '.[examples]'
+python examples/bike_sharing.py --recipes carriers --output artifacts/bike_carriers.json
+```
+
+This command scores validation only. The report shows the final held-out
+quarter: Potage improves on raw ridge, while manual cyclical interactions and
+boosting do better. It also records a field-replay fix found during the run.
+This example and fix are included in v0.1.1 and newer.
+
+The [concrete-strength benchmark](examples/concrete_strength_results.md)
+provides recipe-grouped splits, conventional baselines, and a progression of
+feature stages. Install the optional example dependencies to download data or plot:
+
+```bash
+python -m pip install -e '.[examples]'
 python examples/concrete_strength.py --max-stage 1
 ```
 

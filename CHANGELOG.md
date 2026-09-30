@@ -1,5 +1,27 @@
 # Potage changelog
 
+## 0.1.1 — 2026-09-30 (research alpha)
+
+- Added a reproducible chronological bike-sharing comparison covering eight
+  current Potage recipes, raw/calendar/cyclical ridge, and histogram boosting.
+  Feature/penalty/recipe choices are made on validation before test reporting.
+- Fixed field candidate filtering to use training-reference variability during
+  validation and replay, preventing mismatched columns and batch-dependent
+  indicators. Added two field regressions and three benchmark protocol tests.
+- Local Python 3.10 suite: 68 tests passed; the installed wheel passed 37
+  contract tests outside the checkout. All eight bike recipes pass fitted
+  matrix replay and validation batch checks; saved scores retain every baseline
+  and recipe, including the validation winner's poorer test result.
+
+- Reworked the research catalog around validation status and experiment entry
+  points, removing obsolete installation/API material.
+- Added clone and virtual-environment setup to the README and clarified the
+  experimental purpose of FFT-guided carrier discovery.
+- Made concrete the standalone AM audit example and documented the optional
+  metallic-glass table's local provenance, schema, hashes, and availability
+  limits. Recorded numerical results and their original source hashes are
+  preserved; their hashes describe the code used in those earlier runs.
+
 ## 0.1.0 — 2026-09-30 (research alpha)
 
 - AM ratios/log ratios and power transforms reuse training statistics in both

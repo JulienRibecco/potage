@@ -6,7 +6,7 @@ The AM defect materially affected some research results. In three grouped concre
 
 ## Comparison protocol
 
-This is an **AM-only ablation**, not old-package versus new-package benchmarking. Both arms use the current library, including corrected rank handling, OMP scoring, deduplication, and feature ordering. The legacy arm restores batch-local AM statistics; the fixed arm uses training references and clips power exponents to the training range. Selection is rerun in each arm against the same validation split. An additional replay-only comparison freezes each fitted feature set and readout, then swaps the replay mode.
+This is an **AM-only ablation**, not old-package versus new-package benchmarking. Both arms use the current library, including corrected rank handling, OMP scoring, deduplication, and feature ordering. The legacy arm restores batch-local AM statistics; the fixed arm uses training references and clips normalized exponent inputs to [0, 1] before applying the configured power scales. Selection is rerun in each arm against the same validation split. An additional replay-only comparison freezes each fitted feature set and readout, then swaps the replay mode.
 
 The legacy emulation was checked against both original AM builder functions from a local pre-fix snapshot. Their outputs matched exactly by name on training data, a holdout batch, a single row, and a batch containing a constant column (eight comparisons). Cross-set training standard deviations were already passed in the old implementation and remain intact in the emulation. The JSON records the archived function hashes and comparison results.
 
@@ -51,15 +51,37 @@ This is a diagnostic audit on already available research data, not a fresh indep
 
 ## Reproduce
 
+Start with the standalone concrete audit after the [repository setup](../../README.md):
+
 ```bash
-pip install -e '.[examples]'
+python -m pip install -e '.[examples]'
 python research/am-replay-audit/audit.py \
   --concrete-data-home .cache \
-  --metallic-glass-csv /path/to/signalfault/data/metallic-glass/features.csv \
+  --output artifacts/am_replay_audit_concrete.json \
+  --plot artifacts/am_replay_audit_concrete.png
+```
+
+This downloads/caches the same concrete dataset as the benchmark and runs the
+three default splits. It needs no metallic-glass files or `signalfault` install.
+
+The metallic-glass part is optional and requires the original derived CSV:
+
+```bash
+python research/am-replay-audit/audit.py \
+  --concrete-data-home .cache \
+  --metallic-glass-csv /path/to/features.csv \
   --output artifacts/am_replay_audit.json \
   --plot artifacts/am_replay_audit.png
 ```
 
-Omit `--metallic-glass-csv` for the standalone concrete audit. Concrete uses the same OpenML cache as the existing benchmark; metallic-glass data is read locally and is not copied into Potage. The experiment-only legacy context patches builder bindings inside its Python process and must not be used concurrently or in production.
+The [data provenance and availability notes](DATA.md) describe its schema,
+preparation, verified hashes, and unresolved upstream attribution. The exact
+CSV and its source workbooks are not distributed by Potage; the saved glass
+results are not independently reproducible from this repository alone.
+
+The experiment-only legacy context patches builder bindings inside its Python
+process and must not be used concurrently or in production. Source hashes in
+the saved JSON identify the code used for that run; later documentation edits
+may change file hashes without changing numerical behavior.
 
 [Audit code](audit.py) · [Full results, features, hashes, and replay diagnostics](results.json)
