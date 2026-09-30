@@ -105,9 +105,9 @@ def generate_scenario_dataset(
         groups.extend(game_groups)
         scenario_rows.extend([scenario_name] * len(game_rows))
     return (
-        np.row_stack(rows),
+        np.vstack(rows),
         np.asarray(outcomes, dtype=np.float64),
-        np.row_stack(contexts),
+        np.vstack(contexts),
         np.asarray(groups, dtype=np.int64),
         np.asarray(scenario_rows),
         {

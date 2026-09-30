@@ -403,9 +403,9 @@ def generate_dataset(
         contexts.extend(game_context)
         groups.extend(game_groups)
     return (
-        np.row_stack(rows),
+        np.vstack(rows),
         np.asarray(outcomes, dtype=np.float64),
-        np.row_stack(contexts),
+        np.vstack(contexts),
         np.asarray(groups, dtype=np.int64),
         {"games_requested": n_games, "games_kept": n_games - draws, "draws": draws},
     )

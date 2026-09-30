@@ -110,9 +110,9 @@ def collect_dataset(
     if not rows:
         raise RuntimeError("no phase branches were generated")
     return (
-        np.row_stack(rows),
+        np.vstack(rows),
         np.asarray(labels, dtype=np.float64),
-        np.row_stack(contexts),
+        np.vstack(contexts),
         np.asarray(groups, dtype=np.int64),
         {
             "pairs_requested": pairs,

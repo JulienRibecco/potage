@@ -19,6 +19,8 @@
   batch/permutation invariance, and agreement with independent sklearn fits.
 - Added a no-download quick start, standalone wheel metadata, license text,
   optional example dependencies, and CI for core and installed-package tests.
+- Replaced removed NumPy `row_stack` aliases with `vstack` in research
+  examples so dataset generation works with current NumPy releases.
 - Corrected the concrete example for current sklearn APIs and reran all stages
   with the original split and settings. Refreshed its JSON, figure, and report.
 
